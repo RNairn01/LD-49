@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/scripts/MoreNewtState.cs" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=3]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 111.329, 140.94 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 33.3987, 4.69801 )
+
+[node name="MoreNewtStateOrigin" type="Node2D"]
+position = Vector2( 133.595, 51.0699 )
+
+[node name="MoreNewtState" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.1, 0.1 )
+frames = SubResource( 1 )
+script = ExtResource( 1 )
+IsActive = true
+
+[node name="NewtArea" type="Area2D" parent="MoreNewtState"]
+
+[node name="NewtCollide" type="CollisionShape2D" parent="MoreNewtState/NewtArea"]
+shape = SubResource( 3 )
+
+[node name="NewtJar" type="Sprite" parent="."]
+scale = Vector2( 0.3, 0.4 )
+texture = ExtResource( 2 )
+
+[node name="PickUpArea" type="Area2D" parent="NewtJar"]
+scale = Vector2( 0.333333, 0.25 )
+
+[node name="PickUpCollide" type="CollisionShape2D" parent="NewtJar/PickUpArea"]
+shape = SubResource( 2 )
+
+[node name="NewtDrop" type="Area2D" parent="."]
+position = Vector2( -133.595, -79.8661 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="NewtDropCollide" type="CollisionShape2D" parent="NewtDrop"]
+shape = SubResource( 4 )
+
+[connection signal="area_entered" from="MoreNewtState/NewtArea" to="MoreNewtState" method="OnNewtCollide"]
+[connection signal="area_entered" from="NewtJar/PickUpArea" to="MoreNewtState" method="NewtEnterJar"]
+[connection signal="area_exited" from="NewtJar/PickUpArea" to="MoreNewtState" method="NewtExitJar"]
+[connection signal="input_event" from="NewtJar/PickUpArea" to="MoreNewtState" method="PickUpNewt"]
+[connection signal="area_entered" from="NewtDrop" to="MoreNewtState" method="OnDropNewtInCauldron"]
