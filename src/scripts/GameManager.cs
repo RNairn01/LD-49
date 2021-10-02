@@ -8,6 +8,7 @@ public class GameManager : Node
     public bool IsGameOver = false;
     public int StrikeCount = 0;
     public float CurrentScoreMultiplier = 1;
+    public InputStates.InputState CurrentInputState;
 
     private SceneManager sceneManager;
     

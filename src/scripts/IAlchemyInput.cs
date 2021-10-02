@@ -7,4 +7,6 @@ public interface IAlchemyInput
     void PlayCurrentVoiceLine();
     void ChangeAlchemistState();
     void OnFailure();
+    void OnComplete();
+    void BecomeActive();
 }
