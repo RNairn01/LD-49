@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/scenes/SceneManager.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/scenes/StirStateOrigin.tscn" type="PackedScene" id=2]
@@ -7,9 +7,10 @@
 [ext_resource path="res://src/scenes/MoreNewtStateOrigin.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/scenes/ScrubStateOrigin.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/scenes/CoolStateOrigin.tscn" type="PackedScene" id=7]
-[ext_resource path="res://src/assets/sprites/Alchemist_Background.png" type="Texture" id=8]
+[ext_resource path="res://src/scenes/SaltStateOrigin.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/scenes/HighFiveStateOrigin.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/scenes/BoilStateOrigin.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/assets/sprites/Alchemist_Background.png" type="Texture" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2240, 10 )
@@ -23,7 +24,7 @@ extents = Vector2( 2240, 10 )
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 640, 344 )
 scale = Vector2( 0.673474, 0.696347 )
-texture = ExtResource( 8 )
+texture = ExtResource( 11 )
 
 [node name="Cauldron" parent="." instance=ExtResource( 4 )]
 position = Vector2( 640, 338.071 )
@@ -39,6 +40,10 @@ position = Vector2( 640, 338.071 )
 [node name="CoolStateOrigin" parent="Cauldron" instance=ExtResource( 7 )]
 
 [node name="HighFiveStateOrigin" parent="Cauldron" instance=ExtResource( 9 )]
+
+[node name="SaltStateOrigin" parent="Cauldron" instance=ExtResource( 8 )]
+position = Vector2( -150.61, 48.8008 )
+scale = Vector2( 0.278322, 0.293625 )
 
 [node name="Catcher" type="Area2D" parent="."]
 position = Vector2( 640, 768 )
