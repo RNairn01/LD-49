@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Stir-Tutorial.ogg-75431e39d074756d902dea8f0750cac1.o
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

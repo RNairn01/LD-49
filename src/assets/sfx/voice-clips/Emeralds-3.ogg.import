@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Emeralds-3.ogg-56affd769396c8b9288c189ed014c40f.oggs
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

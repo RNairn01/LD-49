@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Scrub-5.ogg-b3e1d064e1b01ed0f11137e83483d63a.oggstr"
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Heat-Tutorial.ogg-157a59982d4ff71c53f709a474284a09.o
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
