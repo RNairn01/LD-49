@@ -27,6 +27,7 @@ public class StirState : AlchemyInput, IAlchemyInput
     public void ChangeAlchemistState()
     {
         GD.Print("Change alchemist state to pointing");
+        //alchemist.ChangeState(AlchemistState.Pointing);
         //Change Alchemist state here
     }
 
@@ -47,7 +48,6 @@ public class StirState : AlchemyInput, IAlchemyInput
 
     public void BecomeActive()
     {
-        //ChangeAlchemistState(AlchemistState.Pointing);
         PlayCurrentVoiceLine();
         ChangeAlchemistState();
     }
