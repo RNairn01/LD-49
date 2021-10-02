@@ -53,6 +53,7 @@ public class Scrub : AlchemyInput, IAlchemyInput
 
     public void OnFailure()
     {
+        isSelected = false;
         gameManager.AddStrike("Scrub task failed", "");
         //Play shaking cauldron animation here
     }
@@ -60,6 +61,7 @@ public class Scrub : AlchemyInput, IAlchemyInput
     public void OnComplete()
     {
         GD.Print("Scrub task complete!");
+        isSelected = false;
         fullScrubCounter = 0;
         //Earn score
         //Get new task from GameManager
@@ -75,7 +77,7 @@ public class Scrub : AlchemyInput, IAlchemyInput
     {
         if (Input.IsActionJustPressed("click") && !IsActive) OnFailure();
         
-        if (Input.IsActionPressed("click"))
+        if (Input.IsActionPressed("click") && IsActive)
         {
             isSelected = true;
             //play sponge pickup sound effect

@@ -58,13 +58,14 @@ public class SaltState : AlchemyInput, IAlchemyInput
     public void OnInteract()
     {
         if (!Input.IsActionJustPressed("click")) return;
-        if (holdingShaker) {
-            GD.Print("Dropped salt shaker");
-            holdingShaker = false;
-        } else
-        {
+        if (!IsActive) OnFailure();
+        else if (!holdingShaker) {
             GD.Print("Picked up salt shaker");
             holdingShaker = true;
+        } else
+        {
+            GD.Print("Dropped salt shaker");
+            holdingShaker = false;
         }
     }
 
@@ -103,6 +104,7 @@ public class SaltState : AlchemyInput, IAlchemyInput
 
     public void OnFailure()
     {
+        holdingShaker = false;
         gameManager.AddStrike("Salt task failed", "");
         //Play shaking cauldron animation here
     }

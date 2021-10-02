@@ -22,7 +22,6 @@ position = Vector2( -1.5874, -0.793701 )
 scale = Vector2( 0.261626, 0.643831 )
 frames = SubResource( 1 )
 script = ExtResource( 1 )
-IsActive = true
 
 [node name="SaltShakerArea" type="Area2D" parent="SaltState"]
 position = Vector2( -3.05176e-05, -0.00012207 )
