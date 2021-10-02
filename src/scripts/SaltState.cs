@@ -112,6 +112,7 @@ public class SaltState : AlchemyInput, IAlchemyInput
     public void OnComplete()
     {
         timesSaltReleased = 0;
+        holdingShaker = false;
         GD.Print("Salt task complete!");
         //Earn score
         //Get new task from GameManager
