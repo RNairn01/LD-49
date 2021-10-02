@@ -9,7 +9,7 @@ public class MoreNewtState : AlchemyInput, IAlchemyInput
     {
         base._Ready();
         startPosition = GetNode<Node2D>("../NewtJar").GlobalPosition;
-        inputState = InputStates.InputState.StirState;
+        inputState = InputStates.InputState.MoreNewtState;
     }
 
     public override void _Process(float delta)
