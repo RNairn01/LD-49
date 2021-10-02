@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Taste-Tutorial.ogg-25a89a39644481771595952e065872b7.
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

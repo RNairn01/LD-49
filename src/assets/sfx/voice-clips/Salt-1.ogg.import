@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Salt-1.ogg-5aaee954560429173e5cc98bd8eaa2ba.oggstr" 
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

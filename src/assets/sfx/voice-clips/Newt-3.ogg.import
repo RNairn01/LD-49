@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Newt-3.ogg-a68ba60e505ce50d280a0f3c770237b7.oggstr" 
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

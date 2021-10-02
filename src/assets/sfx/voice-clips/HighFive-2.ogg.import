@@ -11,5 +11,5 @@ dest_files=[ "res://.import/HighFive-2.ogg-8e5efe9738232cc9ce003a3f5caf40c4.oggs
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

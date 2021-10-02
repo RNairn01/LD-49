@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Scrub-Tutorial.ogg-96bd31357f67cbf665733cefa28ba3b3.
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Stir-2.ogg-707661b7216021b57040ba585f68fa25.oggstr" 
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
