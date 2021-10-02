@@ -62,6 +62,7 @@ public class Scrub : AlchemyInput, IAlchemyInput
     public void OnComplete()
     {
         GD.Print("Scrub task complete!");
+        fullScrubCounter = 0;
         //Earn score
         //Get new task from GameManager
     }

@@ -42,6 +42,7 @@ public class Stir : AlchemyInput, IAlchemyInput
     public void OnComplete()
     {
         GD.Print("Stir task complete!");
+        timesClicked = 0;
         //Earn score
         //Get new task from GameManager
     }
