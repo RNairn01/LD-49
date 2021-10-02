@@ -3,7 +3,7 @@ using System;
 
 public abstract class AlchemyInput : AnimatedSprite
 {
-    public bool IsActive = false;
+    [Export] public bool IsActive = false;
     
     protected GameManager gameManager;
     protected InputStates.InputState inputState;
@@ -13,5 +13,17 @@ public abstract class AlchemyInput : AnimatedSprite
     public override void _Ready()
     {
         gameManager = GetTree().Root.GetNode<GameManager>("Node2D/GameManager");
+    }
+    
+    private float Drag(float firstFloat, float secondFloat, float by)
+    {
+        return firstFloat * (1 - by) + secondFloat * by;
+    }
+    
+    protected Vector2 Drag(Vector2 firstVector, Vector2 secondVector, float by)
+    {
+        float retX = Drag(firstVector.x, secondVector.x, by);
+        float retY = Drag(firstVector.y, secondVector.y, by);
+        return new Vector2(retX, retY);
     }
 }

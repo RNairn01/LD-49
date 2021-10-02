@@ -8,4 +8,5 @@ public interface IAlchemyInput
     void ChangeAlchemistState();
     void OnFailure();
     void OnComplete();
+    void BecomeActive();
 }

@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/scripts/ScrubState.cs" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 12.3411, 175.988 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 37.0234, 33.1281 )
+
+[node name="ScrubStateOrigin" type="Node2D"]
+position = Vector2( -118.009, 65.1639 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ScrubArea1" type="Area2D" parent="."]
+position = Vector2( 89.0631, -63.423 )
+scale = Vector2( 0.360839, 0.16017 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ScrubCollide1" type="CollisionShape2D" parent="ScrubArea1"]
+shape = SubResource( 3 )
+
+[node name="ScrubArea2" type="Area2D" parent="."]
+position = Vector2( 146.954, -63.423 )
+scale = Vector2( 0.360839, 0.16017 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ScrubCollide2" type="CollisionShape2D" parent="ScrubArea2"]
+shape = SubResource( 3 )
+
+[node name="ScrubState" type="AnimatedSprite" parent="."]
+modulate = Color( 0.792157, 0.678431, 0.0588235, 1 )
+scale = Vector2( 0.360839, 0.16017 )
+frames = SubResource( 4 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ScrubDrag" type="Area2D" parent="ScrubState"]
+position = Vector2( -3.05176e-05, -0.00012207 )
+scale = Vector2( 1, 1 )
+
+[node name="ScrubCollide" type="CollisionShape2D" parent="ScrubState/ScrubDrag"]
+shape = SubResource( 2 )
+
+[connection signal="area_entered" from="ScrubArea1" to="ScrubState" method="OnScrubOneEntered"]
+[connection signal="area_entered" from="ScrubArea2" to="ScrubState" method="OnScrubTwoEntered"]
+[connection signal="input_event" from="ScrubState/ScrubDrag" to="ScrubState" method="OnDragSponge"]

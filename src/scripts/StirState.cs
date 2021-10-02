@@ -8,9 +8,6 @@ public class StirState : AlchemyInput, IAlchemyInput
     {
         base._Ready();
         inputState = InputStates.InputState.StirState;
-        //ChangeAlchemistState(AlchemistState.Pointing);
-        PlayCurrentVoiceLine();
-
     }
 
     public void OnInteract()
@@ -46,6 +43,13 @@ public class StirState : AlchemyInput, IAlchemyInput
         GD.Print("Stir task complete!");
         //Earn score
         //Get new task from GameManager
+    }
+
+    public void BecomeActive()
+    {
+        //ChangeAlchemistState(AlchemistState.Pointing);
+        PlayCurrentVoiceLine();
+        ChangeAlchemistState();
     }
 
     public void OnClick(Node viewport, InputEvent @event, int shapeIdx)
