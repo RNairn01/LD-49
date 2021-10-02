@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/AlchemyLoopFrantic.ogg-e838d2b75bdc3f39c8fd6a593f901a54.oggstr"
+
+[deps]
+
+source_file="res://src/assets/music/AlchemyLoopFrantic.ogg"
+dest_files=[ "res://.import/AlchemyLoopFrantic.ogg-e838d2b75bdc3f39c8fd6a593f901a54.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
