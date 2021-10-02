@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class MoreNewtState : AlchemyInput, IAlchemyInput
+public class Newt : AlchemyInput, IAlchemyInput
 {
     private bool holdingNewt, newtIsFalling, newtCanBeDropped = false;
     private Vector2 startPosition;
@@ -9,7 +9,7 @@ public class MoreNewtState : AlchemyInput, IAlchemyInput
     {
         base._Ready();
         startPosition = GetNode<Node2D>("../NewtJar").GlobalPosition;
-        inputState = InputStates.InputState.StirState;
+        inputState = InputStates.InputState.MoreNewtState;
     }
 
     public override void _Process(float delta)
@@ -28,6 +28,11 @@ public class MoreNewtState : AlchemyInput, IAlchemyInput
     {
         if (Input.IsActionJustPressed("click"))
         {
+            if (!IsActive)
+            {
+                OnFailure();
+                return;
+            }
             GD.Print("Picked up newt");
             holdingNewt = true;
             //Play jar sloshing sound effect
@@ -36,7 +41,7 @@ public class MoreNewtState : AlchemyInput, IAlchemyInput
 
     public void PlayCurrentVoiceLine()
     {
-        GD.Print("Play voice line for stir task");
+        GD.Print("Play voice line for more newt task");
         //Play voice line here
     }
 
@@ -87,7 +92,7 @@ public class MoreNewtState : AlchemyInput, IAlchemyInput
     {
         GD.Print("Newt collided with: " + area.Name);
         
-        if (area.Name == "NewtDrop")
+        if (area.Name == "CauldronDrop")
         {
             GD.Print("Newt dropped in cauldron!");
             if (holdingNewt) return;

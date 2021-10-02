@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 
@@ -10,10 +10,17 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 37.8518, 14.094 )
+
 [node name="Cauldron" type="AnimatedSprite"]
 self_modulate = Color( 0.0470588, 0.0392157, 0.0392157, 1 )
 scale = Vector2( 3.59296, 3.4057 )
 frames = SubResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
+
+[node name="CauldronDrop" type="Area2D" parent="."]
+position = Vector2( 0, -21.141 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CauldronDrop"]
+position = Vector2( 0, 4.69801 )
+shape = SubResource( 2 )

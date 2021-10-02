@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/scripts/HighFive.cs" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 33.3987, 38.2755 )
+
+[node name="HighFiveStateOrigin" type="Node2D"]
+position = Vector2( 97.9694, -28.7961 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="HighFive" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 2 )
+script = ExtResource( 1 )
+
+[node name="ClickArea" type="Area2D" parent="HighFive"]
+
+[node name="ClickCollide" type="CollisionShape2D" parent="HighFive/ClickArea"]
+shape = SubResource( 3 )
+
+[connection signal="input_event" from="HighFive/ClickArea" to="HighFive" method="OnClick"]

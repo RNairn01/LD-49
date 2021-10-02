@@ -1,26 +1,25 @@
 using Godot;
 using System;
 
-public class StirState : AlchemyInput, IAlchemyInput
+public class Cool : AlchemyInput, IAlchemyInput
 {
-    private int timesClicked = 0;
     public override void _Ready()
     {
         base._Ready();
-        inputState = InputStates.InputState.StirState;
+        inputState = InputStates.InputState.CoolState;
     }
 
     public void OnInteract()
     {
-        timesClicked++;
-        //Advance stir animation
-        GD.Print($"Clicked in cauldron! - {timesClicked}");
-        if (timesClicked >= 5) OnComplete(); 
+        //Play Button click sound
+        //Make button animate
+        GD.Print("Cool button clicked");
+        OnComplete();
     }
 
     public void PlayCurrentVoiceLine()
     {
-        GD.Print("Play voice line for stir task");
+        GD.Print("Play voice line for cool task");
         //Play voice line here
     }
 
@@ -34,14 +33,14 @@ public class StirState : AlchemyInput, IAlchemyInput
     public void OnFailure()
     {
         gameManager.StrikeCount++;
-        GD.Print("Stir task failed");
+        GD.Print("Cool task failed");
         //Play failure voice line
         //Play shaking cauldron animation here
     }
 
     public void OnComplete()
     {
-        GD.Print("Stir task complete!");
+        GD.Print("Cool task complete!");
         //Earn score
         //Get new task from GameManager
     }
@@ -55,7 +54,7 @@ public class StirState : AlchemyInput, IAlchemyInput
     public void OnClick(Node viewport, InputEvent @event, int shapeIdx)
     {
         if (Input.IsActionJustPressed("click"))
-        {
+        { 
             if (IsActive) OnInteract();
             else OnFailure();
         }
