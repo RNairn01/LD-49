@@ -103,9 +103,7 @@ public class SaltState : AlchemyInput, IAlchemyInput
 
     public void OnFailure()
     {
-        gameManager.StrikeCount++;
-        GD.Print("Salt task failed");
-        //Play failure voice line
+        gameManager.AddStrike("Salt task failed", "");
         //Play shaking cauldron animation here
     }
 

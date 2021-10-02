@@ -54,9 +54,7 @@ public class Soul : AlchemyInput, IAlchemyInput
 
     public void OnFailure()
     {
-        gameManager.StrikeCount++;
-        GD.Print("More soul task failed");
-        //Play failure voice line
+        gameManager.AddStrike("More soul task failed", "");
         //Play shaking cauldron animation here
     }
 

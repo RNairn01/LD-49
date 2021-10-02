@@ -31,9 +31,7 @@ public class HighFive : AlchemyInput, IAlchemyInput
 
     public void OnFailure()
     {
-        gameManager.StrikeCount++;
-        GD.Print("High Five task failed");
-        //Play failure voice line
+        gameManager.AddStrike("High five task failed", "");
         //Play shaking cauldron animation here
     }
 

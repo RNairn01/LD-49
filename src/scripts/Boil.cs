@@ -32,9 +32,7 @@ public class Boil : AlchemyInput, IAlchemyInput
 
     public void OnFailure()
     {
-        gameManager.StrikeCount++;
-        GD.Print("Boil task failed");
-        //Play failure voice line
+        gameManager.AddStrike("Boil task failed", "");
         //Play shaking cauldron animation here
     }
 

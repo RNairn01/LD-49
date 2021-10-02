@@ -53,9 +53,7 @@ public class Scrub : AlchemyInput, IAlchemyInput
 
     public void OnFailure()
     {
-        gameManager.StrikeCount++;
-        GD.Print("Scrub task failed");
-        //Play failure voice line
+        gameManager.AddStrike("Scrub task failed", "");
         //Play shaking cauldron animation here
     }
 

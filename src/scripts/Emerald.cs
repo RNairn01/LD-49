@@ -54,9 +54,7 @@ public class Emerald : AlchemyInput, IAlchemyInput
 
     public void OnFailure()
     {
-        gameManager.StrikeCount++;
-        GD.Print("More emerald task failed");
-        //Play failure voice line
+        gameManager.AddStrike("Emerald task failed", "");
         //Play shaking cauldron animation here
     }
 

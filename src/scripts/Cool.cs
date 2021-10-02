@@ -32,9 +32,7 @@ public class Cool : AlchemyInput, IAlchemyInput
 
     public void OnFailure()
     {
-        gameManager.StrikeCount++;
-        GD.Print("Cool task failed");
-        //Play failure voice line
+        gameManager.AddStrike("Cool task failed", "");
         //Play shaking cauldron animation here
     }
 

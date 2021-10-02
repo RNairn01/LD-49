@@ -54,9 +54,7 @@ public class Newt : AlchemyInput, IAlchemyInput
 
     public void OnFailure()
     {
-        gameManager.StrikeCount++;
-        GD.Print("More Newt task failed");
-        //Play failure voice line
+        gameManager.AddStrike("More newt task failed", "");
         //Play shaking cauldron animation here
     }
 
