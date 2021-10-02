@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class MoreNewtState : AlchemyInput, IAlchemyInput
+public class Newt : AlchemyInput, IAlchemyInput
 {
     private bool holdingNewt, newtIsFalling, newtCanBeDropped = false;
     private Vector2 startPosition;

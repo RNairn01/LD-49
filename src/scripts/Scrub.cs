@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class ScrubState : AlchemyInput, IAlchemyInput
+public class Scrub : AlchemyInput, IAlchemyInput
 {
     private bool isSelected = false;
     private bool hasLeftBeenScrubbed, hasRightBeenScrubbed = false;

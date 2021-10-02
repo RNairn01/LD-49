@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class StirState : AlchemyInput, IAlchemyInput
+public class Stir : AlchemyInput, IAlchemyInput
 {
     private int timesClicked = 0;
     public override void _Ready()
