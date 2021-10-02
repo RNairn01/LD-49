@@ -17,7 +17,7 @@ public class SaltState : AlchemyInput, IAlchemyInput
 
     public override void _Ready()
     {
-        AnimatedSprite cauldron = GetNode<AnimatedSprite>("../..");
+        AnimatedSprite cauldron = GetNode<AnimatedSprite>("../../Cauldron");
         Texture cauldronCurrentFrame = cauldron.Frames.GetFrame("default", cauldron.Frame);
         float cauldronWidth = cauldronCurrentFrame.GetWidth();
         float cauldronHeight = cauldronCurrentFrame.GetHeight();

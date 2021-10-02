@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/scripts/Scrub.cs" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://src/assets/sprites/sponge.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 12.3411, 175.988 )
+extents = Vector2( 27.713, 998.94 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -15,7 +15,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 37.0234, 33.1281 )
+extents = Vector2( 90.3619, 63.0303 )
 
 [node name="ScrubStateOrigin" type="Node2D"]
 position = Vector2( -118.009, 65.1639 )
@@ -44,8 +44,6 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="Scrub" type="AnimatedSprite" parent="."]
-modulate = Color( 0.792157, 0.678431, 0.0588235, 1 )
-scale = Vector2( 0.360839, 0.16017 )
 frames = SubResource( 2 )
 script = ExtResource( 1 )
 __meta__ = {

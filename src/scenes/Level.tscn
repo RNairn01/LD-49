@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://src/scenes/SceneManager.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/scenes/StirStateOrigin.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://src/scenes/MoreSoulStateOrigin.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/scenes/MoreEmeraldStateOrigin.tscn" type="PackedScene" id=12]
 [ext_resource path="res://src/assets/sprites/Alchemist_Background.png" type="Texture" id=13]
+[ext_resource path="res://src/assets/sprites/cauldron/cauldron-back.png" type="Texture" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2240, 10 )
@@ -28,34 +29,73 @@ position = Vector2( 640, 344 )
 scale = Vector2( 0.673474, 0.696347 )
 texture = ExtResource( 13 )
 
+[node name="cauldron-back" type="Sprite" parent="."]
+position = Vector2( 279.844, 342.036 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 14 )
+
+[node name="StirStateOrigin" parent="." instance=ExtResource( 2 )]
+position = Vector2( 328, 304 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="Stir" parent="StirStateOrigin" index="0"]
+position = Vector2( -43.8468, 1.20123 )
+
+[node name="ClickArea" parent="StirStateOrigin/Stir" index="0"]
+position = Vector2( -23.5543, 160.461 )
+
 [node name="Cauldron" parent="." instance=ExtResource( 4 )]
-position = Vector2( 640, 338.071 )
+position = Vector2( 273.904, 432 )
 
-[node name="ScrubStateOrigin" parent="Cauldron" instance=ExtResource( 6 )]
+[node name="ScrubStateOrigin" parent="." instance=ExtResource( 6 )]
+position = Vector2( 544, 584 )
+scale = Vector2( 0.8, 0.8 )
 
-[node name="StirStateOrigin" parent="Cauldron" instance=ExtResource( 2 )]
+[node name="ScrubArea1" parent="ScrubStateOrigin" index="0"]
+position = Vector2( -500, -190 )
 
-[node name="MoreNewtStateOrigin" parent="Cauldron" instance=ExtResource( 5 )]
-position = Vector2( 140.274, 47.8699 )
+[node name="ScrubArea2" parent="ScrubStateOrigin" index="1"]
+position = Vector2( -160, -190 )
 
-[node name="BoilStateOrigin" parent="Cauldron" instance=ExtResource( 10 )]
+[node name="Scrub" parent="ScrubStateOrigin" index="2"]
+position = Vector2( 0, -0.000183105 )
 
-[node name="CoolStateOrigin" parent="Cauldron" instance=ExtResource( 7 )]
+[node name="MoreNewtStateOrigin" parent="." instance=ExtResource( 5 )]
+position = Vector2( 575.742, 457.554 )
+scale = Vector2( 0.7, 0.7 )
 
-[node name="HighFiveStateOrigin" parent="Cauldron" instance=ExtResource( 9 )]
+[node name="BoilStateOrigin" parent="." instance=ExtResource( 10 )]
+position = Vector2( 545.972, 458.857 )
+scale = Vector2( 0.7, 0.7 )
 
-[node name="MoreSoulStateOrigin" parent="Cauldron" instance=ExtResource( 11 )]
-position = Vector2( -82.3833, 46.3719 )
+[node name="CoolStateOrigin" parent="." instance=ExtResource( 7 )]
+position = Vector2( 525.109, 457.908 )
+scale = Vector2( 0.7, 0.7 )
 
-[node name="MoreEmeraldStateOrigin" parent="Cauldron" instance=ExtResource( 12 )]
-position = Vector2( 0.89064, 74.56 )
+[node name="HighFiveStateOrigin" parent="." instance=ExtResource( 9 )]
+position = Vector2( 965.675, 278.573 )
+scale = Vector2( 0.7, 0.7 )
 
-[node name="SaltStateOrigin" parent="Cauldron" instance=ExtResource( 8 )]
-position = Vector2( -150.61, 48.8008 )
-scale = Vector2( 0.278322, 0.293625 )
+[node name="MoreSoulStateOrigin" parent="." instance=ExtResource( 11 )]
+position = Vector2( 628.276, 127.701 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="MoreEmeraldStateOrigin" parent="." instance=ExtResource( 12 )]
+position = Vector2( 482.197, 458.271 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="SaltStateOrigin" parent="." instance=ExtResource( 8 )]
+position = Vector2( 48.2052, 549.905 )
+
+[node name="SaltState" parent="SaltStateOrigin" index="0"]
+IsActive = true
 
 [node name="Catcher" type="Area2D" parent="."]
 position = Vector2( 640, 768 )
 
 [node name="CatcherCollide" type="CollisionShape2D" parent="Catcher"]
 shape = SubResource( 1 )
+
+[editable path="StirStateOrigin"]
+[editable path="ScrubStateOrigin"]
+[editable path="SaltStateOrigin"]

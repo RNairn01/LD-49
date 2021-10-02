@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/scripts/Soul.cs" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://src/assets/sprites/souls/soul.png" type="Texture" id=2]
+[ext_resource path="res://src/assets/sprites/souls/souljar.png" type="Texture" id=3]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -12,14 +13,14 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 24, 32 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 111.329, 140.94 )
+extents = Vector2( 240, 320 )
 
 [node name="MoreSoulStateOrigin" type="Node2D"]
 
 [node name="Soul" type="AnimatedSprite" parent="."]
-scale = Vector2( 0.1, 0.1 )
 frames = SubResource( 1 )
 script = ExtResource( 1 )
 
@@ -29,8 +30,7 @@ script = ExtResource( 1 )
 shape = SubResource( 2 )
 
 [node name="SoulJar" type="Sprite" parent="."]
-scale = Vector2( 0.3, 0.4 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="PickUpArea" type="Area2D" parent="SoulJar"]
 scale = Vector2( 0.333333, 0.25 )
