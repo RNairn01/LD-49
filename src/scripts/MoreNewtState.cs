@@ -28,6 +28,11 @@ public class MoreNewtState : AlchemyInput, IAlchemyInput
     {
         if (Input.IsActionJustPressed("click"))
         {
+            if (!IsActive)
+            {
+                OnFailure();
+                return;
+            }
             GD.Print("Picked up newt");
             holdingNewt = true;
             //Play jar sloshing sound effect

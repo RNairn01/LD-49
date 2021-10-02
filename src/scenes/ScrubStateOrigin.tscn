@@ -43,7 +43,7 @@ __meta__ = {
 [node name="ScrubCollide2" type="CollisionShape2D" parent="ScrubArea2"]
 shape = SubResource( 1 )
 
-[node name="ScrubState" type="AnimatedSprite" parent="."]
+[node name="Scrub" type="AnimatedSprite" parent="."]
 modulate = Color( 0.792157, 0.678431, 0.0588235, 1 )
 scale = Vector2( 0.360839, 0.16017 )
 frames = SubResource( 2 )
@@ -53,12 +53,12 @@ __meta__ = {
 }
 IsActive = true
 
-[node name="ScrubDrag" type="Area2D" parent="ScrubState"]
+[node name="ScrubDrag" type="Area2D" parent="Scrub"]
 position = Vector2( -3.05176e-05, -0.00012207 )
 
-[node name="ScrubCollide" type="CollisionShape2D" parent="ScrubState/ScrubDrag"]
+[node name="ScrubCollide" type="CollisionShape2D" parent="Scrub/ScrubDrag"]
 shape = SubResource( 3 )
 
-[connection signal="area_entered" from="ScrubArea1" to="ScrubState" method="OnScrubOneEntered"]
-[connection signal="area_entered" from="ScrubArea2" to="ScrubState" method="OnScrubTwoEntered"]
-[connection signal="input_event" from="ScrubState/ScrubDrag" to="ScrubState" method="OnDragSponge"]
+[connection signal="area_entered" from="ScrubArea1" to="Scrub" method="OnScrubOneEntered"]
+[connection signal="area_entered" from="ScrubArea2" to="Scrub" method="OnScrubTwoEntered"]
+[connection signal="input_event" from="Scrub/ScrubDrag" to="Scrub" method="OnDragSponge"]

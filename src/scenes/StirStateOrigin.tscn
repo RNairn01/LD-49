@@ -16,14 +16,14 @@ extents = Vector2( 62.3442, 62.2903 )
 
 [node name="StirStateOrigin" type="Node2D"]
 
-[node name="StirState" type="AnimatedSprite" parent="."]
+[node name="Stir" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
 script = ExtResource( 2 )
 
-[node name="ClickArea" type="Area2D" parent="StirState"]
+[node name="ClickArea" type="Area2D" parent="Stir"]
 
-[node name="ClickCollide" type="CollisionShape2D" parent="StirState/ClickArea"]
+[node name="ClickCollide" type="CollisionShape2D" parent="Stir/ClickArea"]
 shape = SubResource( 2 )
 
-[connection signal="input_event" from="StirState/ClickArea" to="StirState" method="OnClick"]
+[connection signal="input_event" from="Stir/ClickArea" to="Stir" method="OnClick"]

@@ -1,29 +1,12 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/scenes/SceneManager.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/scenes/StirStateOrigin.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/scenes/GameManager.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/scenes/Cauldron.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/scripts/MoreNewtState.cs" type="Script" id=5]
+[ext_resource path="res://src/scenes/MoreNewtStateOrigin.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/scenes/ScrubStateOrigin.tscn" type="PackedScene" id=6]
-[ext_resource path="res://icon.png" type="Texture" id=7]
 [ext_resource path="res://src/assets/sprites/Alchemist_Background.png" type="Texture" id=8]
-
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
-
-[sub_resource type="RectangleShape2D" id=3]
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 111.329, 140.94 )
-
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 33.3987, 4.69801 )
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 2240, 10 )
@@ -46,47 +29,10 @@ position = Vector2( 640, 338.071 )
 
 [node name="StirStateOrigin" parent="Cauldron" instance=ExtResource( 2 )]
 
-[node name="MoreNewtStateOrigin" type="Node2D" parent="Cauldron"]
-position = Vector2( 133.595, 51.0699 )
-
-[node name="MoreNewtState" type="AnimatedSprite" parent="Cauldron/MoreNewtStateOrigin"]
-scale = Vector2( 0.1, 0.1 )
-frames = SubResource( 1 )
-script = ExtResource( 5 )
-IsActive = true
-
-[node name="NewtArea" type="Area2D" parent="Cauldron/MoreNewtStateOrigin/MoreNewtState"]
-
-[node name="NewtCollide" type="CollisionShape2D" parent="Cauldron/MoreNewtStateOrigin/MoreNewtState/NewtArea"]
-shape = SubResource( 3 )
-
-[node name="NewtJar" type="Sprite" parent="Cauldron/MoreNewtStateOrigin"]
-scale = Vector2( 0.3, 0.4 )
-texture = ExtResource( 7 )
-
-[node name="PickUpArea" type="Area2D" parent="Cauldron/MoreNewtStateOrigin/NewtJar"]
-scale = Vector2( 0.333333, 0.25 )
-
-[node name="PickUpCollide" type="CollisionShape2D" parent="Cauldron/MoreNewtStateOrigin/NewtJar/PickUpArea"]
-shape = SubResource( 2 )
-
-[node name="NewtDrop" type="Area2D" parent="Cauldron/MoreNewtStateOrigin"]
-position = Vector2( -133.595, -79.8661 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="NewtDropCollide" type="CollisionShape2D" parent="Cauldron/MoreNewtStateOrigin/NewtDrop"]
-shape = SubResource( 4 )
+[node name="MoreNewtStateOrigin" parent="Cauldron" instance=ExtResource( 5 )]
 
 [node name="Catcher" type="Area2D" parent="."]
 position = Vector2( 640, 768 )
 
 [node name="CatcherCollide" type="CollisionShape2D" parent="Catcher"]
 shape = SubResource( 5 )
-
-[connection signal="area_entered" from="Cauldron/MoreNewtStateOrigin/MoreNewtState/NewtArea" to="Cauldron/MoreNewtStateOrigin/MoreNewtState" method="OnNewtCollide"]
-[connection signal="area_entered" from="Cauldron/MoreNewtStateOrigin/NewtJar/PickUpArea" to="Cauldron/MoreNewtStateOrigin/MoreNewtState" method="NewtEnterJar"]
-[connection signal="area_exited" from="Cauldron/MoreNewtStateOrigin/NewtJar/PickUpArea" to="Cauldron/MoreNewtStateOrigin/MoreNewtState" method="NewtExitJar"]
-[connection signal="input_event" from="Cauldron/MoreNewtStateOrigin/NewtJar/PickUpArea" to="Cauldron/MoreNewtStateOrigin/MoreNewtState" method="PickUpNewt"]
-[connection signal="area_entered" from="Cauldron/MoreNewtStateOrigin/NewtDrop" to="Cauldron/MoreNewtStateOrigin/MoreNewtState" method="OnDropNewtInCauldron"]

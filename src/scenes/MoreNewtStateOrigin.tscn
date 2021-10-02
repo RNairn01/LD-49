@@ -11,9 +11,9 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=3]
-
 [sub_resource type="RectangleShape2D" id=2]
+
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 111.329, 140.94 )
 
 [sub_resource type="RectangleShape2D" id=4]
@@ -22,16 +22,15 @@ extents = Vector2( 33.3987, 4.69801 )
 [node name="MoreNewtStateOrigin" type="Node2D"]
 position = Vector2( 133.595, 51.0699 )
 
-[node name="MoreNewtState" type="AnimatedSprite" parent="."]
+[node name="Newt" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.1, 0.1 )
 frames = SubResource( 1 )
 script = ExtResource( 1 )
-IsActive = true
 
-[node name="NewtArea" type="Area2D" parent="MoreNewtState"]
+[node name="NewtArea" type="Area2D" parent="Newt"]
 
-[node name="NewtCollide" type="CollisionShape2D" parent="MoreNewtState/NewtArea"]
-shape = SubResource( 3 )
+[node name="NewtCollide" type="CollisionShape2D" parent="Newt/NewtArea"]
+shape = SubResource( 2 )
 
 [node name="NewtJar" type="Sprite" parent="."]
 scale = Vector2( 0.3, 0.4 )
@@ -41,7 +40,7 @@ texture = ExtResource( 2 )
 scale = Vector2( 0.333333, 0.25 )
 
 [node name="PickUpCollide" type="CollisionShape2D" parent="NewtJar/PickUpArea"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="NewtDrop" type="Area2D" parent="."]
 position = Vector2( -133.595, -79.8661 )
@@ -52,8 +51,8 @@ __meta__ = {
 [node name="NewtDropCollide" type="CollisionShape2D" parent="NewtDrop"]
 shape = SubResource( 4 )
 
-[connection signal="area_entered" from="MoreNewtState/NewtArea" to="MoreNewtState" method="OnNewtCollide"]
-[connection signal="area_entered" from="NewtJar/PickUpArea" to="MoreNewtState" method="NewtEnterJar"]
-[connection signal="area_exited" from="NewtJar/PickUpArea" to="MoreNewtState" method="NewtExitJar"]
-[connection signal="input_event" from="NewtJar/PickUpArea" to="MoreNewtState" method="PickUpNewt"]
-[connection signal="area_entered" from="NewtDrop" to="MoreNewtState" method="OnDropNewtInCauldron"]
+[connection signal="area_entered" from="Newt/NewtArea" to="Newt" method="OnNewtCollide"]
+[connection signal="area_entered" from="NewtJar/PickUpArea" to="Newt" method="NewtEnterJar"]
+[connection signal="area_exited" from="NewtJar/PickUpArea" to="Newt" method="NewtExitJar"]
+[connection signal="input_event" from="NewtJar/PickUpArea" to="Newt" method="PickUpNewt"]
+[connection signal="area_entered" from="NewtDrop" to="Newt" method="OnDropNewtInCauldron"]
