@@ -17,7 +17,7 @@ animations = [ {
 extents = Vector2( 111.329, 140.94 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 33.3987, 4.69801 )
+extents = Vector2( 33.3987, 11.2038 )
 
 [node name="MoreNewtStateOrigin" type="Node2D"]
 position = Vector2( 133.595, 51.0699 )
@@ -26,6 +26,7 @@ position = Vector2( 133.595, 51.0699 )
 scale = Vector2( 0.1, 0.1 )
 frames = SubResource( 1 )
 script = ExtResource( 1 )
+IsActive = true
 
 [node name="NewtArea" type="Area2D" parent="Newt"]
 
@@ -44,9 +45,6 @@ shape = SubResource( 3 )
 
 [node name="NewtDrop" type="Area2D" parent="."]
 position = Vector2( -133.595, -79.8661 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="NewtDropCollide" type="CollisionShape2D" parent="NewtDrop"]
 shape = SubResource( 4 )
