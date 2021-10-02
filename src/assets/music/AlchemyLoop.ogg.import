@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/AlchemyLoop.ogg-4e389686c08daad3dcaddfbe4764084c.oggstr"
+path="res://.import/AlchemyLoop.ogg-c970bcc6836c12c2203d71f7bf91a1a8.oggstr"
 
 [deps]
 
-source_file="res://src/assets/sfx/voice-clips/AlchemyLoop.ogg"
-dest_files=[ "res://.import/AlchemyLoop.ogg-4e389686c08daad3dcaddfbe4764084c.oggstr" ]
+source_file="res://src/assets/music/AlchemyLoop.ogg"
+dest_files=[ "res://.import/AlchemyLoop.ogg-c970bcc6836c12c2203d71f7bf91a1a8.oggstr" ]
 
 [params]
 
