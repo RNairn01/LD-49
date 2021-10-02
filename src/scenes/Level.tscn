@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/scenes/SceneManager.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/scenes/StirStateOrigin.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://src/assets/sprites/Alchemist_Background.png" type="Texture" id=8]
 [ext_resource path="res://src/scenes/HighFiveStateOrigin.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/scenes/BoilStateOrigin.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/scenes/MoreSoulStateOrigin.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2240, 10 )
@@ -33,12 +34,16 @@ position = Vector2( 640, 338.071 )
 [node name="StirStateOrigin" parent="Cauldron" instance=ExtResource( 2 )]
 
 [node name="MoreNewtStateOrigin" parent="Cauldron" instance=ExtResource( 5 )]
+position = Vector2( 140.274, 47.8699 )
 
 [node name="BoilStateOrigin" parent="Cauldron" instance=ExtResource( 10 )]
 
 [node name="CoolStateOrigin" parent="Cauldron" instance=ExtResource( 7 )]
 
 [node name="HighFiveStateOrigin" parent="Cauldron" instance=ExtResource( 9 )]
+
+[node name="MoreSoulStateOrigin" parent="Cauldron" instance=ExtResource( 11 )]
+position = Vector2( -82.3833, 46.3719 )
 
 [node name="Catcher" type="Area2D" parent="."]
 position = Vector2( 640, 768 )
