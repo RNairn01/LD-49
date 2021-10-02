@@ -64,13 +64,13 @@ scale = Vector2( 0.333333, 0.25 )
 [node name="PickUpCollide" type="CollisionShape2D" parent="Cauldron/MoreNewtStateOrigin/NewtJar/PickUpArea"]
 shape = SubResource( 2 )
 
-[node name="NewtDropArea" type="Area2D" parent="Cauldron/MoreNewtStateOrigin"]
+[node name="NewtDrop" type="Area2D" parent="Cauldron/MoreNewtStateOrigin"]
 position = Vector2( -133.595, -79.8661 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="NewtDropCollide" type="CollisionShape2D" parent="Cauldron/MoreNewtStateOrigin/NewtDropArea"]
+[node name="NewtDropCollide" type="CollisionShape2D" parent="Cauldron/MoreNewtStateOrigin/NewtDrop"]
 shape = SubResource( 4 )
 
 [node name="Catcher" type="Area2D" parent="."]
@@ -79,7 +79,8 @@ position = Vector2( 640, 768 )
 [node name="CatcherCollide" type="CollisionShape2D" parent="Catcher"]
 shape = SubResource( 5 )
 
+[connection signal="area_entered" from="Cauldron/MoreNewtStateOrigin/MoreNewtState/NewtArea" to="Cauldron/MoreNewtStateOrigin/MoreNewtState" method="OnNewtCollide"]
 [connection signal="area_entered" from="Cauldron/MoreNewtStateOrigin/NewtJar/PickUpArea" to="Cauldron/MoreNewtStateOrigin/MoreNewtState" method="NewtEnterJar"]
 [connection signal="area_exited" from="Cauldron/MoreNewtStateOrigin/NewtJar/PickUpArea" to="Cauldron/MoreNewtStateOrigin/MoreNewtState" method="NewtExitJar"]
 [connection signal="input_event" from="Cauldron/MoreNewtStateOrigin/NewtJar/PickUpArea" to="Cauldron/MoreNewtStateOrigin/MoreNewtState" method="PickUpNewt"]
-[connection signal="area_entered" from="Cauldron/MoreNewtStateOrigin/NewtDropArea" to="Cauldron/MoreNewtStateOrigin/MoreNewtState" method="OnDropNewtInCauldron"]
+[connection signal="area_entered" from="Cauldron/MoreNewtStateOrigin/NewtDrop" to="Cauldron/MoreNewtStateOrigin/MoreNewtState" method="OnDropNewtInCauldron"]
