@@ -17,7 +17,6 @@ animations = [ {
 extents = Vector2( 111.329, 140.94 )
 
 [node name="MoreNewtStateOrigin" type="Node2D"]
-position = Vector2( 133.595, 51.0699 )
 
 [node name="Newt" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.1, 0.1 )
