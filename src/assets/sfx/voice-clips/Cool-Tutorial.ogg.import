@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Cool-Tutorial.ogg-7ba907a415b2e3652b7639b31a6ee9e2.oggstr"
+
+[deps]
+
+source_file="res://src/assets/sfx/voice-clips/Cool-Tutorial.ogg"
+dest_files=[ "res://.import/Cool-Tutorial.ogg-7ba907a415b2e3652b7639b31a6ee9e2.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

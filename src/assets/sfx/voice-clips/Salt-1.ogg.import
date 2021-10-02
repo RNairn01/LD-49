@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Salt-1.ogg-5aaee954560429173e5cc98bd8eaa2ba.oggstr"
+
+[deps]
+
+source_file="res://src/assets/sfx/voice-clips/Salt-1.ogg"
+dest_files=[ "res://.import/Salt-1.ogg-5aaee954560429173e5cc98bd8eaa2ba.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

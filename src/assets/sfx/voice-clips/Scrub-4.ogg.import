@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Scrub-4.ogg-60de505bc8ecfde01a60d8d21599309b.oggstr"
+
+[deps]
+
+source_file="res://src/assets/sfx/voice-clips/Scrub-4.ogg"
+dest_files=[ "res://.import/Scrub-4.ogg-60de505bc8ecfde01a60d8d21599309b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

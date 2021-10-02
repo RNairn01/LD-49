@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Taste-Tutorial.ogg-25a89a39644481771595952e065872b7.oggstr"
+
+[deps]
+
+source_file="res://src/assets/sfx/voice-clips/Taste-Tutorial.ogg"
+dest_files=[ "res://.import/Taste-Tutorial.ogg-25a89a39644481771595952e065872b7.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
