@@ -41,7 +41,7 @@ public class MoreNewtState : AlchemyInput, IAlchemyInput
 
     public void PlayCurrentVoiceLine()
     {
-        GD.Print("Play voice line for stir task");
+        GD.Print("Play voice line for more newt task");
         //Play voice line here
     }
 
