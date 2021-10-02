@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Cool-1.ogg-884c6109cae62feca8bc697750289027.oggstr"
+
+[deps]
+
+source_file="res://src/assets/sfx/voice-clips/Cool-1.ogg"
+dest_files=[ "res://.import/Cool-1.ogg-884c6109cae62feca8bc697750289027.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

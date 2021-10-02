@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Emeralds-1.ogg-a97fef3b8990d8d6aabb1c8eff35c8e0.oggstr"
+
+[deps]
+
+source_file="res://src/assets/sfx/voice-clips/Emeralds-1.ogg"
+dest_files=[ "res://.import/Emeralds-1.ogg-a97fef3b8990d8d6aabb1c8eff35c8e0.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

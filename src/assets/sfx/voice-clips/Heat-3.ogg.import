@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Heat-3.ogg-db9972a1d4f52bcf258f26e957252933.oggstr"
+
+[deps]
+
+source_file="res://src/assets/sfx/voice-clips/Heat-3.ogg"
+dest_files=[ "res://.import/Heat-3.ogg-db9972a1d4f52bcf258f26e957252933.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

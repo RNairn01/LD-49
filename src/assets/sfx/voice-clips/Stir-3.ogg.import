@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Stir-3.ogg-382a71ebaf61b8b81a84db4f2885836b.oggstr"
+
+[deps]
+
+source_file="res://src/assets/sfx/voice-clips/Stir-3.ogg"
+dest_files=[ "res://.import/Stir-3.ogg-382a71ebaf61b8b81a84db4f2885836b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

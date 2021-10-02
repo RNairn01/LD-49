@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Newt-5.ogg-b90876ff433776a8558c21ac805f42fb.oggstr"
+
+[deps]
+
+source_file="res://src/assets/sfx/voice-clips/Newt-5.ogg"
+dest_files=[ "res://.import/Newt-5.ogg-b90876ff433776a8558c21ac805f42fb.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
