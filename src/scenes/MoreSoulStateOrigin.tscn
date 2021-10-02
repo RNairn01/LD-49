@@ -22,7 +22,6 @@ extents = Vector2( 111.329, 140.94 )
 scale = Vector2( 0.1, 0.1 )
 frames = SubResource( 1 )
 script = ExtResource( 1 )
-IsActive = true
 
 [node name="SoulArea" type="Area2D" parent="Soul"]
 

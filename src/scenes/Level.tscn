@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://src/scenes/SceneManager.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/scenes/StirStateOrigin.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://src/scenes/HighFiveStateOrigin.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/scenes/BoilStateOrigin.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/scenes/MoreSoulStateOrigin.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/scenes/MoreEmeraldStateOrigin.tscn" type="PackedScene" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2240, 10 )
@@ -44,6 +45,9 @@ position = Vector2( 140.274, 47.8699 )
 
 [node name="MoreSoulStateOrigin" parent="Cauldron" instance=ExtResource( 11 )]
 position = Vector2( -82.3833, 46.3719 )
+
+[node name="MoreEmeraldStateOrigin" parent="Cauldron" instance=ExtResource( 12 )]
+position = Vector2( 0.89064, 74.56 )
 
 [node name="Catcher" type="Area2D" parent="."]
 position = Vector2( 640, 768 )
