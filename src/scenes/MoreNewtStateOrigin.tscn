@@ -26,7 +26,6 @@ position = Vector2( 133.595, 51.0699 )
 scale = Vector2( 0.1, 0.1 )
 frames = SubResource( 1 )
 script = ExtResource( 1 )
-IsActive = true
 
 [node name="NewtArea" type="Area2D" parent="Newt"]
 
