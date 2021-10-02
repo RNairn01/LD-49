@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/scripts/Newt.cs" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -15,9 +15,6 @@ animations = [ {
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 111.329, 140.94 )
-
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 33.3987, 11.2038 )
 
 [node name="MoreNewtStateOrigin" type="Node2D"]
 position = Vector2( 133.595, 51.0699 )
@@ -42,14 +39,7 @@ scale = Vector2( 0.333333, 0.25 )
 [node name="PickUpCollide" type="CollisionShape2D" parent="NewtJar/PickUpArea"]
 shape = SubResource( 3 )
 
-[node name="NewtDrop" type="Area2D" parent="."]
-position = Vector2( -133.595, -79.8661 )
-
-[node name="NewtDropCollide" type="CollisionShape2D" parent="NewtDrop"]
-shape = SubResource( 4 )
-
 [connection signal="area_entered" from="Newt/NewtArea" to="Newt" method="OnNewtCollide"]
 [connection signal="area_entered" from="NewtJar/PickUpArea" to="Newt" method="NewtEnterJar"]
 [connection signal="area_exited" from="NewtJar/PickUpArea" to="Newt" method="NewtExitJar"]
 [connection signal="input_event" from="NewtJar/PickUpArea" to="Newt" method="PickUpNewt"]
-[connection signal="area_entered" from="NewtDrop" to="Newt" method="OnDropNewtInCauldron"]

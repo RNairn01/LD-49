@@ -92,7 +92,7 @@ public class Newt : AlchemyInput, IAlchemyInput
     {
         GD.Print("Newt collided with: " + area.Name);
         
-        if (area.Name == "NewtDrop")
+        if (area.Name == "CauldronDrop")
         {
             GD.Print("Newt dropped in cauldron!");
             if (holdingNewt) return;
