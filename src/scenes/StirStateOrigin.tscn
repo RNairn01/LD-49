@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/assets/sprites/stir-rod/frame2.png" type="Texture" id=1]
 [ext_resource path="res://src/scripts/Stir.cs" type="Script" id=2]
 [ext_resource path="res://src/assets/sprites/stir-rod/frame5.png" type="Texture" id=3]
 [ext_resource path="res://src/assets/sprites/stir-rod/frame1and3.png" type="Texture" id=4]
 [ext_resource path="res://src/assets/sprites/stir-rod/frame0and4.png" type="Texture" id=5]
+[ext_resource path="res://src/assets/sfx/voice-clips/stir/Stir-1.ogg" type="AudioStream" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -27,5 +28,8 @@ script = ExtResource( 2 )
 
 [node name="ClickCollide" type="CollisionShape2D" parent="Stir/ClickArea"]
 shape = SubResource( 2 )
+
+[node name="Voice" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
 
 [connection signal="input_event" from="Stir/ClickArea" to="Stir" method="OnClick"]

@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/Cool-4.ogg-ae514c3f31a68f5ede40e2f86d9b44ac.oggstr"
+path="res://.import/Cool-4.ogg-a98742f986def41fef441444a9752e4b.oggstr"
 
 [deps]
 
-source_file="res://src/assets/sfx/voice-clips/Cool-4.ogg"
-dest_files=[ "res://.import/Cool-4.ogg-ae514c3f31a68f5ede40e2f86d9b44ac.oggstr" ]
+source_file="res://src/assets/sfx/voice-clips/cool/Cool-4.ogg"
+dest_files=[ "res://.import/Cool-4.ogg-a98742f986def41fef441444a9752e4b.oggstr" ]
 
 [params]
 

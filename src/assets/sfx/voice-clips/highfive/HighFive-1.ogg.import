@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/HighFive-1.ogg-cdcc43ce24ac743d5cbf93c4bb587181.oggstr"
+path="res://.import/HighFive-1.ogg-e47847aa59aa4ca6071fbf4a00345c28.oggstr"
 
 [deps]
 
-source_file="res://src/assets/sfx/voice-clips/HighFive-1.ogg"
-dest_files=[ "res://.import/HighFive-1.ogg-cdcc43ce24ac743d5cbf93c4bb587181.oggstr" ]
+source_file="res://src/assets/sfx/voice-clips/highfive/HighFive-1.ogg"
+dest_files=[ "res://.import/HighFive-1.ogg-e47847aa59aa4ca6071fbf4a00345c28.oggstr" ]
 
 [params]
 

@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/Salt-4.ogg-2bbe7a01a70bb3a4054638dfa69538bf.oggstr"
+path="res://.import/Salt-4.ogg-09f77eb020d30106f320d45f8bc26d84.oggstr"
 
 [deps]
 
-source_file="res://src/assets/sfx/voice-clips/Salt-4.ogg"
-dest_files=[ "res://.import/Salt-4.ogg-2bbe7a01a70bb3a4054638dfa69538bf.oggstr" ]
+source_file="res://src/assets/sfx/voice-clips/salt/Salt-4.ogg"
+dest_files=[ "res://.import/Salt-4.ogg-09f77eb020d30106f320d45f8bc26d84.oggstr" ]
 
 [params]
 

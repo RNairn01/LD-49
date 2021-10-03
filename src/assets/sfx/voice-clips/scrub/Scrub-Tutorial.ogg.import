@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/Scrub-Tutorial.ogg-96bd31357f67cbf665733cefa28ba3b3.oggstr"
+path="res://.import/Scrub-Tutorial.ogg-f8a6c0693b1db9636cdafe5b13afa131.oggstr"
 
 [deps]
 
-source_file="res://src/assets/sfx/voice-clips/Scrub-Tutorial.ogg"
-dest_files=[ "res://.import/Scrub-Tutorial.ogg-96bd31357f67cbf665733cefa28ba3b3.oggstr" ]
+source_file="res://src/assets/sfx/voice-clips/scrub/Scrub-Tutorial.ogg"
+dest_files=[ "res://.import/Scrub-Tutorial.ogg-f8a6c0693b1db9636cdafe5b13afa131.oggstr" ]
 
 [params]
 

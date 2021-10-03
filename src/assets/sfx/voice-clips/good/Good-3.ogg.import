@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/Good-3.ogg-3e01c8d1f2958f12be5ba4754d906dce.oggstr"
+path="res://.import/Good-3.ogg-144c6ac635931dcd47d024c1d820c193.oggstr"
 
 [deps]
 
-source_file="res://src/assets/sfx/voice-clips/Good-3.ogg"
-dest_files=[ "res://.import/Good-3.ogg-3e01c8d1f2958f12be5ba4754d906dce.oggstr" ]
+source_file="res://src/assets/sfx/voice-clips/good/Good-3.ogg"
+dest_files=[ "res://.import/Good-3.ogg-144c6ac635931dcd47d024c1d820c193.oggstr" ]
 
 [params]
 

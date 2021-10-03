@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/Souls-1.ogg-4d3fdefa95039b103790a20dd953834d.oggstr"
+path="res://.import/Souls-1.ogg-1cd9c0c5b038d1c4135037ff6e41c54b.oggstr"
 
 [deps]
 
-source_file="res://src/assets/sfx/voice-clips/Souls-1.ogg"
-dest_files=[ "res://.import/Souls-1.ogg-4d3fdefa95039b103790a20dd953834d.oggstr" ]
+source_file="res://src/assets/sfx/voice-clips/soul/Souls-1.ogg"
+dest_files=[ "res://.import/Souls-1.ogg-1cd9c0c5b038d1c4135037ff6e41c54b.oggstr" ]
 
 [params]
 

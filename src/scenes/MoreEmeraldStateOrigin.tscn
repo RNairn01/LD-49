@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/scripts/Emerald.cs" type="Script" id=1]
 [ext_resource path="res://src/assets/sprites/emeralds/emeraldjar.png" type="Texture" id=2]
 [ext_resource path="res://src/assets/sprites/emeralds/emerald.png" type="Texture" id=3]
+[ext_resource path="res://src/assets/sfx/voice-clips/emeralds/Emeralds-1.ogg" type="AudioStream" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -39,6 +40,9 @@ scale = Vector2( 0.333333, 0.25 )
 
 [node name="PickUpCollide" type="CollisionShape2D" parent="EmeraldJar/PickUpArea"]
 shape = SubResource( 3 )
+
+[node name="Voice" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
 
 [connection signal="area_entered" from="Emerald/EmeraldArea" to="Emerald" method="OnEmeraldCollide"]
 [connection signal="area_entered" from="EmeraldJar/PickUpArea" to="Emerald" method="EmeraldEnterJar"]

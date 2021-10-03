@@ -11,6 +11,7 @@ public class Emerald : AlchemyInput, IAlchemyInput
         base._Ready();
         startPosition = GetNode<Node2D>("../EmeraldJar").GlobalPosition;
         inputState = InputStates.InputState.MoreEmeraldState;
+        VoiceLinesNormal = PopulateNormalLine("emeralds");
     }
 
     public override void _Process(float delta)
@@ -44,7 +45,10 @@ public class Emerald : AlchemyInput, IAlchemyInput
     public void PlayCurrentVoiceLine()
     {
         GD.Print("Play voice line for more emerald task");
-        //Play voice line here
+        var index = GameManager.Rand.RandiRange(0, VoiceLinesNormal.Count - 1);
+        GD.Print(VoiceLinesNormal[index]);
+        voice.Stream = GD.Load<AudioStream>(VoiceLinesNormal[index]);
+        voice.Play();
     }
 
     public void ChangeAlchemistState()

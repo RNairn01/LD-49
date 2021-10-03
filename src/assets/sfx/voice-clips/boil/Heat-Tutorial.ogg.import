@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/Heat-Tutorial.ogg-157a59982d4ff71c53f709a474284a09.oggstr"
+path="res://.import/Heat-Tutorial.ogg-bc3d01fee883eb5ad531e802e9b147d0.oggstr"
 
 [deps]
 
-source_file="res://src/assets/sfx/voice-clips/Heat-Tutorial.ogg"
-dest_files=[ "res://.import/Heat-Tutorial.ogg-157a59982d4ff71c53f709a474284a09.oggstr" ]
+source_file="res://src/assets/sfx/voice-clips/boil/Heat-Tutorial.ogg"
+dest_files=[ "res://.import/Heat-Tutorial.ogg-bc3d01fee883eb5ad531e802e9b147d0.oggstr" ]
 
 [params]
 

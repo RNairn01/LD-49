@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/Heat-1.ogg-53fa81d1d53e23e64d8450d96d9a2c0a.oggstr"
+path="res://.import/Heat-1.ogg-32e256c6925daf0c4242027d837f53cb.oggstr"
 
 [deps]
 
-source_file="res://src/assets/sfx/voice-clips/Heat-1.ogg"
-dest_files=[ "res://.import/Heat-1.ogg-53fa81d1d53e23e64d8450d96d9a2c0a.oggstr" ]
+source_file="res://src/assets/sfx/voice-clips/boil/Heat-1.ogg"
+dest_files=[ "res://.import/Heat-1.ogg-32e256c6925daf0c4242027d837f53cb.oggstr" ]
 
 [params]
 

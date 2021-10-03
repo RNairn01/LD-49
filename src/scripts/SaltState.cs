@@ -30,6 +30,7 @@ public class SaltState : AlchemyInput, IAlchemyInput
 
         base._Ready();
         inputState = InputStates.InputState.MoreSaltState;
+        VoiceLinesNormal = PopulateNormalLine("salt");
     }
 
     public override void _Process(float delta)
@@ -95,7 +96,10 @@ public class SaltState : AlchemyInput, IAlchemyInput
     public void PlayCurrentVoiceLine()
     {
         GD.Print("Play voice line for salt task");
-        //Play voice line here
+        var index = GameManager.Rand.RandiRange(0, VoiceLinesNormal.Count - 1);
+        GD.Print(VoiceLinesNormal[index]);
+        voice.Stream = GD.Load<AudioStream>(VoiceLinesNormal[index]);
+        voice.Play();
     }
 
     public void ChangeAlchemistState()

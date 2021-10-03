@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/Taste-3.ogg-a05ca45833ad827b09e0084878a27d6d.oggstr"
+path="res://.import/Taste-3.ogg-3d218c5a8ea0d82ceb596ea29b65c1f2.oggstr"
 
 [deps]
 
-source_file="res://src/assets/sfx/voice-clips/Taste-3.ogg"
-dest_files=[ "res://.import/Taste-3.ogg-a05ca45833ad827b09e0084878a27d6d.oggstr" ]
+source_file="res://src/assets/sfx/voice-clips/taste/Taste-3.ogg"
+dest_files=[ "res://.import/Taste-3.ogg-3d218c5a8ea0d82ceb596ea29b65c1f2.oggstr" ]
 
 [params]
 

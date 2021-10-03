@@ -11,6 +11,11 @@ public class Soul : AlchemyInput, IAlchemyInput
         base._Ready();
         startPosition = GetNode<Node2D>("../SoulJar").GlobalPosition;
         inputState = InputStates.InputState.MoreSoulState;
+        VoiceLinesNormal = PopulateNormalLine("soul");
+        foreach (var line in VoiceLinesNormal)
+        {
+            GD.Print(line);
+        }
     }
 
     public override void _Process(float delta)
@@ -44,7 +49,10 @@ public class Soul : AlchemyInput, IAlchemyInput
     public void PlayCurrentVoiceLine()
     {
         GD.Print("Play voice line for more soul task");
-        //Play voice line here
+        var index = GameManager.Rand.RandiRange(0, VoiceLinesNormal.Count - 1);
+        GD.Print(VoiceLinesNormal[index]);
+        voice.Stream = GD.Load<AudioStream>(VoiceLinesNormal[index]);
+        voice.Play();
     }
 
     public void ChangeAlchemistState()

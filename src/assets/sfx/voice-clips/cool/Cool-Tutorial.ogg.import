@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/Cool-Tutorial.ogg-7ba907a415b2e3652b7639b31a6ee9e2.oggstr"
+path="res://.import/Cool-Tutorial.ogg-48f0573d3d0eac6cdac4e1225cf29c77.oggstr"
 
 [deps]
 
-source_file="res://src/assets/sfx/voice-clips/Cool-Tutorial.ogg"
-dest_files=[ "res://.import/Cool-Tutorial.ogg-7ba907a415b2e3652b7639b31a6ee9e2.oggstr" ]
+source_file="res://src/assets/sfx/voice-clips/cool/Cool-Tutorial.ogg"
+dest_files=[ "res://.import/Cool-Tutorial.ogg-48f0573d3d0eac6cdac4e1225cf29c77.oggstr" ]
 
 [params]
 

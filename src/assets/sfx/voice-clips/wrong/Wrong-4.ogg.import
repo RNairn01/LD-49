@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/Wrong-4.ogg-ebe9d454c3e429ff113a7765a23aefa8.oggstr"
+path="res://.import/Wrong-4.ogg-d0abe0ad82b1cf3d48c5fe59b88485ad.oggstr"
 
 [deps]
 
-source_file="res://src/assets/sfx/voice-clips/Wrong-4.ogg"
-dest_files=[ "res://.import/Wrong-4.ogg-ebe9d454c3e429ff113a7765a23aefa8.oggstr" ]
+source_file="res://src/assets/sfx/voice-clips/wrong/Wrong-4.ogg"
+dest_files=[ "res://.import/Wrong-4.ogg-d0abe0ad82b1cf3d48c5fe59b88485ad.oggstr" ]
 
 [params]
 

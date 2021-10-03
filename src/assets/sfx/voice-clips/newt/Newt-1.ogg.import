@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/Newt-1.ogg-b22f6e20bb8e0bb0c477ee5d800f2d7f.oggstr"
+path="res://.import/Newt-1.ogg-0e60b9edb2f130de35d490a1d3d09800.oggstr"
 
 [deps]
 
-source_file="res://src/assets/sfx/voice-clips/Newt-1.ogg"
-dest_files=[ "res://.import/Newt-1.ogg-b22f6e20bb8e0bb0c477ee5d800f2d7f.oggstr" ]
+source_file="res://src/assets/sfx/voice-clips/newt/Newt-1.ogg"
+dest_files=[ "res://.import/Newt-1.ogg-0e60b9edb2f130de35d490a1d3d09800.oggstr" ]
 
 [params]
 

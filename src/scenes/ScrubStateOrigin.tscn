@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/scripts/Scrub.cs" type="Script" id=1]
 [ext_resource path="res://src/assets/sprites/sponge.png" type="Texture" id=2]
+[ext_resource path="res://src/assets/sfx/voice-clips/scrub/Scrub-1.ogg" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 27.713, 998.94 )
@@ -55,6 +56,9 @@ position = Vector2( -3.05176e-05, -0.00012207 )
 
 [node name="ScrubCollide" type="CollisionShape2D" parent="Scrub/ScrubDrag"]
 shape = SubResource( 3 )
+
+[node name="Voice" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
 
 [connection signal="area_entered" from="ScrubArea1" to="Scrub" method="OnScrubOneEntered"]
 [connection signal="area_entered" from="ScrubArea2" to="Scrub" method="OnScrubTwoEntered"]

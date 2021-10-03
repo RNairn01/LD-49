@@ -8,6 +8,7 @@ public class Boil : AlchemyInput, IAlchemyInput
     {
         base._Ready();
         inputState = InputStates.InputState.BoilState;
+        VoiceLinesNormal = PopulateNormalLine("boil");
     }
 
     public void OnInteract()
@@ -21,7 +22,10 @@ public class Boil : AlchemyInput, IAlchemyInput
     public void PlayCurrentVoiceLine()
     {
         GD.Print("Play voice line for boil task");
-        //Play voice line here
+        var index = GameManager.Rand.RandiRange(0, VoiceLinesNormal.Count - 1);
+        GD.Print(VoiceLinesNormal[index]);
+        voice.Stream = GD.Load<AudioStream>(VoiceLinesNormal[index]);
+        voice.Play();
     }
 
     public void ChangeAlchemistState()

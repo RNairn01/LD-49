@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/Emeralds-4.ogg-2ac22cf4cb3bb3b2337cec94078bbfe9.oggstr"
+path="res://.import/Emeralds-4.ogg-3b263e5c90e8fbf02917d9165ef2cef0.oggstr"
 
 [deps]
 
-source_file="res://src/assets/sfx/voice-clips/Emeralds-4.ogg"
-dest_files=[ "res://.import/Emeralds-4.ogg-2ac22cf4cb3bb3b2337cec94078bbfe9.oggstr" ]
+source_file="res://src/assets/sfx/voice-clips/emeralds/Emeralds-4.ogg"
+dest_files=[ "res://.import/Emeralds-4.ogg-3b263e5c90e8fbf02917d9165ef2cef0.oggstr" ]
 
 [params]
 

@@ -9,6 +9,7 @@ public class Stir : AlchemyInput, IAlchemyInput
     {
         base._Ready();
         inputState = InputStates.InputState.StirState;
+        VoiceLinesNormal = PopulateNormalLine("stir");
     }
 
     public void OnInteract()
@@ -22,7 +23,10 @@ public class Stir : AlchemyInput, IAlchemyInput
     public void PlayCurrentVoiceLine()
     {
         GD.Print("Play voice line for stir task");
-        //Play voice line here
+        var index = GameManager.Rand.RandiRange(0, VoiceLinesNormal.Count - 1);
+        GD.Print(VoiceLinesNormal[index]);
+        voice.Stream = GD.Load<AudioStream>(VoiceLinesNormal[index]);
+        voice.Play();
     }
 
     public void ChangeAlchemistState()

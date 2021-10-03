@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/Stir-5.ogg-8a3eba5035d8bad330496542c5d4aa79.oggstr"
+path="res://.import/Stir-5.ogg-89bbf31e934819ebbbd5d23217643b4c.oggstr"
 
 [deps]
 
-source_file="res://src/assets/sfx/voice-clips/Stir-5.ogg"
-dest_files=[ "res://.import/Stir-5.ogg-8a3eba5035d8bad330496542c5d4aa79.oggstr" ]
+source_file="res://src/assets/sfx/voice-clips/stir/Stir-5.ogg"
+dest_files=[ "res://.import/Stir-5.ogg-89bbf31e934819ebbbd5d23217643b4c.oggstr" ]
 
 [params]
 
