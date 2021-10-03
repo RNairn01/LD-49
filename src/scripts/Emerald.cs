@@ -1,10 +1,12 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public class Emerald : AlchemyInput, IAlchemyInput
 {
     [Export] public bool IsActive { get; set;} = false;
     public bool canFail { get; set; } = false;
+    public bool NeedsTutorial { get; set; } = true;
     private bool holdingEmerald, emeraldIsFalling, emeraldCanBeDropped = false;
     private Vector2 startPosition;
     public override void _Ready()
@@ -14,6 +16,7 @@ public class Emerald : AlchemyInput, IAlchemyInput
         inputState = InputStates.InputState.MoreEmeraldState;
         VoiceLinesNormal = PopulateNormalLine("emeralds");
         VoiceLinesQuick = PopulateQuickLine("emeralds");
+        VoiceLinesTutorial = PopulateTutorialLine("emeralds");
     }
 
     public override void _Process(float delta)
@@ -46,10 +49,13 @@ public class Emerald : AlchemyInput, IAlchemyInput
 
     public void PlayCurrentVoiceLine()
     {
-        GD.Print("Play voice line for more emerald task");
-        var index = GameManager.Rand.RandiRange(0, VoiceLinesNormal.Count - 1);
-        GD.Print(VoiceLinesNormal[index]);
-        voice.Stream = GD.Load<AudioStream>(VoiceLinesNormal[index]);
+        List<string> activeList = VoiceLinesNormal;
+        if (NeedsTutorial) activeList = VoiceLinesTutorial; 
+        else if (gameManager.GameHasSpedUp) activeList = VoiceLinesQuick;
+        else activeList = VoiceLinesNormal;
+        var index = GameManager.Rand.RandiRange(0, activeList.Count - 1);
+        GD.Print(activeList[index]);
+        voice.Stream = GD.Load<AudioStream>(activeList[index]);
         voice.Play();
     }
 
@@ -76,6 +82,7 @@ public class Emerald : AlchemyInput, IAlchemyInput
     public void OnComplete()
     {
         canFail = false;
+        voice.Stop();
         GD.Print("More emerald task complete!");
         gameManager.AddScore();
         gameManager.GetNewTask();

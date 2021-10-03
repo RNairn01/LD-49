@@ -1,16 +1,19 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public class Cool : AlchemyInput, IAlchemyInput
 {
     [Export] public bool IsActive { get; set;} = false;
     public bool canFail { get; set; } = false;
+    public bool NeedsTutorial { get; set; } = true;
     public override void _Ready()
     {
         base._Ready();
         inputState = InputStates.InputState.CoolState;
         VoiceLinesNormal = PopulateNormalLine("cool");
         VoiceLinesQuick = PopulateQuickLine("cool");
+        VoiceLinesTutorial = PopulateTutorialLine("cool");
     }
 
     public void OnInteract()
@@ -23,10 +26,13 @@ public class Cool : AlchemyInput, IAlchemyInput
 
     public void PlayCurrentVoiceLine()
     {
-        GD.Print("Play voice line for cool task");
-        var index = GameManager.Rand.RandiRange(0, VoiceLinesNormal.Count - 1);
-        GD.Print(VoiceLinesNormal[index]);
-        voice.Stream = GD.Load<AudioStream>(VoiceLinesNormal[index]);
+        List<string> activeList = VoiceLinesNormal;
+        if (NeedsTutorial) activeList = VoiceLinesTutorial; 
+        else if (gameManager.GameHasSpedUp) activeList = VoiceLinesQuick;
+        else activeList = VoiceLinesNormal;
+        var index = GameManager.Rand.RandiRange(0, activeList.Count - 1);
+        GD.Print(activeList[index]);
+        voice.Stream = GD.Load<AudioStream>(activeList[index]);
         voice.Play();
     }
 
@@ -53,6 +59,7 @@ public class Cool : AlchemyInput, IAlchemyInput
     public void OnComplete()
     {
         canFail = false;
+        voice.Stop();
         GD.Print("Cool task complete!");
         fire.Play("woosh");
         gameManager.AddScore();

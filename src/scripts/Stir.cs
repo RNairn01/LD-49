@@ -1,9 +1,11 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public class Stir : AlchemyInput, IAlchemyInput
 {
     [Export] public bool IsActive { get; set;} = false;
+    public bool NeedsTutorial { get; set; } = true;
     public bool canFail { get; set; } = false;
     private int timesClicked = 0;
     public override void _Ready()
@@ -12,6 +14,7 @@ public class Stir : AlchemyInput, IAlchemyInput
         inputState = InputStates.InputState.StirState;
         VoiceLinesNormal = PopulateNormalLine("stir");
         VoiceLinesQuick = PopulateQuickLine("stir");
+        VoiceLinesTutorial = PopulateTutorialLine("stir");
     }
 
     public void OnInteract()
@@ -24,10 +27,13 @@ public class Stir : AlchemyInput, IAlchemyInput
 
     public void PlayCurrentVoiceLine()
     {
-        GD.Print("Play voice line for stir task");
-        var index = GameManager.Rand.RandiRange(0, VoiceLinesNormal.Count - 1);
-        GD.Print(VoiceLinesNormal[index]);
-        voice.Stream = GD.Load<AudioStream>(VoiceLinesNormal[index]);
+        List<string> activeList = VoiceLinesNormal;
+        if (NeedsTutorial) activeList = VoiceLinesTutorial; 
+        else if (gameManager.GameHasSpedUp) activeList = VoiceLinesQuick;
+        else activeList = VoiceLinesNormal;
+        var index = GameManager.Rand.RandiRange(0, activeList.Count - 1);
+        GD.Print(activeList[index]);
+        voice.Stream = GD.Load<AudioStream>(activeList[index]);
         voice.Play();
     }
 
@@ -55,6 +61,7 @@ public class Stir : AlchemyInput, IAlchemyInput
     public void OnComplete()
     {
         canFail = false;
+        voice.Stop();
         GD.Print("Stir task complete!");
         timesClicked = 0;
         Frame = 0;

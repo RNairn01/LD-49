@@ -9,7 +9,7 @@ public abstract class AlchemyInput : AnimatedSprite
     protected GameManager gameManager;
     protected InputStates.InputState inputState;
     protected Alchemist alchemist;
-    protected string[] VoiceLinesTutorial;
+    protected List<string> VoiceLinesTutorial;
     protected List<string> VoiceLinesNormal;
     protected List<string> VoiceLinesQuick;
     protected List<string> FailLines;
@@ -75,6 +75,23 @@ public abstract class AlchemyInput : AnimatedSprite
             normalVoiceFiles.ListDirEnd();
         }
         return files.Where(e => e.Contains(".ogg") && !e.Contains(".import") && !e.Contains("Tutorial") && e.Contains("Frantic")).ToList();
+    }
+    protected List<string> PopulateTutorialLine(string path)
+    {
+        var files = new List<string>();
+        
+        if (normalVoiceFiles.Open(voiceLinesTopDirectory + path) == Error.Ok)
+        {
+            normalVoiceFiles.ListDirBegin();
+            var fileName = normalVoiceFiles.GetNext();
+            while (fileName != "")
+            {
+                    fileName = normalVoiceFiles.GetNext();
+                    files.Add(voiceLinesTopDirectory + path + "/" + fileName);
+            }
+            normalVoiceFiles.ListDirEnd();
+        }
+        return files.Where(e => e.Contains(".ogg") && !e.Contains(".import") && e.Contains("Tutorial")).ToList();
     }
     protected List<string> PopulateFailLine(string path)
     {

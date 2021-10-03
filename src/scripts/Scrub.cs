@@ -1,9 +1,11 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public class Scrub : AlchemyInput, IAlchemyInput
 {
     [Export] public bool IsActive { get; set;} = false;
+    public bool NeedsTutorial { get; set; } = true;
     public bool canFail { get; set; } = false;
     private bool isSelected = false;
     private bool hasLeftBeenScrubbed, hasRightBeenScrubbed = false;
@@ -15,6 +17,7 @@ public class Scrub : AlchemyInput, IAlchemyInput
         inputState = InputStates.InputState.ScrubState;
         VoiceLinesNormal = PopulateNormalLine("scrub");
         VoiceLinesQuick = PopulateQuickLine("scrub");
+        VoiceLinesTutorial = PopulateTutorialLine("scrub");
     }
 
     public override void _Process(float delta)
@@ -44,10 +47,13 @@ public class Scrub : AlchemyInput, IAlchemyInput
 
     public void PlayCurrentVoiceLine()
     {
-        GD.Print("Play voice line for scrub task");
-        var index = GameManager.Rand.RandiRange(0, VoiceLinesNormal.Count - 1);
-        GD.Print(VoiceLinesNormal[index]);
-        voice.Stream = GD.Load<AudioStream>(VoiceLinesNormal[index]);
+        List<string> activeList = VoiceLinesNormal;
+        if (NeedsTutorial) activeList = VoiceLinesTutorial; 
+        else if (gameManager.GameHasSpedUp) activeList = VoiceLinesQuick;
+        else activeList = VoiceLinesNormal;
+        var index = GameManager.Rand.RandiRange(0, activeList.Count - 1);
+        GD.Print(activeList[index]);
+        voice.Stream = GD.Load<AudioStream>(activeList[index]);
         voice.Play();
     }
 
@@ -76,6 +82,7 @@ public class Scrub : AlchemyInput, IAlchemyInput
     public void OnComplete()
     {
         canFail = false;
+        voice.Stop();
         GD.Print("Scrub task complete!");
         isSelected = false;
         Cursor.IsHoldingSomething = false;

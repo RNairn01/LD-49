@@ -10,8 +10,9 @@ public class GameManager : Node
     public float CurrentScoreMultiplier = 1;
     public InputStates.InputState CurrentInputState;
     public IAlchemyInput CurrentTask, PreviousTask;
-    public int CurrentTimer = 10;
+    public int CurrentTimer = 20;
     public int TotalTasksCompleted = 0;
+    public bool GameHasSpedUp = false;
 
     private SceneManager sceneManager;
     private MusicManager music;
@@ -21,6 +22,8 @@ public class GameManager : Node
     public bool CanAddStrike = true;
     private int strikeCount = 0;
     private int correctInputStreak = 0;
+    private bool tutorialComplete = false;
+    private int tutorialIndex = 0;
 
     private IAlchemyInput stirTask,
         scrubTask,
@@ -56,8 +59,7 @@ public class GameManager : Node
         gameWin = GetNode<AudioStreamPlayer>("GameWin");
 
         tasks = new[] { stirTask, scrubTask, moreSoulTask, moreNewtTask, moreEmeraldTask, addSaltTask, coolTask, boilTask, highFiveTask };
-        CurrentTask = stirTask;
-        PreviousTask = stirTask;
+        StartGame(3);
     }
 
     public override void _Process(float delta)
@@ -120,6 +122,7 @@ public class GameManager : Node
     public void GetNewTask()
     {
         if (IsGameOver) return;
+        if (TotalTasksCompleted == 9) CurrentTimer = 10;
         if (TotalTasksCompleted == 25)
         {
             music.StopMusic();
@@ -137,13 +140,28 @@ public class GameManager : Node
     private async void NewTask(float time)
     {
         countdown.Stop();
-        PreviousTask.canFail = true;
+        if (PreviousTask != null)
+        {
+            PreviousTask.canFail = true;
+            PreviousTask.NeedsTutorial = false;
+        }
+
+        if (CurrentTask == null)
+        {
+            CurrentTask = tasks[tutorialIndex];
+        }
         PreviousTask = CurrentTask;
         CurrentTask.IsActive = false;
         await ToSignal(GetTree().CreateTimer(time), "timeout");
         if (TotalTasksCompleted == 25) music.PlayFastMusic();
         PreviousTask.canFail = true;
-        CurrentTask = getRandomTask();
+        if (tutorialComplete) CurrentTask = getRandomTask();
+        else
+        {
+            CurrentTask = tasks[tutorialIndex];
+            tutorialIndex++;
+            if (tutorialIndex == tasks.Length) tutorialComplete = true;
+        }
         GD.Print($"Current task - {CurrentTask.GetType()}");
         CurrentTask.BecomeActive();
         countdown.WaitTime = CurrentTimer;
@@ -156,8 +174,16 @@ public class GameManager : Node
         CanAddStrike = true;
     }
 
+    private async void StartGame(float time)
+    {
+        intro.Play();
+        await ToSignal(GetTree().CreateTimer(time), "timeout");
+        GetNewTask(); 
+    }
+
     private void IncreaseSpeed()
     {
+        GameHasSpedUp = true;
         CurrentTimer /= 2;
         speedUp.Play();
         NewTask(5);
