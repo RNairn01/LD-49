@@ -12,7 +12,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 35.8824, 88.7209 )
+extents = Vector2( 59.8824, 104.721 )
 
 [node name="BoilStateOrigin" type="Node2D"]
 position = Vector2( 60.1176, 48.7209 )

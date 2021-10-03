@@ -98,11 +98,11 @@ position = Vector2( -23.5543, 160.461 )
 position = Vector2( 338.274, 504.559 )
 
 [node name="BoilStateOrigin" parent="." instance=ExtResource( 10 )]
-position = Vector2( 109.934, 402.481 )
+position = Vector2( 91.8547, 361.745 )
 scale = Vector2( 0.7, 0.7 )
 
 [node name="CoolStateOrigin" parent="." instance=ExtResource( 7 )]
-position = Vector2( 109.934, 543.422 )
+position = Vector2( 91.8547, 543.422 )
 scale = Vector2( 0.7, 0.7 )
 
 [node name="ScrubStateOrigin" parent="." instance=ExtResource( 6 )]
