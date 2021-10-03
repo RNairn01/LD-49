@@ -9,6 +9,7 @@ public class HighFive : AlchemyInput, IAlchemyInput
         base._Ready();
         inputState = InputStates.InputState.HighFiveState;
         VoiceLinesNormal = PopulateNormalLine("highfive");
+        VoiceLinesQuick = PopulateQuickLine("highfive");
     }
 
     public void OnInteract()
@@ -55,6 +56,7 @@ public class HighFive : AlchemyInput, IAlchemyInput
 
     public void BecomeActive()
     {
+        if (gameManager.IsGameOver) return;
         IsActive = true;
         PlayCurrentVoiceLine();
         ChangeAlchemistState();

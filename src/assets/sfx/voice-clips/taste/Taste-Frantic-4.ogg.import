@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Taste-Frantic-4.ogg-a2be2f8568544b52972938d1ced8f9af.oggstr"
+
+[deps]
+
+source_file="res://src/assets/sfx/voice-clips/taste/Taste-Frantic-4.ogg"
+dest_files=[ "res://.import/Taste-Frantic-4.ogg-a2be2f8568544b52972938d1ced8f9af.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

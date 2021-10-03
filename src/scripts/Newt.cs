@@ -12,6 +12,7 @@ public class Newt : AlchemyInput, IAlchemyInput
         startPosition = GetNode<Node2D>("../NewtJar").GlobalPosition;
         inputState = InputStates.InputState.MoreNewtState;
         VoiceLinesNormal = PopulateNormalLine("newt");
+        VoiceLinesQuick = PopulateQuickLine("newt");
     }
 
     public override void _Process(float delta)
@@ -80,6 +81,7 @@ public class Newt : AlchemyInput, IAlchemyInput
 
     public void BecomeActive()
     {
+        if (gameManager.IsGameOver) return;
         IsActive = true;
         PlayCurrentVoiceLine();
         ChangeAlchemistState();

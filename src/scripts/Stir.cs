@@ -10,6 +10,7 @@ public class Stir : AlchemyInput, IAlchemyInput
         base._Ready();
         inputState = InputStates.InputState.StirState;
         VoiceLinesNormal = PopulateNormalLine("stir");
+        VoiceLinesQuick = PopulateQuickLine("stir");
     }
 
     public void OnInteract()
@@ -60,6 +61,7 @@ public class Stir : AlchemyInput, IAlchemyInput
 
     public void BecomeActive()
     {
+        if (gameManager.IsGameOver) return;
         IsActive = true;
         PlayCurrentVoiceLine();
         ChangeAlchemistState();

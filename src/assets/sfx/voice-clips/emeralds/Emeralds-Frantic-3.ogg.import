@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Emeralds-Frantic-3.ogg-6e7625b9af12229b6f2460f981d25481.oggstr"
+
+[deps]
+
+source_file="res://src/assets/sfx/voice-clips/emeralds/Emeralds-Frantic-3.ogg"
+dest_files=[ "res://.import/Emeralds-Frantic-3.ogg-6e7625b9af12229b6f2460f981d25481.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

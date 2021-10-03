@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/HighFive-Frantic-3.ogg-154ceb3b3b92043f902b47c092c70aea.oggstr"
+
+[deps]
+
+source_file="res://src/assets/sfx/voice-clips/highfive/HighFive-Frantic-3.ogg"
+dest_files=[ "res://.import/HighFive-Frantic-3.ogg-154ceb3b3b92043f902b47c092c70aea.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Newts-Frantic-3.ogg-a0f621db141e61c6ac814b92fb77cebd.oggstr"
+
+[deps]
+
+source_file="res://src/assets/sfx/voice-clips/newt/Newts-Frantic-3.ogg"
+dest_files=[ "res://.import/Newts-Frantic-3.ogg-a0f621db141e61c6ac814b92fb77cebd.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

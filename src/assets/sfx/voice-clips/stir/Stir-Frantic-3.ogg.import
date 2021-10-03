@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Stir-Frantic-3.ogg-8fbcb77c2ae0647ede720a3fee4e4b7d.oggstr"
+
+[deps]
+
+source_file="res://src/assets/sfx/voice-clips/stir/Stir-Frantic-3.ogg"
+dest_files=[ "res://.import/Stir-Frantic-3.ogg-8fbcb77c2ae0647ede720a3fee4e4b7d.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

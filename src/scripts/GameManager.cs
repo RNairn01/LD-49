@@ -50,7 +50,7 @@ public class GameManager : Node
 
     public override void _Process(float delta)
     {
-        if (strikeCount >= 3) GameOver();
+        if (strikeCount >= 3 && !IsGameOver) GameOver();
       
     }
 
@@ -97,6 +97,7 @@ public class GameManager : Node
 
     public void GetNewTask()
     {
+        if (IsGameOver) return;
         PreviousTask = CurrentTask;
         CurrentTask.IsActive = false;
         NewTask();

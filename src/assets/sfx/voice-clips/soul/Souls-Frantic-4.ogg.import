@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Souls-Frantic-4.ogg-45ecbd0859fb954ff54ea064e6e63677.oggstr"
+
+[deps]
+
+source_file="res://src/assets/sfx/voice-clips/soul/Souls-Frantic-4.ogg"
+dest_files=[ "res://.import/Souls-Frantic-4.ogg-45ecbd0859fb954ff54ea064e6e63677.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

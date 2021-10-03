@@ -12,10 +12,7 @@ public class Soul : AlchemyInput, IAlchemyInput
         startPosition = GetNode<Node2D>("../SoulJar").GlobalPosition;
         inputState = InputStates.InputState.MoreSoulState;
         VoiceLinesNormal = PopulateNormalLine("soul");
-        foreach (var line in VoiceLinesNormal)
-        {
-            GD.Print(line);
-        }
+        VoiceLinesQuick = PopulateQuickLine("soul");
     }
 
     public override void _Process(float delta)
@@ -83,6 +80,7 @@ public class Soul : AlchemyInput, IAlchemyInput
 
     public void BecomeActive()
     {
+        if (gameManager.IsGameOver) return;
         IsActive = true;
         PlayCurrentVoiceLine();
         ChangeAlchemistState();

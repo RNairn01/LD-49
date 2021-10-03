@@ -12,6 +12,7 @@ public class Emerald : AlchemyInput, IAlchemyInput
         startPosition = GetNode<Node2D>("../EmeraldJar").GlobalPosition;
         inputState = InputStates.InputState.MoreEmeraldState;
         VoiceLinesNormal = PopulateNormalLine("emeralds");
+        VoiceLinesQuick = PopulateQuickLine("emeralds");
     }
 
     public override void _Process(float delta)
@@ -79,6 +80,7 @@ public class Emerald : AlchemyInput, IAlchemyInput
 
     public void BecomeActive()
     {
+        if (gameManager.IsGameOver) return;
         IsActive = true;
         PlayCurrentVoiceLine();
         ChangeAlchemistState();

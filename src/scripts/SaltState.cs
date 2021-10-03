@@ -31,6 +31,7 @@ public class SaltState : AlchemyInput, IAlchemyInput
         base._Ready();
         inputState = InputStates.InputState.MoreSaltState;
         VoiceLinesNormal = PopulateNormalLine("salt");
+        VoiceLinesQuick = PopulateQuickLine("salt");
     }
 
     public override void _Process(float delta)
@@ -136,6 +137,7 @@ public class SaltState : AlchemyInput, IAlchemyInput
 
     public void BecomeActive()
     {
+        if (gameManager.IsGameOver) return;
         IsActive = true;
         PlayCurrentVoiceLine();
         ChangeAlchemistState();

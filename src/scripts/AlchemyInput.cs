@@ -11,7 +11,7 @@ public abstract class AlchemyInput : AnimatedSprite
     protected Alchemist alchemist;
     protected string[] VoiceLinesTutorial;
     protected List<string> VoiceLinesNormal;
-    protected string[] VoiceLinesQuick;
+    protected List<string> VoiceLinesQuick;
     protected List<string> FailLines;
     protected string voiceLinesTopDirectory = "res://src/assets/sfx/voice-clips/";
     protected Directory normalVoiceFiles = new Directory();
@@ -53,7 +53,24 @@ public abstract class AlchemyInput : AnimatedSprite
             }
             normalVoiceFiles.ListDirEnd();
         }
-        return files.Where(e => e.Contains(".ogg") && !e.Contains(".import") && !e.Contains("Tutorial")).ToList();
+        return files.Where(e => e.Contains(".ogg") && !e.Contains(".import") && !e.Contains("Tutorial") && !e.Contains("Frantic")).ToList();
+    }
+    protected List<string> PopulateQuickLine(string path)
+    {
+        var files = new List<string>();
+        
+        if (normalVoiceFiles.Open(voiceLinesTopDirectory + path) == Error.Ok)
+        {
+            normalVoiceFiles.ListDirBegin();
+            var fileName = normalVoiceFiles.GetNext();
+            while (fileName != "")
+            {
+                    fileName = normalVoiceFiles.GetNext();
+                    files.Add(voiceLinesTopDirectory + path + "/" + fileName);
+            }
+            normalVoiceFiles.ListDirEnd();
+        }
+        return files.Where(e => e.Contains(".ogg") && !e.Contains(".import") && !e.Contains("Tutorial") && e.Contains("Frantic")).ToList();
     }
     protected List<string> PopulateFailLine(string path)
     {

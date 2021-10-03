@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Cool-Frantic-1.ogg-901240d7f4ec3482730789b5e713cc2a.oggstr"
+
+[deps]
+
+source_file="res://src/assets/sfx/voice-clips/cool/Cool-Frantic-1.ogg"
+dest_files=[ "res://.import/Cool-Frantic-1.ogg-901240d7f4ec3482730789b5e713cc2a.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

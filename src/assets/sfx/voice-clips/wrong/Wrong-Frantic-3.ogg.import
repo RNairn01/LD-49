@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Wrong-Frantic-3.ogg-157680ea432e1e8123bc18268798357e.oggstr"
+
+[deps]
+
+source_file="res://src/assets/sfx/voice-clips/wrong/Wrong-Frantic-3.ogg"
+dest_files=[ "res://.import/Wrong-Frantic-3.ogg-157680ea432e1e8123bc18268798357e.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

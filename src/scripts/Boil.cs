@@ -9,6 +9,7 @@ public class Boil : AlchemyInput, IAlchemyInput
         base._Ready();
         inputState = InputStates.InputState.BoilState;
         VoiceLinesNormal = PopulateNormalLine("boil");
+        VoiceLinesQuick = PopulateQuickLine("boil");
     }
 
     public void OnInteract()
@@ -56,6 +57,7 @@ public class Boil : AlchemyInput, IAlchemyInput
 
     public void BecomeActive()
     {
+        if (gameManager.IsGameOver) return;
         IsActive = true;
         PlayCurrentVoiceLine();
         ChangeAlchemistState();

@@ -9,6 +9,7 @@ public class Cool : AlchemyInput, IAlchemyInput
         base._Ready();
         inputState = InputStates.InputState.CoolState;
         VoiceLinesNormal = PopulateNormalLine("cool");
+        VoiceLinesQuick = PopulateQuickLine("cool");
     }
 
     public void OnInteract()
@@ -56,6 +57,7 @@ public class Cool : AlchemyInput, IAlchemyInput
 
     public void BecomeActive()
     {
+        if (gameManager.IsGameOver) return;
         IsActive = true;
         PlayCurrentVoiceLine();
         ChangeAlchemistState();
