@@ -75,17 +75,15 @@ public class Scrub : AlchemyInput, IAlchemyInput
 
     public void OnDragSponge(Node viewport, InputEvent @event, int shapeIdx)
     {
-        if (Input.IsActionJustPressed("click") && !IsActive) OnFailure();
-        
-        if (Input.IsActionPressed("click") && IsActive)
-        {
+        if (!Input.IsActionJustPressed("click")) return;
+        if (!IsActive) OnFailure();
+        else if (!isSelected) {
+            GD.Print("Picked up sponge");
             isSelected = true;
             Cursor.IsHoldingSomething = true;
-            //play sponge pickup sound effect
-            //TODO: Fix Bug where picking up sponge inside cauldron causes stir task fail
-        }
-        else
+        } else
         {
+            GD.Print("Dropped sponge");
             isSelected = false;
             Cursor.IsHoldingSomething = false;
         }
