@@ -14,6 +14,7 @@ public class GameManager : Node
     public int TotalTasksCompleted = 0;
 
     private SceneManager sceneManager;
+    private MusicManager music;
     private UIManager uiManager;
     private Timer countdown;
     private AudioStreamPlayer speedUp, intro, gameOver, gameWin;
@@ -38,6 +39,7 @@ public class GameManager : Node
         Score = 0;
         sceneManager = GetNode<SceneManager>("../SceneManager");
         uiManager = GetNode<UIManager>("../UI");
+        music = GetNode<MusicManager>("../MusicManager");
         countdown = GetNode<Timer>("../Countdown");
         stirTask = GetNode<IAlchemyInput>("../StirStateOrigin/Stir");
         scrubTask = GetNode<IAlchemyInput>("../ScrubStateOrigin/Scrub");
@@ -116,7 +118,11 @@ public class GameManager : Node
     public void GetNewTask()
     {
         if (IsGameOver) return;
-        if (TotalTasksCompleted == 15) IncreaseSpeed();
+        if (TotalTasksCompleted == 25)
+        {
+            music.StopMusic();
+            IncreaseSpeed();
+        }
         else NewTask(1f);
     }
 
@@ -132,6 +138,7 @@ public class GameManager : Node
         PreviousTask = CurrentTask;
         CurrentTask.IsActive = false;
         await ToSignal(GetTree().CreateTimer(time), "timeout");
+        if (TotalTasksCompleted == 25) music.PlayFastMusic();
         PreviousTask.canFail = true;
         CurrentTask = getRandomTask();
         GD.Print($"Current task - {CurrentTask.GetType()}");

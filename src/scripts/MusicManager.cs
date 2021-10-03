@@ -9,4 +9,15 @@ public class MusicManager : Node
         musicPlayer = GetNode<AudioStreamPlayer>("MusicPlayer");
         musicPlayer.Play();
     }
+
+    public void StopMusic()
+    {
+        musicPlayer.Stop();
+    }
+
+    public void PlayFastMusic()
+    {
+        musicPlayer.Stream = GD.Load<AudioStream>("res://src/assets/music/AlchemyLoopFrantic.ogg");
+        musicPlayer.Play();
+    }
 }
