@@ -30,8 +30,7 @@ public class Cool : AlchemyInput, IAlchemyInput
 
     public void ChangeAlchemistState()
     {
-        GD.Print("Change alchemist state to pointing");
-        alchemist.ChangeState(Alchemist.AlchemistState.Pointing);
+        alchemist.ChangeState(Alchemist.AlchemistState.Idle);
     }
 
     public void OnFailure()

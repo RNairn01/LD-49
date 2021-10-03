@@ -51,8 +51,7 @@ public class Scrub : AlchemyInput, IAlchemyInput
 
     public void ChangeAlchemistState()
     {
-        GD.Print("Change alchemist state to pointing");
-        alchemist.ChangeState(Alchemist.AlchemistState.Idle);
+        alchemist.ChangeState(Alchemist.AlchemistState.Pointing);
     }
 
     public void OnFailure()

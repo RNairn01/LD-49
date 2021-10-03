@@ -31,7 +31,6 @@ public class Stir : AlchemyInput, IAlchemyInput
 
     public void ChangeAlchemistState()
     {
-        GD.Print("Change alchemist state to pointing");
         alchemist.ChangeState(Alchemist.AlchemistState.Idle);
     }
 

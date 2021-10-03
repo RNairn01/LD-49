@@ -54,7 +54,6 @@ public class Newt : AlchemyInput, IAlchemyInput
 
     public void ChangeAlchemistState()
     {
-        GD.Print("Change alchemist state to thinking");
         alchemist.ChangeState(Alchemist.AlchemistState.Thinking);
     }
 
