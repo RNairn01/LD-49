@@ -52,17 +52,18 @@ position = Vector2( -23.5543, 160.461 )
 position = Vector2( 273.904, 432 )
 
 [node name="ScrubStateOrigin" parent="." instance=ExtResource( 6 )]
-position = Vector2( 544, 584 )
+position = Vector2( 1068.75, 630.021 )
 scale = Vector2( 0.8, 0.8 )
 
 [node name="ScrubArea1" parent="ScrubStateOrigin" index="0"]
-position = Vector2( -500, -190 )
+position = Vector2( -1164.36, -248.929 )
 
 [node name="ScrubArea2" parent="ScrubStateOrigin" index="1"]
-position = Vector2( -160, -190 )
+position = Vector2( -815.237, -250.332 )
 
 [node name="Scrub" parent="ScrubStateOrigin" index="2"]
 position = Vector2( 0, -0.000183105 )
+IsActive = true
 
 [node name="MoreNewtStateOrigin" parent="." instance=ExtResource( 5 )]
 position = Vector2( 575.742, 457.554 )
