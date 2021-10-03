@@ -6,6 +6,7 @@ using System.Linq;
 public class SaltState : AlchemyInput, IAlchemyInput
 {
     [Export] public bool IsActive { get; set;} = false;
+    public bool canFail { get; set; } = false;
     private bool holdingShaker = false;
     private bool movingDown = false;
     private int timesSaltReleased = 0;
@@ -111,8 +112,9 @@ public class SaltState : AlchemyInput, IAlchemyInput
 
     public void OnFailure()
     {
-        if (gameManager.CanAddStrike)
+        if (gameManager.CanAddStrike && canFail)
         {
+            canFail = false;
             holdingShaker = false;
             Cursor.IsHoldingSomething = false;
             gameManager.AddStrike("Salt task failed");
@@ -127,6 +129,7 @@ public class SaltState : AlchemyInput, IAlchemyInput
 
     public void OnComplete()
     {
+        canFail = false;
         timesSaltReleased = 0;
         holdingShaker = false;
         Cursor.IsHoldingSomething = false;
@@ -140,6 +143,7 @@ public class SaltState : AlchemyInput, IAlchemyInput
         if (gameManager.IsGameOver) return;
         failSmoke.Play("default");
         fire.Play("default");
+        canFail = true;
         IsActive = true;
         PlayCurrentVoiceLine();
         ChangeAlchemistState();

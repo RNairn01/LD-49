@@ -4,6 +4,8 @@ using System;
 public class Boil : AlchemyInput, IAlchemyInput
 {
     [Export] public bool IsActive { get; set;} = false;
+    public bool canFail { get; set; } = false;
+
     public override void _Ready()
     {
         base._Ready();
@@ -36,8 +38,9 @@ public class Boil : AlchemyInput, IAlchemyInput
 
     public void OnFailure()
     {
-        if (gameManager.CanAddStrike)
+        if (gameManager.CanAddStrike && canFail)
         {
+            canFail = false;
             gameManager.AddStrike("Boil task failed");
             gameManager.GetNewTask();
             var index = GameManager.Rand.RandiRange(0, FailLines.Count - 1);
@@ -50,6 +53,7 @@ public class Boil : AlchemyInput, IAlchemyInput
 
     public void OnComplete()
     {
+        canFail = false;
         GD.Print("Boil task complete!");
         fire.Play("woosh");
         gameManager.AddScore();
@@ -61,6 +65,7 @@ public class Boil : AlchemyInput, IAlchemyInput
         if (gameManager.IsGameOver) return;
         failSmoke.Play("default");
         fire.Play("default");
+        canFail = true;
         IsActive = true;
         PlayCurrentVoiceLine();
         ChangeAlchemistState();

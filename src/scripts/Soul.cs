@@ -4,6 +4,7 @@ using System;
 public class Soul : AlchemyInput, IAlchemyInput
 {
     [Export] public bool IsActive { get; set;} = false;
+    public bool canFail { get; set; } = false;
     private bool holdingSoul, soulIsFalling, soulCanBeDropped = false;
     private Vector2 startPosition;
     public override void _Ready()
@@ -59,8 +60,9 @@ public class Soul : AlchemyInput, IAlchemyInput
 
     public void OnFailure()
     {
-        if (gameManager.CanAddStrike)
+        if (gameManager.CanAddStrike && canFail)
         {
+            canFail = false;
             gameManager.AddStrike("Soul task failed");
             gameManager.GetNewTask();
             var index = GameManager.Rand.RandiRange(0, FailLines.Count - 1);
@@ -73,6 +75,7 @@ public class Soul : AlchemyInput, IAlchemyInput
 
     public void OnComplete()
     {
+        canFail = false;
         GD.Print("More soul task complete!");
         gameManager.AddScore();
         gameManager.GetNewTask();
@@ -83,6 +86,7 @@ public class Soul : AlchemyInput, IAlchemyInput
         if (gameManager.IsGameOver) return;
         failSmoke.Play("default");
         fire.Play("default");
+        canFail = true;
         IsActive = true;
         PlayCurrentVoiceLine();
         ChangeAlchemistState();

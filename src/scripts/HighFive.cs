@@ -4,6 +4,8 @@ using System;
 public class HighFive : AlchemyInput, IAlchemyInput
 {
     [Export] public bool IsActive { get; set;} = false;
+    public bool canFail { get; set; } = false;
+
     public override void _Ready()
     {
         base._Ready();
@@ -35,8 +37,9 @@ public class HighFive : AlchemyInput, IAlchemyInput
 
     public void OnFailure()
     {
-        if (gameManager.CanAddStrike)
+        if (gameManager.CanAddStrike && canFail)
         {
+            canFail = false;
             gameManager.AddStrike("High five task failed");
             gameManager.GetNewTask();
             var index = GameManager.Rand.RandiRange(0, FailLines.Count - 1);
@@ -49,6 +52,7 @@ public class HighFive : AlchemyInput, IAlchemyInput
 
     public void OnComplete()
     {
+        canFail = false;
         GD.Print("High Five task complete!");
         gameManager.AddScore();
         gameManager.GetNewTask();
@@ -59,6 +63,7 @@ public class HighFive : AlchemyInput, IAlchemyInput
         if (gameManager.IsGameOver) return;
         failSmoke.Play("default");
         fire.Play("default");
+        canFail = true;
         IsActive = true;
         PlayCurrentVoiceLine();
         ChangeAlchemistState();
@@ -69,7 +74,10 @@ public class HighFive : AlchemyInput, IAlchemyInput
         if (Input.IsActionJustPressed("click"))
         { 
             if (IsActive) OnInteract();
-            else OnFailure();
+            else if (!IsActive && gameManager.CanAddStrike)
+            {
+                OnFailure();
+            } 
         }
     }
 }

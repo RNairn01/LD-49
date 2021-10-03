@@ -4,6 +4,7 @@ using System;
 public class Cool : AlchemyInput, IAlchemyInput
 {
     [Export] public bool IsActive { get; set;} = false;
+    public bool canFail { get; set; } = false;
     public override void _Ready()
     {
         base._Ready();
@@ -36,8 +37,9 @@ public class Cool : AlchemyInput, IAlchemyInput
 
     public void OnFailure()
     {
-        if (gameManager.CanAddStrike)
+        if (gameManager.CanAddStrike && canFail)
         {
+            canFail = false;
             gameManager.AddStrike("Cool task failed");
             gameManager.GetNewTask();
             var index = GameManager.Rand.RandiRange(0, FailLines.Count - 1);
@@ -50,6 +52,7 @@ public class Cool : AlchemyInput, IAlchemyInput
 
     public void OnComplete()
     {
+        canFail = false;
         GD.Print("Cool task complete!");
         fire.Play("woosh");
         gameManager.AddScore();
@@ -61,6 +64,7 @@ public class Cool : AlchemyInput, IAlchemyInput
         if (gameManager.IsGameOver) return;
         failSmoke.Play("default");
         fire.Play("default");
+        canFail = true;
         IsActive = true;
         PlayCurrentVoiceLine();
         ChangeAlchemistState();

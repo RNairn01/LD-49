@@ -25,6 +25,8 @@ public class UIManager : Control
     {
         scoreLabel.Text = GameManager.Score.ToString();
         countdownLabel.Text = Mathf.RoundToInt(countdownTimer.TimeLeft).ToString("00");
+        if (countdownLabel.Text == "00") countdownLabel.Visible = false;
+        else countdownLabel.Visible = true;
     }
     
     public async void ScorePop(float time)

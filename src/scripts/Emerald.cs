@@ -4,6 +4,7 @@ using System;
 public class Emerald : AlchemyInput, IAlchemyInput
 {
     [Export] public bool IsActive { get; set;} = false;
+    public bool canFail { get; set; } = false;
     private bool holdingEmerald, emeraldIsFalling, emeraldCanBeDropped = false;
     private Vector2 startPosition;
     public override void _Ready()
@@ -59,8 +60,9 @@ public class Emerald : AlchemyInput, IAlchemyInput
 
     public void OnFailure()
     {
-        if (gameManager.CanAddStrike)
+        if (gameManager.CanAddStrike && canFail)
         {
+            canFail = false;
             gameManager.AddStrike("Emerald task failed");
             gameManager.GetNewTask();
             var index = GameManager.Rand.RandiRange(0, FailLines.Count - 1);
@@ -73,6 +75,7 @@ public class Emerald : AlchemyInput, IAlchemyInput
 
     public void OnComplete()
     {
+        canFail = false;
         GD.Print("More emerald task complete!");
         gameManager.AddScore();
         gameManager.GetNewTask();
@@ -83,6 +86,7 @@ public class Emerald : AlchemyInput, IAlchemyInput
         if (gameManager.IsGameOver) return;
         failSmoke.Play("default");
         fire.Play("default");
+        canFail = true;
         IsActive = true;
         PlayCurrentVoiceLine();
         ChangeAlchemistState();

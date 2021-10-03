@@ -4,6 +4,7 @@ using System;
 public class Scrub : AlchemyInput, IAlchemyInput
 {
     [Export] public bool IsActive { get; set;} = false;
+    public bool canFail { get; set; } = false;
     private bool isSelected = false;
     private bool hasLeftBeenScrubbed, hasRightBeenScrubbed = false;
     private int fullScrubCounter = 0;
@@ -57,8 +58,9 @@ public class Scrub : AlchemyInput, IAlchemyInput
 
     public void OnFailure()
     {
-        if (gameManager.CanAddStrike)
+        if (gameManager.CanAddStrike && canFail)
         {
+            canFail = false;
             isSelected = false;
             Cursor.IsHoldingSomething = false;
             gameManager.AddStrike("Scrub task failed");
@@ -73,6 +75,7 @@ public class Scrub : AlchemyInput, IAlchemyInput
 
     public void OnComplete()
     {
+        canFail = false;
         GD.Print("Scrub task complete!");
         isSelected = false;
         Cursor.IsHoldingSomething = false;
@@ -86,6 +89,7 @@ public class Scrub : AlchemyInput, IAlchemyInput
         if (gameManager.IsGameOver) return;
         failSmoke.Play("default");
         fire.Play("default");
+        canFail = true;
         IsActive = true;
         PlayCurrentVoiceLine();
         ChangeAlchemistState();

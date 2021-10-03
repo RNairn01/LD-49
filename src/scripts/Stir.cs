@@ -4,6 +4,7 @@ using System;
 public class Stir : AlchemyInput, IAlchemyInput
 {
     [Export] public bool IsActive { get; set;} = false;
+    public bool canFail { get; set; } = false;
     private int timesClicked = 0;
     public override void _Ready()
     {
@@ -37,8 +38,9 @@ public class Stir : AlchemyInput, IAlchemyInput
 
     public void OnFailure()
     {
-        if (gameManager.CanAddStrike)
+        if (gameManager.CanAddStrike && canFail)
         {
+            canFail = false;
             Frame = 0;
             gameManager.AddStrike("Stir task failed");
             gameManager.GetNewTask();
@@ -52,6 +54,7 @@ public class Stir : AlchemyInput, IAlchemyInput
 
     public void OnComplete()
     {
+        canFail = false;
         GD.Print("Stir task complete!");
         timesClicked = 0;
         Frame = 0;
@@ -64,6 +67,7 @@ public class Stir : AlchemyInput, IAlchemyInput
         if (gameManager.IsGameOver) return;
         failSmoke.Play("default");
         fire.Play("default");
+        canFail = true;
         IsActive = true;
         PlayCurrentVoiceLine();
         ChangeAlchemistState();

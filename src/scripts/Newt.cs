@@ -4,6 +4,7 @@ using System;
 public class Newt : AlchemyInput, IAlchemyInput
 {
     [Export] public bool IsActive { get; set;} = false;
+    public bool canFail { get; set; } = false;
     private bool holdingNewt, newtIsFalling, newtCanBeDropped = false;
     private Vector2 startPosition;
     public override void _Ready()
@@ -60,8 +61,9 @@ public class Newt : AlchemyInput, IAlchemyInput
 
     public void OnFailure()
     {
-        if (gameManager.CanAddStrike)
+        if (gameManager.CanAddStrike && canFail)
         {
+            canFail = false;
             gameManager.AddStrike("More newt task failed");
             gameManager.GetNewTask();
             var index = GameManager.Rand.RandiRange(0, FailLines.Count - 1);
@@ -74,6 +76,7 @@ public class Newt : AlchemyInput, IAlchemyInput
 
     public void OnComplete()
     {
+        canFail = false;
         GD.Print("More newt task complete!");
         gameManager.AddScore();
         gameManager.GetNewTask();
@@ -84,6 +87,7 @@ public class Newt : AlchemyInput, IAlchemyInput
         if (gameManager.IsGameOver) return;
         failSmoke.Play("default");
         fire.Play("default");
+        canFail = true;
         IsActive = true;
         PlayCurrentVoiceLine();
         ChangeAlchemistState();
