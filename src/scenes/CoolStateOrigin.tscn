@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/scripts/Cool.cs" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://src/assets/sprites/boilcool/cool.png" type="Texture" id=2]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -12,7 +12,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 33.3987, 35.235 )
+extents = Vector2( 40.9847, 87.8699 )
 
 [node name="CoolStateOrigin" type="Node2D"]
 position = Vector2( -48.9847, 47.8699 )
@@ -21,9 +21,6 @@ __meta__ = {
 }
 
 [node name="Cool" type="AnimatedSprite" parent="."]
-modulate = Color( 0.113725, 0.141176, 0.87451, 1 )
-position = Vector2( 0, 0.850952 )
-scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 1 )
 script = ExtResource( 1 )
 

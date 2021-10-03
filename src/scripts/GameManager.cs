@@ -37,10 +37,14 @@ public class GameManager : Node
         stirTask = GetNode<IAlchemyInput>("../StirStateOrigin/Stir");
         scrubTask = GetNode<IAlchemyInput>("../ScrubStateOrigin/Scrub");
         moreSoulTask = GetNode<IAlchemyInput>("../MoreSoulStateOrigin/Soul");
+        moreNewtTask = GetNode<IAlchemyInput>("../MoreNewtStateOrigin/Newt");
+        moreEmeraldTask = GetNode<IAlchemyInput>("../MoreEmeraldStateOrigin/Emerald");
         addSaltTask = GetNode<IAlchemyInput>("../SaltStateOrigin/SaltState");
-        //Add tasks as they receive art assets
+        coolTask = GetNode<IAlchemyInput>("../CoolStateOrigin/Cool");
+        boilTask = GetNode<IAlchemyInput>("../BoilStateOrigin/Boil");
+        highFiveTask = GetNode<IAlchemyInput>("../HighFiveStateOrigin/HighFive");
 
-        tasks = new[] { stirTask, scrubTask, moreSoulTask, addSaltTask };
+        tasks = new[] { stirTask, scrubTask, moreSoulTask, moreNewtTask, moreEmeraldTask, addSaltTask, coolTask, boilTask, highFiveTask };
         CurrentTask = stirTask;
     }
 

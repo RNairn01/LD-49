@@ -36,12 +36,12 @@ scale = Vector2( 0.673474, 0.696347 )
 texture = ExtResource( 13 )
 
 [node name="cauldron-back" type="Sprite" parent="."]
-position = Vector2( 279.844, 342.036 )
+position = Vector2( 344.214, 414.595 )
 scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 14 )
 
 [node name="StirStateOrigin" parent="." instance=ExtResource( 2 )]
-position = Vector2( 328, 304 )
+position = Vector2( 392.37, 376.559 )
 scale = Vector2( 0.7, 0.7 )
 
 [node name="Stir" parent="StirStateOrigin" index="0"]
@@ -52,31 +52,31 @@ IsActive = true
 position = Vector2( -23.5543, 160.461 )
 
 [node name="Cauldron" parent="." instance=ExtResource( 4 )]
-position = Vector2( 273.904, 432 )
+position = Vector2( 338.274, 504.559 )
+
+[node name="BoilStateOrigin" parent="." instance=ExtResource( 10 )]
+position = Vector2( 109.934, 402.481 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="CoolStateOrigin" parent="." instance=ExtResource( 7 )]
+position = Vector2( 109.934, 543.422 )
+scale = Vector2( 0.7, 0.7 )
 
 [node name="ScrubStateOrigin" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1068.75, 630.021 )
 scale = Vector2( 0.8, 0.8 )
 
 [node name="ScrubArea1" parent="ScrubStateOrigin" index="0"]
-position = Vector2( -1164.36, -248.929 )
+position = Vector2( -1085.05, -203.22 )
 
 [node name="ScrubArea2" parent="ScrubStateOrigin" index="1"]
-position = Vector2( -815.237, -250.332 )
+position = Vector2( -740.173, -203.22 )
 
 [node name="Scrub" parent="ScrubStateOrigin" index="2"]
 position = Vector2( 0, -0.000183105 )
 
 [node name="MoreNewtStateOrigin" parent="." instance=ExtResource( 5 )]
-position = Vector2( 575.742, 457.554 )
-scale = Vector2( 0.7, 0.7 )
-
-[node name="BoilStateOrigin" parent="." instance=ExtResource( 10 )]
-position = Vector2( 545.972, 458.857 )
-scale = Vector2( 0.7, 0.7 )
-
-[node name="CoolStateOrigin" parent="." instance=ExtResource( 7 )]
-position = Vector2( 525.109, 457.908 )
+position = Vector2( 819.898, 323.42 )
 scale = Vector2( 0.7, 0.7 )
 
 [node name="HighFiveStateOrigin" parent="." instance=ExtResource( 9 )]
@@ -84,15 +84,15 @@ position = Vector2( 965.675, 278.573 )
 scale = Vector2( 0.7, 0.7 )
 
 [node name="MoreSoulStateOrigin" parent="." instance=ExtResource( 11 )]
-position = Vector2( 628.276, 127.701 )
+position = Vector2( 187.774, 129.403 )
 scale = Vector2( 0.7, 0.7 )
 
 [node name="MoreEmeraldStateOrigin" parent="." instance=ExtResource( 12 )]
-position = Vector2( 482.197, 458.271 )
+position = Vector2( 640, 136.603 )
 scale = Vector2( 0.7, 0.7 )
 
 [node name="SaltStateOrigin" parent="." instance=ExtResource( 8 )]
-position = Vector2( 48.2052, 549.905 )
+position = Vector2( 659.075, 557.65 )
 
 [node name="Catcher" type="Area2D" parent="."]
 position = Vector2( 640, 768 )
@@ -109,13 +109,16 @@ __meta__ = {
 }
 
 [node name="Score" type="Label" parent="UI"]
-margin_left = 72.0
-margin_right = 156.0
+margin_left = 988.075
+margin_right = 1174.07
 margin_bottom = 88.0
 custom_fonts/font = ExtResource( 17 )
 text = "999999"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [editable path="StirStateOrigin"]
 [editable path="ScrubStateOrigin"]
