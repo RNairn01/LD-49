@@ -35,9 +35,16 @@ public class Boil : AlchemyInput, IAlchemyInput
 
     public void OnFailure()
     {
-        gameManager.AddStrike("Boil task failed", "");
-        gameManager.GetNewTask();
-        //Play shaking cauldron animation here
+        if (gameManager.CanAddStrike)
+        {
+            gameManager.AddStrike("Boil task failed");
+            gameManager.GetNewTask();
+            var index = GameManager.Rand.RandiRange(0, FailLines.Count - 1);
+            GD.Print(FailLines[index]);
+            angerVoice.Stream = GD.Load<AudioStream>(FailLines[index]);
+            angerVoice.Play();
+            //Play shaking cauldron animation here
+        }
     }
 
     public void OnComplete()

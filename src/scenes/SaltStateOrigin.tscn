@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/scripts/SaltState.cs" type="Script" id=1]
 [ext_resource path="res://src/assets/sprites/saltshaker.png" type="Texture" id=2]
 [ext_resource path="res://src/assets/sfx/voice-clips/salt/Salt-1.ogg" type="AudioStream" id=3]
+[ext_resource path="res://src/assets/sfx/voice-clips/wrong/Wrong-1.ogg" type="AudioStream" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -49,5 +50,9 @@ scale_amount_random = 0.5
 
 [node name="Voice" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+
+[node name="AngerVoice" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = 10.0
 
 [connection signal="input_event" from="SaltState/SaltShakerArea" to="SaltState" method="OnClick"]

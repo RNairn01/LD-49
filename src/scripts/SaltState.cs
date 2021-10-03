@@ -110,11 +110,18 @@ public class SaltState : AlchemyInput, IAlchemyInput
 
     public void OnFailure()
     {
-        holdingShaker = false;
-        Cursor.IsHoldingSomething = false;
-        gameManager.AddStrike("Salt task failed", "");
-        //Play shaking cauldron animation here
-        gameManager.GetNewTask();
+        if (gameManager.CanAddStrike)
+        {
+            holdingShaker = false;
+            Cursor.IsHoldingSomething = false;
+            gameManager.AddStrike("Salt task failed");
+            gameManager.GetNewTask();
+            var index = GameManager.Rand.RandiRange(0, FailLines.Count - 1);
+            GD.Print(FailLines[index]);
+            angerVoice.Stream = GD.Load<AudioStream>(FailLines[index]);
+            angerVoice.Play();
+            //Play shaking cauldron animation here
+        }
     }
 
     public void OnComplete()

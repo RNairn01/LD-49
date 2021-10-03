@@ -13,7 +13,7 @@ public class GameManager : Node
 
     private SceneManager sceneManager;
     private UIManager uiManager;
-    private bool canAddStrike = true;
+    public bool CanAddStrike = true;
     private int strikeCount = 0;
     private int correctInputStreak = 0;
 
@@ -61,16 +61,15 @@ public class GameManager : Node
         //Implement rest of game over logic here
     }
 
-    public void AddStrike(string message, string voiceClip)
+    public void AddStrike(string message)
     {
-        if (canAddStrike)
+        if (CanAddStrike)
         {
             CurrentScoreMultiplier = 1;
             correctInputStreak = 0;
-            canAddStrike = false;
+            CanAddStrike = false;
             strikeCount++;
             GD.Print(message);
-            //Play voice clip
             StartFailGracePeriod(1);
         }
         
@@ -96,10 +95,15 @@ public class GameManager : Node
         return tasks[rand];
     }
 
-    public async void GetNewTask()
+    public void GetNewTask()
     {
         PreviousTask = CurrentTask;
         CurrentTask.IsActive = false;
+        NewTask();
+    }
+
+    private async void NewTask()
+    {
         await ToSignal(GetTree().CreateTimer(1f), "timeout");
         CurrentTask = getRandomTask();
         GD.Print($"Current task - {CurrentTask.GetType()}");
@@ -109,6 +113,6 @@ public class GameManager : Node
     private async void StartFailGracePeriod(float time)
     {
         await ToSignal(GetTree().CreateTimer(time), "timeout");
-        canAddStrike = true;
+        CanAddStrike = true;
     }
 }

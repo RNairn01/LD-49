@@ -36,10 +36,17 @@ public class Stir : AlchemyInput, IAlchemyInput
 
     public void OnFailure()
     {
-        gameManager.AddStrike("Stir task failed", "");
-        Frame = 0;
-        //Play shaking cauldron animation here
-        gameManager.GetNewTask();
+        if (gameManager.CanAddStrike)
+        {
+            Frame = 0;
+            gameManager.AddStrike("Stir task failed");
+            gameManager.GetNewTask();
+            var index = GameManager.Rand.RandiRange(0, FailLines.Count - 1);
+            GD.Print(FailLines[index]);
+            angerVoice.Stream = GD.Load<AudioStream>(FailLines[index]);
+            angerVoice.Play();
+            //Play shaking cauldron animation here
+        }
     }
 
     public void OnComplete()
