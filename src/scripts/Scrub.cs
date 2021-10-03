@@ -3,6 +3,7 @@ using System;
 
 public class Scrub : AlchemyInput, IAlchemyInput
 {
+    [Export] public bool IsActive { get; set;} = false;
     private bool isSelected = false;
     private bool hasLeftBeenScrubbed, hasRightBeenScrubbed = false;
     private int fullScrubCounter = 0;
@@ -57,6 +58,7 @@ public class Scrub : AlchemyInput, IAlchemyInput
         Cursor.IsHoldingSomething = false;
         gameManager.AddStrike("Scrub task failed", "");
         //Play shaking cauldron animation here
+        gameManager.GetNewTask();
     }
 
     public void OnComplete()
@@ -66,11 +68,12 @@ public class Scrub : AlchemyInput, IAlchemyInput
         Cursor.IsHoldingSomething = false;
         fullScrubCounter = 0;
         //Earn score
-        //Get new task from GameManager
+        gameManager.GetNewTask();
     }
 
     public void BecomeActive()
     {
+        IsActive = true;
         PlayCurrentVoiceLine();
         ChangeAlchemistState();
     }

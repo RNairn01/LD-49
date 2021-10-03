@@ -3,6 +3,7 @@ using System;
 
 public class HighFive : AlchemyInput, IAlchemyInput
 {
+    [Export] public bool IsActive { get; set;} = false;
     public override void _Ready()
     {
         base._Ready();
@@ -32,18 +33,19 @@ public class HighFive : AlchemyInput, IAlchemyInput
     public void OnFailure()
     {
         gameManager.AddStrike("High five task failed", "");
-        //Play shaking cauldron animation here
+        gameManager.GetNewTask();
     }
 
     public void OnComplete()
     {
         GD.Print("High Five task complete!");
         //Earn score
-        //Get new task from GameManager
+        gameManager.GetNewTask();
     }
 
     public void BecomeActive()
     {
+        IsActive = true;
         PlayCurrentVoiceLine();
         ChangeAlchemistState();
     }

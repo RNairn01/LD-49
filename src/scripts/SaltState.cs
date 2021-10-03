@@ -5,6 +5,7 @@ using System.Linq;
 
 public class SaltState : AlchemyInput, IAlchemyInput
 {
+    [Export] public bool IsActive { get; set;} = false;
     private bool holdingShaker = false;
     private bool movingDown = false;
     private int timesSaltReleased = 0;
@@ -110,6 +111,7 @@ public class SaltState : AlchemyInput, IAlchemyInput
         Cursor.IsHoldingSomething = false;
         gameManager.AddStrike("Salt task failed", "");
         //Play shaking cauldron animation here
+        gameManager.GetNewTask();
     }
 
     public void OnComplete()
@@ -119,11 +121,12 @@ public class SaltState : AlchemyInput, IAlchemyInput
         Cursor.IsHoldingSomething = false;
         GD.Print("Salt task complete!");
         //Earn score
-        //Get new task from GameManager
+        gameManager.GetNewTask();
     }
 
     public void BecomeActive()
     {
+        IsActive = true;
         PlayCurrentVoiceLine();
         ChangeAlchemistState();
     }

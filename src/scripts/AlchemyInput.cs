@@ -3,7 +3,6 @@ using System;
 
 public abstract class AlchemyInput : AnimatedSprite
 {
-    [Export] public bool IsActive = false;
     
     protected GameManager gameManager;
     protected InputStates.InputState inputState;

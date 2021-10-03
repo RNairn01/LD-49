@@ -3,6 +3,7 @@ using System;
 
 public class Boil : AlchemyInput, IAlchemyInput
 {
+    [Export] public bool IsActive { get; set;} = false;
     public override void _Ready()
     {
         base._Ready();
@@ -33,6 +34,7 @@ public class Boil : AlchemyInput, IAlchemyInput
     public void OnFailure()
     {
         gameManager.AddStrike("Boil task failed", "");
+        gameManager.GetNewTask();
         //Play shaking cauldron animation here
     }
 
@@ -40,11 +42,12 @@ public class Boil : AlchemyInput, IAlchemyInput
     {
         GD.Print("Boil task complete!");
         //Earn score
-        //Get new task from GameManager
+        gameManager.GetNewTask();
     }
 
     public void BecomeActive()
     {
+        IsActive = true;
         PlayCurrentVoiceLine();
         ChangeAlchemistState();
     }

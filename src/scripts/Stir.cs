@@ -3,6 +3,7 @@ using System;
 
 public class Stir : AlchemyInput, IAlchemyInput
 {
+    [Export] public bool IsActive { get; set;} = false;
     private int timesClicked = 0;
     public override void _Ready()
     {
@@ -36,6 +37,7 @@ public class Stir : AlchemyInput, IAlchemyInput
         gameManager.AddStrike("Stir task failed", "");
         Frame = 0;
         //Play shaking cauldron animation here
+        gameManager.GetNewTask();
     }
 
     public void OnComplete()
@@ -44,11 +46,12 @@ public class Stir : AlchemyInput, IAlchemyInput
         timesClicked = 0;
         Frame = 0;
         //Earn score
-        //Get new task from GameManager
+        gameManager.GetNewTask();
     }
 
     public void BecomeActive()
     {
+        IsActive = true;
         PlayCurrentVoiceLine();
         ChangeAlchemistState();
     }
@@ -58,7 +61,10 @@ public class Stir : AlchemyInput, IAlchemyInput
         if (Input.IsActionJustPressed("click"))
         {
             if (IsActive) OnInteract();
-            else OnFailure();
+            else if (gameManager.PreviousTask != this)
+            {
+                OnFailure();
+            }
         }
     }
 }

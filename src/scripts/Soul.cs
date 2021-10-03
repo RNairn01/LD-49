@@ -3,6 +3,7 @@ using System;
 
 public class Soul : AlchemyInput, IAlchemyInput
 {
+    [Export] public bool IsActive { get; set;} = false;
     private bool holdingSoul, soulIsFalling, soulCanBeDropped = false;
     private Vector2 startPosition;
     public override void _Ready()
@@ -56,6 +57,7 @@ public class Soul : AlchemyInput, IAlchemyInput
     public void OnFailure()
     {
         gameManager.AddStrike("More soul task failed", "");
+        gameManager.GetNewTask();
         //Play shaking cauldron animation here
     }
 
@@ -63,11 +65,12 @@ public class Soul : AlchemyInput, IAlchemyInput
     {
         GD.Print("More soul task complete!");
         //Earn score
-        //Get new task from GameManager
+        gameManager.GetNewTask();
     }
 
     public void BecomeActive()
     {
+        IsActive = true;
         PlayCurrentVoiceLine();
         ChangeAlchemistState();
     }

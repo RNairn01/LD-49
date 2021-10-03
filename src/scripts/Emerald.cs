@@ -3,6 +3,7 @@ using System;
 
 public class Emerald : AlchemyInput, IAlchemyInput
 {
+    [Export] public bool IsActive { get; set;} = false;
     private bool holdingEmerald, emeraldIsFalling, emeraldCanBeDropped = false;
     private Vector2 startPosition;
     public override void _Ready()
@@ -57,17 +58,19 @@ public class Emerald : AlchemyInput, IAlchemyInput
     {
         gameManager.AddStrike("Emerald task failed", "");
         //Play shaking cauldron animation here
+        gameManager.GetNewTask();
     }
 
     public void OnComplete()
     {
         GD.Print("More emerald task complete!");
         //Earn score
-        //Get new task from GameManager
+        gameManager.GetNewTask();
     }
 
     public void BecomeActive()
     {
+        IsActive = true;
         PlayCurrentVoiceLine();
         ChangeAlchemistState();
     }

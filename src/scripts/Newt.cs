@@ -3,6 +3,7 @@ using System;
 
 public class Newt : AlchemyInput, IAlchemyInput
 {
+    [Export] public bool IsActive { get; set;} = false;
     private bool holdingNewt, newtIsFalling, newtCanBeDropped = false;
     private Vector2 startPosition;
     public override void _Ready()
@@ -57,6 +58,7 @@ public class Newt : AlchemyInput, IAlchemyInput
     public void OnFailure()
     {
         gameManager.AddStrike("More newt task failed", "");
+        gameManager.GetNewTask();
         //Play shaking cauldron animation here
     }
 
@@ -64,11 +66,12 @@ public class Newt : AlchemyInput, IAlchemyInput
     {
         GD.Print("More newt task complete!");
         //Earn score
-        //Get new task from GameManager
+        gameManager.GetNewTask();
     }
 
     public void BecomeActive()
     {
+        IsActive = true;
         PlayCurrentVoiceLine();
         ChangeAlchemistState();
     }

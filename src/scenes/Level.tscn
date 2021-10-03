@@ -44,6 +44,7 @@ scale = Vector2( 0.7, 0.7 )
 
 [node name="Stir" parent="StirStateOrigin" index="0"]
 position = Vector2( -43.8468, 1.20123 )
+IsActive = true
 
 [node name="ClickArea" parent="StirStateOrigin/Stir" index="0"]
 position = Vector2( -23.5543, 160.461 )
