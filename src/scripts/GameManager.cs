@@ -30,6 +30,7 @@ public class GameManager : Node
     
     public override void _Ready()
     {
+        Score = 0;
         sceneManager = GetNode<SceneManager>("../SceneManager");
         stirTask = GetNode<IAlchemyInput>("../StirStateOrigin/Stir");
         scrubTask = GetNode<IAlchemyInput>("../ScrubStateOrigin/Scrub");
@@ -73,9 +74,12 @@ public class GameManager : Node
     {
         correctInputStreak++;
         if (correctInputStreak % 5 == 0) CurrentScoreMultiplier += 0.2f;
-        Score += Mathf.RoundToInt(50 * CurrentScoreMultiplier);
-        GD.Print($"Score = {Score}");
-        //Add extra score based on percentage of time remaining
+        if (Score <= 999999)
+        {
+            Score += Mathf.RoundToInt(50 * CurrentScoreMultiplier);
+            GD.Print($"Score = {Score}");
+            //Add extra score based on percentage of time remaining
+        }
     }
 
     private IAlchemyInput getRandomTask()
