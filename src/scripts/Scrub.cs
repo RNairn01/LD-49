@@ -41,7 +41,7 @@ public class Scrub : AlchemyInput, IAlchemyInput
 
     public void PlayCurrentVoiceLine()
     {
-        GD.Print("Play voice line for stir task");
+        GD.Print("Play voice line for scrub task");
         //Play voice line here
     }
 

@@ -77,7 +77,7 @@ public class GameManager : Node
     {
         PreviousTask = CurrentTask;
         CurrentTask.IsActive = false;
-        await ToSignal(GetTree().CreateTimer(5f), "timeout");
+        await ToSignal(GetTree().CreateTimer(1f), "timeout");
         CurrentTask = getRandomTask();
         GD.Print($"Current task - {CurrentTask.GetType()}");
         CurrentTask.BecomeActive();
