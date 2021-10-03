@@ -57,6 +57,7 @@ public class GameManager : Node
 
         tasks = new[] { stirTask, scrubTask, moreSoulTask, moreNewtTask, moreEmeraldTask, addSaltTask, coolTask, boilTask, highFiveTask };
         CurrentTask = stirTask;
+        PreviousTask = stirTask;
     }
 
     public override void _Process(float delta)
@@ -70,6 +71,7 @@ public class GameManager : Node
         IsGameOver = true;
         GD.Print("Game Over");
         countdown.Stop();
+        CurrentTimer = 0;
         //Implement rest of game over logic here
     }
 
@@ -135,6 +137,7 @@ public class GameManager : Node
     private async void NewTask(float time)
     {
         countdown.Stop();
+        PreviousTask.canFail = true;
         PreviousTask = CurrentTask;
         CurrentTask.IsActive = false;
         await ToSignal(GetTree().CreateTimer(time), "timeout");

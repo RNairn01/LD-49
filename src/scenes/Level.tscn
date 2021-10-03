@@ -171,9 +171,9 @@ __meta__ = {
 
 [node name="CountdownLabel" type="Label" parent="UI"]
 margin_left = 1015.34
-margin_top = -53.2346
+margin_top = -53.902
 margin_right = 1183.34
-margin_bottom = 218.765
+margin_bottom = 218.098
 custom_fonts/font = ExtResource( 26 )
 text = "10"
 __meta__ = {

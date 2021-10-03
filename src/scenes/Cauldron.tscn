@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://src/assets/sprites/cauldron/cauldron.png" type="Texture" id=1]
 [ext_resource path="res://src/assets/sprites/fire/fire1.png" type="Texture" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://src/assets/sprites/fire/woosh/woosh2.png" type="Texture" id=11]
 [ext_resource path="res://src/assets/sprites/fire/woosh/woosh3.png" type="Texture" id=12]
 [ext_resource path="res://src/assets/sprites/fire/woosh/woosh1.png" type="Texture" id=13]
+[ext_resource path="res://src/assets/sprites/fire/fire3.png" type="Texture" id=14]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -27,13 +28,13 @@ extents = Vector2( 224, 36.698 )
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 14 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ), ExtResource( 11 ), ExtResource( 12 ) ],
-"loop": false,
+"loop": true,
 "name": "woosh",
 "speed": 5.0
 } ]
@@ -67,12 +68,13 @@ position = Vector2( 0, 4.69801 )
 shape = SubResource( 2 )
 
 [node name="Sticks" type="Sprite" parent="."]
-position = Vector2( 0, 182.857 )
+position = Vector2( 9.28571, 230.357 )
 texture = ExtResource( 4 )
 
 [node name="Fire" type="AnimatedSprite" parent="."]
-position = Vector2( 11.4286, 68.5714 )
+position = Vector2( -2.14285, 58.9286 )
 frames = SubResource( 3 )
+playing = true
 
 [node name="Smoke" type="AnimatedSprite" parent="."]
 position = Vector2( 34.2857, -411.429 )
