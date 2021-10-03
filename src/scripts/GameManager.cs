@@ -63,12 +63,13 @@ public class GameManager : Node
 
     public void AddStrike(string message)
     {
-        if (CanAddStrike)
+        if (CanAddStrike && strikeCount < 4)
         {
             CurrentScoreMultiplier = 1;
             correctInputStreak = 0;
             CanAddStrike = false;
             strikeCount++;
+            uiManager.Strikes[strikeCount - 1].Visible = true;
             GD.Print(message);
             StartFailGracePeriod(1);
         }

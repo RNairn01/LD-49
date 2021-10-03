@@ -65,6 +65,7 @@ texture = ExtResource( 4 )
 [node name="Fire" type="AnimatedSprite" parent="."]
 position = Vector2( 0, 125.714 )
 frames = SubResource( 3 )
+frame = 1
 playing = true
 
 [node name="Smoke" type="AnimatedSprite" parent="."]
