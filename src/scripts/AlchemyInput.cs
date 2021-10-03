@@ -10,6 +10,7 @@ public abstract class AlchemyInput : AnimatedSprite
     protected string[] VoiceLinesTutorial;
     protected string[] VoiceLinesNormal;
     protected string[] VoiceLinesQuick;
+    protected string voiceLinesTopDirectory = "res://src/assets/sfx/voice-clips/";
     public override void _Ready()
     {
         gameManager = GetTree().Root.GetNode<GameManager>("Node2D/GameManager");
