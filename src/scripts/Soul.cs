@@ -50,8 +50,7 @@ public class Soul : AlchemyInput, IAlchemyInput
     public void ChangeAlchemistState()
     {
         GD.Print("Change alchemist state to thinking");
-        //alchemist.ChangeState(AlchemistState.Thinking);
-        //Change Alchemist state here
+        alchemist.ChangeState(Alchemist.AlchemistState.Thinking);
     }
 
     public void OnFailure()

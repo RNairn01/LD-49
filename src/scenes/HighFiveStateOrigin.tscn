@@ -12,7 +12,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 33.3987, 38.2755 )
+extents = Vector2( 52.9461, 56.3976 )
 
 [node name="HighFiveStateOrigin" type="Node2D"]
 position = Vector2( 97.9694, -28.7961 )
@@ -21,6 +21,7 @@ __meta__ = {
 }
 
 [node name="HighFive" type="AnimatedSprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
 script = ExtResource( 1 )
 

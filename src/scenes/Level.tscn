@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://src/scenes/SceneManager.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/scenes/StirStateOrigin.tscn" type="PackedScene" id=2]
@@ -17,6 +17,35 @@
 [ext_resource path="res://src/scripts/Cursor.cs" type="Script" id=15]
 [ext_resource path="res://src/scripts/UIManager.cs" type="Script" id=16]
 [ext_resource path="res://src/assets/fonts/scorefont.tres" type="DynamicFont" id=17]
+[ext_resource path="res://src/assets/sprites/alchemist/alchemist-point.png" type="Texture" id=18]
+[ext_resource path="res://src/assets/sprites/desk.png" type="Texture" id=19]
+[ext_resource path="res://src/assets/sprites/alchemist/alchemist-highfive.png" type="Texture" id=20]
+[ext_resource path="res://src/assets/sprites/alchemist/alchemist-idle.png" type="Texture" id=21]
+[ext_resource path="res://src/assets/sprites/alchemist/alchemist-think.png" type="Texture" id=22]
+[ext_resource path="res://src/scripts/Alchemist.cs" type="Script" id=23]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 21 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "pointing",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ) ],
+"loop": true,
+"name": "highfive",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ) ],
+"loop": true,
+"name": "thinking",
+"speed": 5.0
+} ]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2240, 10 )
@@ -34,6 +63,18 @@ script = ExtResource( 15 )
 position = Vector2( 640, 344 )
 scale = Vector2( 0.673474, 0.696347 )
 texture = ExtResource( 13 )
+
+[node name="Alchemist" type="AnimatedSprite" parent="."]
+position = Vector2( 1113.92, 323.42 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 2 )
+animation = "highfive"
+script = ExtResource( 23 )
+
+[node name="Desk" type="Sprite" parent="."]
+position = Vector2( 640, 342.386 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 19 )
 
 [node name="cauldron-back" type="Sprite" parent="."]
 position = Vector2( 344.214, 414.595 )
@@ -80,7 +121,7 @@ position = Vector2( 819.898, 323.42 )
 scale = Vector2( 0.7, 0.7 )
 
 [node name="HighFiveStateOrigin" parent="." instance=ExtResource( 9 )]
-position = Vector2( 965.675, 278.573 )
+position = Vector2( 973.684, 256.173 )
 scale = Vector2( 0.7, 0.7 )
 
 [node name="MoreSoulStateOrigin" parent="." instance=ExtResource( 11 )]

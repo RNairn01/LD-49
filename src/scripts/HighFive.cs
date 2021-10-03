@@ -26,8 +26,7 @@ public class HighFive : AlchemyInput, IAlchemyInput
     public void ChangeAlchemistState()
     {
         GD.Print("Change alchemist state to high five");
-        //alchemist.ChangeState(AlchemistState.HighFive);
-        //Change Alchemist state here
+        alchemist.ChangeState(Alchemist.AlchemistState.HighFive);
     }
 
     public void OnFailure()

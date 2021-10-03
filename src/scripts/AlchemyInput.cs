@@ -6,12 +6,14 @@ public abstract class AlchemyInput : AnimatedSprite
     
     protected GameManager gameManager;
     protected InputStates.InputState inputState;
+    protected Alchemist alchemist;
     protected string[] VoiceLinesTutorial;
     protected string[] VoiceLinesNormal;
     protected string[] VoiceLinesQuick;
     public override void _Ready()
     {
         gameManager = GetTree().Root.GetNode<GameManager>("Node2D/GameManager");
+        alchemist = GetTree().Root.GetNode<Alchemist>("Node2D/Alchemist");
     }
     
     private float Drag(float firstFloat, float secondFloat, float by)
