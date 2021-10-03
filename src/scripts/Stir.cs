@@ -74,6 +74,7 @@ public class Stir : AlchemyInput, IAlchemyInput
         if (gameManager.IsGameOver) return;
         failSmoke.Play("default");
         fire.Play("default");
+        alchemist.SpeechBubble("Stir it!", bubbleTime, false);
         canFail = true;
         IsActive = true;
         PlayCurrentVoiceLine();

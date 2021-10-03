@@ -94,6 +94,7 @@ public class Newt : AlchemyInput, IAlchemyInput
         if (gameManager.IsGameOver) return;
         failSmoke.Play("default");
         fire.Play("default");
+        alchemist.SpeechBubble("More\nNewt!", bubbleTime, false);
         canFail = true;
         IsActive = true;
         PlayCurrentVoiceLine();

@@ -70,6 +70,7 @@ public class HighFive : AlchemyInput, IAlchemyInput
         if (gameManager.IsGameOver) return;
         failSmoke.Play("default");
         fire.Play("default");
+        alchemist.SpeechBubble("High Five!", bubbleTime, false);
         canFail = true;
         IsActive = true;
         PlayCurrentVoiceLine();

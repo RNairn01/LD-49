@@ -18,6 +18,7 @@ public class GameManager : Node
     private MusicManager music;
     private UIManager uiManager;
     private Timer countdown;
+    private Alchemist alchemist;
     private AudioStreamPlayer speedUp, intro, gameOver, gameWin;
     public bool CanAddStrike = true;
     private int strikeCount = 0;
@@ -57,6 +58,7 @@ public class GameManager : Node
         intro = GetNode<AudioStreamPlayer>("Intro");
         gameOver = GetNode<AudioStreamPlayer>("GameOver");
         gameWin = GetNode<AudioStreamPlayer>("GameWin");
+        alchemist = GetNode<Alchemist>("../Alchemist");
 
         tasks = new[] { stirTask, scrubTask, moreSoulTask, moreNewtTask, moreEmeraldTask, addSaltTask, coolTask, boilTask, highFiveTask };
         StartGame(3);
@@ -65,7 +67,7 @@ public class GameManager : Node
     public override void _Process(float delta)
     {
         if (strikeCount >= 3 && !IsGameOver) GameOver();
-      
+        if (IsGameOver) countdown.Stop();
     }
 
     private void GameOver()
@@ -81,6 +83,7 @@ public class GameManager : Node
     {
         if (CanAddStrike && strikeCount < 4)
         {
+            alchemist.SpeechBubble("Wrong!", 0.5f, true);
             CanAddStrike = false;
             CurrentScoreMultiplier = 1;
             correctInputStreak = 0;

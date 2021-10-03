@@ -71,6 +71,7 @@ public class Cool : AlchemyInput, IAlchemyInput
         if (gameManager.IsGameOver) return;
         failSmoke.Play("default");
         fire.Play("default");
+        alchemist.SpeechBubble("Cool it!", bubbleTime, false);
         canFail = true;
         IsActive = true;
         PlayCurrentVoiceLine();

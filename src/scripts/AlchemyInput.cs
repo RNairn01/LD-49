@@ -19,6 +19,7 @@ public abstract class AlchemyInput : AnimatedSprite
     protected AudioStreamPlayer angerVoice;
     protected AnimatedSprite failSmoke;
     protected AnimatedSprite fire;
+    protected float bubbleTime = 2;
     public override void _Ready()
     {
         gameManager = GetTree().Root.GetNode<GameManager>("Node2D/GameManager");

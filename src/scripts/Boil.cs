@@ -72,6 +72,7 @@ public class Boil : AlchemyInput, IAlchemyInput
         if (gameManager.IsGameOver) return;
         failSmoke.Play("default");
         fire.Play("default");
+        alchemist.SpeechBubble("Heat it!", bubbleTime, false);
         canFail = true;
         IsActive = true;
         PlayCurrentVoiceLine();
