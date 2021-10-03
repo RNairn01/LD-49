@@ -13,7 +13,7 @@ public class Stir : AlchemyInput, IAlchemyInput
     public void OnInteract()
     {
         timesClicked++;
-        //Advance stir animation
+        Frame++;
         GD.Print($"Clicked in cauldron! - {timesClicked}");
         if (timesClicked >= 5) OnComplete(); 
     }
@@ -34,6 +34,7 @@ public class Stir : AlchemyInput, IAlchemyInput
     public void OnFailure()
     {
         gameManager.AddStrike("Stir task failed", "");
+        Frame = 0;
         //Play shaking cauldron animation here
     }
 
@@ -41,6 +42,7 @@ public class Stir : AlchemyInput, IAlchemyInput
     {
         GD.Print("Stir task complete!");
         timesClicked = 0;
+        Frame = 0;
         //Earn score
         //Get new task from GameManager
     }
