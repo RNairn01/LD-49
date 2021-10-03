@@ -43,7 +43,7 @@ public class HighFive : AlchemyInput, IAlchemyInput
             GD.Print(FailLines[index]);
             angerVoice.Stream = GD.Load<AudioStream>(FailLines[index]);
             angerVoice.Play();
-            //Play shaking cauldron animation here
+            failSmoke.Play("smoke");
         }
     }
 
@@ -57,6 +57,7 @@ public class HighFive : AlchemyInput, IAlchemyInput
     public void BecomeActive()
     {
         if (gameManager.IsGameOver) return;
+        failSmoke.Play("default");
         IsActive = true;
         PlayCurrentVoiceLine();
         ChangeAlchemistState();

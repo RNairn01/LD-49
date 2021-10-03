@@ -105,7 +105,7 @@ public class GameManager : Node
 
     private async void NewTask()
     {
-        await ToSignal(GetTree().CreateTimer(1f), "timeout");
+        await ToSignal(GetTree().CreateTimer(1.5f), "timeout");
         CurrentTask = getRandomTask();
         GD.Print($"Current task - {CurrentTask.GetType()}");
         CurrentTask.BecomeActive();
