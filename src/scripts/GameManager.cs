@@ -12,6 +12,7 @@ public class GameManager : Node
     public IAlchemyInput CurrentTask, PreviousTask;
 
     private SceneManager sceneManager;
+    private UIManager uiManager;
     private bool canAddStrike = true;
     private int strikeCount = 0;
     private int correctInputStreak = 0;
@@ -32,6 +33,7 @@ public class GameManager : Node
     {
         Score = 0;
         sceneManager = GetNode<SceneManager>("../SceneManager");
+        uiManager = GetNode<UIManager>("../UI");
         stirTask = GetNode<IAlchemyInput>("../StirStateOrigin/Stir");
         scrubTask = GetNode<IAlchemyInput>("../ScrubStateOrigin/Scrub");
         moreSoulTask = GetNode<IAlchemyInput>("../MoreSoulStateOrigin/Soul");
@@ -73,6 +75,7 @@ public class GameManager : Node
     public void AddScore()
     {
         correctInputStreak++;
+        uiManager.ScorePop(0.5f);
         if (correctInputStreak % 5 == 0) CurrentScoreMultiplier += 0.2f;
         if (Score <= 999999)
         {
