@@ -35,6 +35,7 @@ public class Emerald : AlchemyInput, IAlchemyInput
             }
             GD.Print("Picked up emerald");
             holdingEmerald = true;
+            Cursor.IsHoldingSomething = true;
             //Play jar sloshing sound effect
         }
     }
@@ -110,6 +111,7 @@ public class Emerald : AlchemyInput, IAlchemyInput
     private void DropEmerald()
     {
         holdingEmerald = false;
+        Cursor.IsHoldingSomething = false;
         emeraldIsFalling = true;
         //Play drop sound effect
     }

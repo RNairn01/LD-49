@@ -35,6 +35,7 @@ public class Soul : AlchemyInput, IAlchemyInput
             }
             GD.Print("Picked up soul");
             holdingSoul = true;
+            Cursor.IsHoldingSomething = true;
             //Play jar sloshing sound effect
         }
     }
@@ -110,6 +111,7 @@ public class Soul : AlchemyInput, IAlchemyInput
     private void DropSoul()
     {
         holdingSoul = false;
+        Cursor.IsHoldingSomething = false;
         soulIsFalling = true;
         //Play drop sound effect
     }

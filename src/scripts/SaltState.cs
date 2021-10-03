@@ -62,10 +62,12 @@ public class SaltState : AlchemyInput, IAlchemyInput
         else if (!holdingShaker) {
             GD.Print("Picked up salt shaker");
             holdingShaker = true;
+            Cursor.IsHoldingSomething = true;
         } else
         {
             GD.Print("Dropped salt shaker");
             holdingShaker = false;
+            Cursor.IsHoldingSomething = false;
         }
     }
 
@@ -105,6 +107,7 @@ public class SaltState : AlchemyInput, IAlchemyInput
     public void OnFailure()
     {
         holdingShaker = false;
+        Cursor.IsHoldingSomething = false;
         gameManager.AddStrike("Salt task failed", "");
         //Play shaking cauldron animation here
     }
@@ -113,6 +116,7 @@ public class SaltState : AlchemyInput, IAlchemyInput
     {
         timesSaltReleased = 0;
         holdingShaker = false;
+        Cursor.IsHoldingSomething = false;
         GD.Print("Salt task complete!");
         //Earn score
         //Get new task from GameManager

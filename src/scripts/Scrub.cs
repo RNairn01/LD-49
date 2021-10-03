@@ -80,10 +80,15 @@ public class Scrub : AlchemyInput, IAlchemyInput
         if (Input.IsActionPressed("click") && IsActive)
         {
             isSelected = true;
+            Cursor.IsHoldingSomething = true;
             //play sponge pickup sound effect
             //TODO: Fix Bug where picking up sponge inside cauldron causes stir task fail
         }
-        else isSelected = false;
+        else
+        {
+            isSelected = false;
+            Cursor.IsHoldingSomething = false;
+        }
     }
 
     public void OnScrubOneEntered(Area2D area)

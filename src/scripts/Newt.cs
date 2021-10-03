@@ -22,6 +22,7 @@ public class Newt : AlchemyInput, IAlchemyInput
 
         if (newtIsFalling)
             GlobalPosition = Drag(GlobalPosition, new Vector2(GlobalPosition.x, GlobalPosition.y + 100), 15 * delta);
+
     }
 
     public void OnInteract()
@@ -35,6 +36,7 @@ public class Newt : AlchemyInput, IAlchemyInput
             }
             GD.Print("Picked up newt");
             holdingNewt = true;
+            Cursor.IsHoldingSomething = true;
             //Play jar sloshing sound effect
         }
     }
@@ -110,6 +112,7 @@ public class Newt : AlchemyInput, IAlchemyInput
     private void DropNewt()
     {
         holdingNewt = false;
+        Cursor.IsHoldingSomething = false;
         newtIsFalling = true;
         //Play drop sound effect
     }
