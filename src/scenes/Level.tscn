@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://src/scenes/SceneManager.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/scenes/StirStateOrigin.tscn" type="PackedScene" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://src/scripts/Alchemist.cs" type="Script" id=23]
 [ext_resource path="res://src/assets/sprites/UI/fail.png" type="Texture" id=24]
 [ext_resource path="res://src/scenes/Cursor.tscn" type="PackedScene" id=25]
+[ext_resource path="res://src/assets/fonts/scorefontbig.tres" type="DynamicFont" id=26]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -61,6 +62,9 @@ extents = Vector2( 2240, 10 )
 [node name="MusicManager" parent="." instance=ExtResource( 15 )]
 
 [node name="Cursor" parent="." instance=ExtResource( 25 )]
+
+[node name="Countdown" type="Timer" parent="."]
+one_shot = true
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 640, 344 )
@@ -107,14 +111,14 @@ position = Vector2( 91.8547, 543.422 )
 scale = Vector2( 0.7, 0.7 )
 
 [node name="ScrubStateOrigin" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1068.75, 630.021 )
+position = Vector2( 847.262, 640.22 )
 scale = Vector2( 0.8, 0.8 )
 
 [node name="ScrubArea1" parent="ScrubStateOrigin" index="0"]
-position = Vector2( -1085.05, -203.22 )
+position = Vector2( -807.237, -207.392 )
 
 [node name="ScrubArea2" parent="ScrubStateOrigin" index="1"]
-position = Vector2( -740.173, -203.22 )
+position = Vector2( -474.039, -219.071 )
 
 [node name="Scrub" parent="ScrubStateOrigin" index="2"]
 position = Vector2( 0, -0.000183105 )
@@ -136,7 +140,7 @@ position = Vector2( 640, 136.603 )
 scale = Vector2( 0.7, 0.7 )
 
 [node name="SaltStateOrigin" parent="." instance=ExtResource( 8 )]
-position = Vector2( 659.075, 557.65 )
+position = Vector2( 659.075, 540.391 )
 
 [node name="Catcher" type="Area2D" parent="."]
 position = Vector2( 640, 768 )
@@ -153,9 +157,10 @@ __meta__ = {
 }
 
 [node name="Score" type="Label" parent="UI"]
-margin_left = 988.075
-margin_right = 1174.07
-margin_bottom = 88.0
+margin_left = 1042.7
+margin_top = 509.554
+margin_right = 1228.7
+margin_bottom = 597.554
 custom_fonts/font = ExtResource( 17 )
 text = "999999"
 align = 1
@@ -164,20 +169,33 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="CountdownLabel" type="Label" parent="UI"]
+margin_left = 1015.34
+margin_top = -53.2346
+margin_right = 1183.34
+margin_bottom = 218.765
+custom_fonts/font = ExtResource( 26 )
+text = "10"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Strike1" type="Sprite" parent="UI"]
-position = Vector2( 1019.28, 117.46 )
+position = Vector2( 1073.9, 627.014 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 24 )
 
 [node name="Strike2" type="Sprite" parent="UI"]
-position = Vector2( 1086.29, 117.46 )
+position = Vector2( 1140.92, 627.014 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 24 )
 
 [node name="Strike3" type="Sprite" parent="UI"]
-position = Vector2( 1154.45, 118.507 )
+position = Vector2( 1209.08, 628.061 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 24 )
+
+[connection signal="timeout" from="Countdown" to="GameManager" method="OnTimeout"]
 
 [editable path="StirStateOrigin"]
 [editable path="ScrubStateOrigin"]

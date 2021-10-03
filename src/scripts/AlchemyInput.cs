@@ -18,6 +18,7 @@ public abstract class AlchemyInput : AnimatedSprite
     protected AudioStreamPlayer voice;
     protected AudioStreamPlayer angerVoice;
     protected AnimatedSprite failSmoke;
+    protected AnimatedSprite fire;
     public override void _Ready()
     {
         gameManager = GetTree().Root.GetNode<GameManager>("Node2D/GameManager");
@@ -26,6 +27,7 @@ public abstract class AlchemyInput : AnimatedSprite
         angerVoice = GetNode<AudioStreamPlayer>("../AngerVoice");
         FailLines = PopulateFailLine("wrong");
         failSmoke = GetNode<AnimatedSprite>("../../Cauldron/Smoke");
+        fire = GetNode<AnimatedSprite>("../../Cauldron/Fire");
     }
     
     private float Drag(float firstFloat, float secondFloat, float by)

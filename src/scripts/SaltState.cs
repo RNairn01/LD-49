@@ -139,6 +139,7 @@ public class SaltState : AlchemyInput, IAlchemyInput
     {
         if (gameManager.IsGameOver) return;
         failSmoke.Play("default");
+        fire.Play("default");
         IsActive = true;
         PlayCurrentVoiceLine();
         ChangeAlchemistState();

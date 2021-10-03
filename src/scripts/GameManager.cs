@@ -10,9 +10,11 @@ public class GameManager : Node
     public float CurrentScoreMultiplier = 1;
     public InputStates.InputState CurrentInputState;
     public IAlchemyInput CurrentTask, PreviousTask;
+    public int CurrentTimer = 10;
 
     private SceneManager sceneManager;
     private UIManager uiManager;
+    private Timer countdown;
     public bool CanAddStrike = true;
     private int strikeCount = 0;
     private int correctInputStreak = 0;
@@ -34,6 +36,7 @@ public class GameManager : Node
         Score = 0;
         sceneManager = GetNode<SceneManager>("../SceneManager");
         uiManager = GetNode<UIManager>("../UI");
+        countdown = GetNode<Timer>("../Countdown");
         stirTask = GetNode<IAlchemyInput>("../StirStateOrigin/Stir");
         scrubTask = GetNode<IAlchemyInput>("../ScrubStateOrigin/Scrub");
         moreSoulTask = GetNode<IAlchemyInput>("../MoreSoulStateOrigin/Soul");
@@ -58,6 +61,7 @@ public class GameManager : Node
     {
         IsGameOver = true;
         GD.Print("Game Over");
+        countdown.Stop();
         //Implement rest of game over logic here
     }
 
@@ -99,9 +103,17 @@ public class GameManager : Node
     public void GetNewTask()
     {
         if (IsGameOver) return;
+        countdown.WaitTime = CurrentTimer;
+        countdown.Start();
         PreviousTask = CurrentTask;
         CurrentTask.IsActive = false;
         NewTask();
+    }
+
+    public void OnTimeout()
+    {
+        GD.Print("Timer timed out");
+        CurrentTask.OnFailure();
     }
 
     private async void NewTask()

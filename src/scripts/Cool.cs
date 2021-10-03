@@ -51,6 +51,7 @@ public class Cool : AlchemyInput, IAlchemyInput
     public void OnComplete()
     {
         GD.Print("Cool task complete!");
+        fire.Play("woosh");
         gameManager.AddScore();
         gameManager.GetNewTask();
     }
@@ -59,6 +60,7 @@ public class Cool : AlchemyInput, IAlchemyInput
     {
         if (gameManager.IsGameOver) return;
         failSmoke.Play("default");
+        fire.Play("default");
         IsActive = true;
         PlayCurrentVoiceLine();
         ChangeAlchemistState();
