@@ -64,7 +64,6 @@ position = Vector2( -815.237, -250.332 )
 
 [node name="Scrub" parent="ScrubStateOrigin" index="2"]
 position = Vector2( 0, -0.000183105 )
-IsActive = true
 
 [node name="MoreNewtStateOrigin" parent="." instance=ExtResource( 5 )]
 position = Vector2( 575.742, 457.554 )
