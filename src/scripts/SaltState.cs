@@ -46,7 +46,7 @@ public class SaltState : AlchemyInput, IAlchemyInput
                 ReleaseSalt();
             }
 
-            GlobalRotationDegrees = 20;
+            GlobalRotationDegrees = -20;
             GlobalPosition = Drag(GlobalPosition, GetGlobalMousePosition(), 100 * delta);
             // Figure out if we shook it
         } else
