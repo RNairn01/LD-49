@@ -17,7 +17,7 @@
 [ext_resource path="res://src/scripts/Cursor.cs" type="Script" id=15]
 [ext_resource path="res://src/scripts/UIManager.cs" type="Script" id=16]
 [ext_resource path="res://src/assets/fonts/scorefont.tres" type="DynamicFont" id=17]
-[ext_resource path="res://src/assets/sprites/alchemist/alchemist-point.png" type="Texture" id=18]
+[ext_resource path="res://src/assets/sprites/alchemist/alchemist-pointdown.png" type="Texture" id=18]
 [ext_resource path="res://src/assets/sprites/desk.png" type="Texture" id=19]
 [ext_resource path="res://src/assets/sprites/alchemist/alchemist-highfive.png" type="Texture" id=20]
 [ext_resource path="res://src/assets/sprites/alchemist/alchemist-idle.png" type="Texture" id=21]
@@ -64,17 +64,17 @@ position = Vector2( 640, 344 )
 scale = Vector2( 0.673474, 0.696347 )
 texture = ExtResource( 13 )
 
-[node name="Alchemist" type="AnimatedSprite" parent="."]
-position = Vector2( 1113.92, 323.42 )
-scale = Vector2( 0.5, 0.5 )
-frames = SubResource( 2 )
-animation = "highfive"
-script = ExtResource( 23 )
-
 [node name="Desk" type="Sprite" parent="."]
 position = Vector2( 640, 342.386 )
 scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 19 )
+
+[node name="Alchemist" type="AnimatedSprite" parent="."]
+position = Vector2( 1100, 317 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 2 )
+animation = "idle"
+script = ExtResource( 23 )
 
 [node name="cauldron-back" type="Sprite" parent="."]
 position = Vector2( 344.214, 414.595 )
