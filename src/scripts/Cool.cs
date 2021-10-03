@@ -41,7 +41,7 @@ public class Cool : AlchemyInput, IAlchemyInput
     public void OnComplete()
     {
         GD.Print("Cool task complete!");
-        //Earn score
+        gameManager.AddScore();
         gameManager.GetNewTask();
     }
 

@@ -120,7 +120,7 @@ public class SaltState : AlchemyInput, IAlchemyInput
         holdingShaker = false;
         Cursor.IsHoldingSomething = false;
         GD.Print("Salt task complete!");
-        //Earn score
+        gameManager.AddScore();
         gameManager.GetNewTask();
     }
 

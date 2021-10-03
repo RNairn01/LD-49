@@ -65,7 +65,7 @@ public class Newt : AlchemyInput, IAlchemyInput
     public void OnComplete()
     {
         GD.Print("More newt task complete!");
-        //Earn score
+        gameManager.AddScore();
         gameManager.GetNewTask();
     }
 

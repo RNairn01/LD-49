@@ -64,7 +64,7 @@ public class Emerald : AlchemyInput, IAlchemyInput
     public void OnComplete()
     {
         GD.Print("More emerald task complete!");
-        //Earn score
+        gameManager.AddScore();
         gameManager.GetNewTask();
     }
 

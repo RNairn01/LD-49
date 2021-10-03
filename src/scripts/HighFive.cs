@@ -39,7 +39,7 @@ public class HighFive : AlchemyInput, IAlchemyInput
     public void OnComplete()
     {
         GD.Print("High Five task complete!");
-        //Earn score
+        gameManager.AddScore();
         gameManager.GetNewTask();
     }
 

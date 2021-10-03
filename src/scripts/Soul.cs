@@ -64,7 +64,7 @@ public class Soul : AlchemyInput, IAlchemyInput
     public void OnComplete()
     {
         GD.Print("More soul task complete!");
-        //Earn score
+        gameManager.AddScore();
         gameManager.GetNewTask();
     }
 

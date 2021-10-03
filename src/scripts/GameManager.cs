@@ -14,6 +14,7 @@ public class GameManager : Node
     private SceneManager sceneManager;
     private bool canAddStrike = true;
     private int strikeCount = 0;
+    private int correctInputStreak = 0;
 
     private IAlchemyInput stirTask,
         scrubTask,
@@ -57,6 +58,8 @@ public class GameManager : Node
     {
         if (canAddStrike)
         {
+            CurrentScoreMultiplier = 1;
+            correctInputStreak = 0;
             canAddStrike = false;
             strikeCount++;
             GD.Print(message);
@@ -64,6 +67,15 @@ public class GameManager : Node
             StartFailGracePeriod(1);
         }
         
+    }
+
+    public void AddScore()
+    {
+        correctInputStreak++;
+        if (correctInputStreak % 5 == 0) CurrentScoreMultiplier += 0.2f;
+        Score += Mathf.RoundToInt(50 * CurrentScoreMultiplier);
+        GD.Print($"Score = {Score}");
+        //Add extra score based on percentage of time remaining
     }
 
     private IAlchemyInput getRandomTask()
@@ -81,7 +93,6 @@ public class GameManager : Node
         CurrentTask = getRandomTask();
         GD.Print($"Current task - {CurrentTask.GetType()}");
         CurrentTask.BecomeActive();
-
     }
 
     private async void StartFailGracePeriod(float time)

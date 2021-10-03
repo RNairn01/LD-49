@@ -67,7 +67,7 @@ public class Scrub : AlchemyInput, IAlchemyInput
         isSelected = false;
         Cursor.IsHoldingSomething = false;
         fullScrubCounter = 0;
-        //Earn score
+        gameManager.AddScore();
         gameManager.GetNewTask();
     }
 

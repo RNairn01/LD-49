@@ -41,7 +41,7 @@ public class Boil : AlchemyInput, IAlchemyInput
     public void OnComplete()
     {
         GD.Print("Boil task complete!");
-        //Earn score
+        gameManager.AddScore();
         gameManager.GetNewTask();
     }
 
