@@ -15,11 +15,21 @@ public class Soul : AlchemyInput, IAlchemyInput
         base._Ready();
         startPosition = GetNode<Node2D>("../SoulJar").GlobalPosition;
         inputState = InputStates.InputState.MoreSoulState;
+        soulPickup = GetNode<AudioStreamPlayer>("../SoulJar/SoulPickup");
+        drop = GetNode<AudioStreamPlayer>("../SoulJar/Drop");
+    }
+
+    public override void _EnterTree()
+    {
+        base._EnterTree();
         VoiceLinesNormal = PopulateNormalLine("soul");
         VoiceLinesQuick = PopulateQuickLine("soul");
         VoiceLinesTutorial = PopulateTutorialLine("soul");
-        soulPickup = GetNode<AudioStreamPlayer>("../SoulJar/SoulPickup");
-        drop = GetNode<AudioStreamPlayer>("../SoulJar/Drop");
+        GD.Print(VoiceLinesNormal.Count);
+        foreach (var VARIABLE in VoiceLinesQuick)
+        {
+           GD.Print(VARIABLE); 
+        }
     }
 
     public override void _Process(float delta)

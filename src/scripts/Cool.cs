@@ -17,6 +17,13 @@ public class Cool : AlchemyInput, IAlchemyInput
         VoiceLinesTutorial = PopulateTutorialLine("cool");
         wooshSound = GetNode<AudioStreamPlayer>("WooshSound");
     }
+    public override void _EnterTree()
+    {
+        base._EnterTree();
+        VoiceLinesNormal = PopulateNormalLine("cool");
+        VoiceLinesQuick = PopulateQuickLine("cool");
+        VoiceLinesTutorial = PopulateTutorialLine("cool");
+    }
 
     public void OnInteract()
     {

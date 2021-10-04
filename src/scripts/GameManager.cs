@@ -63,7 +63,7 @@ public class GameManager : Node
         alchemist = GetNode<Alchemist>("../Alchemist");
         endSmoke = GetNode<AnimatedSprite>("../Cauldron/EndSmoke");
 
-        tasks = new[] { stirTask, scrubTask, moreSoulTask, moreNewtTask, moreEmeraldTask, addSaltTask, coolTask, boilTask, highFiveTask };
+        tasks = new[] { scrubTask, stirTask, moreSoulTask, moreNewtTask, moreEmeraldTask, addSaltTask, coolTask, boilTask, highFiveTask };
         StartGame(3);
     }
 

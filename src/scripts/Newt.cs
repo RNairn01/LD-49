@@ -15,11 +15,15 @@ public class Newt : AlchemyInput, IAlchemyInput
         base._Ready();
         startPosition = GetNode<Node2D>("../NewtJar").GlobalPosition;
         inputState = InputStates.InputState.MoreNewtState;
+        newtPickup = GetNode<AudioStreamPlayer>("../NewtJar/NewtPickup");
+        drop = GetNode<AudioStreamPlayer>("../NewtJar/Drop");
+    }
+    public override void _EnterTree()
+    {
+        base._EnterTree();
         VoiceLinesNormal = PopulateNormalLine("newt");
         VoiceLinesQuick = PopulateQuickLine("newt");
         VoiceLinesTutorial = PopulateTutorialLine("newt");
-        newtPickup = GetNode<AudioStreamPlayer>("../NewtJar/NewtPickup");
-        drop = GetNode<AudioStreamPlayer>("../NewtJar/Drop");
     }
 
     public override void _Process(float delta)

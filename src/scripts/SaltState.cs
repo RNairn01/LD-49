@@ -33,10 +33,14 @@ public class SaltState : AlchemyInput, IAlchemyInput
 
         base._Ready();
         inputState = InputStates.InputState.MoreSaltState;
+        saltSound = GetNode<AudioStreamPlayer>("SaltSound");
+    }
+    public override void _EnterTree()
+    {
+        base._EnterTree();
         VoiceLinesNormal = PopulateNormalLine("salt");
         VoiceLinesQuick = PopulateQuickLine("salt");
         VoiceLinesTutorial = PopulateTutorialLine("salt");
-        saltSound = GetNode<AudioStreamPlayer>("SaltSound");
     }
 
     public override void _Process(float delta)

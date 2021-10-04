@@ -16,6 +16,13 @@ public class Stir : AlchemyInput, IAlchemyInput
         VoiceLinesQuick = PopulateQuickLine("stir");
         VoiceLinesTutorial = PopulateTutorialLine("stir");
     }
+    public override void _EnterTree()
+    {
+        base._EnterTree();
+        VoiceLinesNormal = PopulateNormalLine("stir");
+        VoiceLinesQuick = PopulateQuickLine("stir");
+        VoiceLinesTutorial = PopulateTutorialLine("stir");
+    }
 
     public void OnInteract()
     {

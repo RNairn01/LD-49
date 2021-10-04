@@ -18,6 +18,13 @@ public class HighFive : AlchemyInput, IAlchemyInput
         VoiceLinesTutorial = PopulateTutorialLine("highfive");
         slapSound = GetNode<AudioStreamPlayer>("SlapSound");
     }
+    public override void _EnterTree()
+    {
+        base._EnterTree();
+        VoiceLinesNormal = PopulateNormalLine("highfive");
+        VoiceLinesQuick = PopulateQuickLine("highfive");
+        VoiceLinesTutorial = PopulateTutorialLine("highfive");
+    }
 
     public void OnInteract()
     {

@@ -16,11 +16,15 @@ public class Scrub : AlchemyInput, IAlchemyInput
     {
         base._Ready();
         inputState = InputStates.InputState.ScrubState;
+        scrub1 = GetNode<AudioStreamPlayer>("Scrub1");
+        scrub2 = GetNode<AudioStreamPlayer>("Scrub2");
+    }
+    public override void _EnterTree()
+    {
+        base._EnterTree();
         VoiceLinesNormal = PopulateNormalLine("scrub");
         VoiceLinesQuick = PopulateQuickLine("scrub");
         VoiceLinesTutorial = PopulateTutorialLine("scrub");
-        scrub1 = GetNode<AudioStreamPlayer>("Scrub1");
-        scrub2 = GetNode<AudioStreamPlayer>("Scrub2");
     }
 
     public override void _Process(float delta)
@@ -145,5 +149,31 @@ public class Scrub : AlchemyInput, IAlchemyInput
             scrub2.Play();
             OnInteract();
         }
+    }
+    protected List<string> PopulateNormalLine(string path)
+    {
+        var files = new List<string>();
+        files.Add("res://src/assets/sfx/voice-clips/scrub/Scrub-1.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/scrub/Scrub-2.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/scrub/Scrub-3.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/scrub/Scrub-4.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/scrub/Scrub-5.ogg");
+        return files;
+    }
+    protected List<string> PopulateQuickLine(string path)
+    {
+        var files = new List<string>();
+        files.Add("res://src/assets/sfx/voice-clips/scrub/Scrub-Frantic-1.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/scrub/Scrub-Frantic-2.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/scrub/Scrub-Frantic-3.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/scrub/Scrub-Frantic-4.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/scrub/Scrub-Frantic-5.ogg");
+        return files;
+    }
+    protected List<string> PopulateTutorialLine(string path)
+    {
+        var files = new List<string>();
+        files.Add("res://src/assets/sfx/voice-clips/scrub/Scrub-Tutorial.ogg");
+        return files;
     }
 }

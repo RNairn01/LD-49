@@ -13,10 +13,14 @@ public class Boil : AlchemyInput, IAlchemyInput
     {
         base._Ready();
         inputState = InputStates.InputState.BoilState;
+        wooshSound = GetNode<AudioStreamPlayer>("WooshSound");
+    }
+    public override void _EnterTree()
+    {
+        base._EnterTree();
         VoiceLinesNormal = PopulateNormalLine("boil");
         VoiceLinesQuick = PopulateQuickLine("boil");
         VoiceLinesTutorial = PopulateTutorialLine("boil");
-        wooshSound = GetNode<AudioStreamPlayer>("WooshSound");
     }
 
     public void OnInteract()

@@ -15,11 +15,15 @@ public class Emerald : AlchemyInput, IAlchemyInput
         base._Ready();
         startPosition = GetNode<Node2D>("../EmeraldJar").GlobalPosition;
         inputState = InputStates.InputState.MoreEmeraldState;
+        emeraldPickup = GetNode<AudioStreamPlayer>("../EmeraldJar/EmeraldPickup");
+        drop = GetNode<AudioStreamPlayer>("../EmeraldJar/Drop");
+    }
+    public override void _EnterTree()
+    {
+        base._EnterTree();
         VoiceLinesNormal = PopulateNormalLine("emeralds");
         VoiceLinesQuick = PopulateQuickLine("emeralds");
         VoiceLinesTutorial = PopulateTutorialLine("emeralds");
-        emeraldPickup = GetNode<AudioStreamPlayer>("../EmeraldJar/EmeraldPickup");
-        drop = GetNode<AudioStreamPlayer>("../EmeraldJar/Drop");
     }
 
     public override void _Process(float delta)
