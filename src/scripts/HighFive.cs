@@ -97,4 +97,31 @@ public class HighFive : AlchemyInput, IAlchemyInput
             } 
         }
     }
+    
+    protected List<string> PopulateNormalLine(string path)
+    {
+        var files = new List<string>();
+        files.Add("res://src/assets/sfx/voice-clips/highfive/HighFive-1.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/highfive/HighFive-2.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/highfive/HighFive-3.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/highfive/HighFive-4.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/highfive/HighFive-5.ogg");
+        return files;
+    }
+    protected List<string> PopulateQuickLine(string path)
+    {
+        var files = new List<string>();
+        files.Add("res://src/assets/sfx/voice-clips/highfive/HighFive-Frantic-1.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/highfive/HighFive-Frantic-2.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/highfive/HighFive-Frantic-3.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/highfive/HighFive-Frantic-4.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/highfive/HighFive-Frantic-5.ogg");
+        return files;
+    }
+    protected List<string> PopulateTutorialLine(string path)
+    {
+        var files = new List<string>();
+        files.Add("res://src/assets/sfx/voice-clips/highfive/HighFive-Tutorial.ogg");
+        return files;
+    }
 }

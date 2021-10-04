@@ -42,73 +42,19 @@ public abstract class AlchemyInput : AnimatedSprite
         float retY = Drag(firstVector.y, secondVector.y, by);
         return new Vector2(retX, retY);
     }
-
-    protected List<string> PopulateNormalLine(string path)
-    {
-        var files = new List<string>();
-        
-        if (normalVoiceFiles.Open(voiceLinesTopDirectory + path) == Error.Ok)
-        {
-            normalVoiceFiles.ListDirBegin();
-            var fileName = normalVoiceFiles.GetNext();
-            while (fileName != "")
-            {
-                    fileName = normalVoiceFiles.GetNext();
-                    files.Add(voiceLinesTopDirectory + path + "/" + fileName);
-            }
-            normalVoiceFiles.ListDirEnd();
-        }
-        return files.Where(e => e.Contains(".ogg") && !e.Contains(".import") && !e.Contains("Tutorial") && !e.Contains("Frantic")).ToList();
-    }
-    protected List<string> PopulateQuickLine(string path)
-    {
-        var files = new List<string>();
-        
-        if (normalVoiceFiles.Open(voiceLinesTopDirectory + path) == Error.Ok)
-        {
-            normalVoiceFiles.ListDirBegin();
-            var fileName = normalVoiceFiles.GetNext();
-            while (fileName != "")
-            {
-                    fileName = normalVoiceFiles.GetNext();
-                    files.Add(voiceLinesTopDirectory + path + "/" + fileName);
-            }
-            normalVoiceFiles.ListDirEnd();
-        }
-        return files.Where(e => e.Contains(".ogg") && !e.Contains(".import") && !e.Contains("Tutorial") && e.Contains("Frantic")).ToList();
-    }
-    protected List<string> PopulateTutorialLine(string path)
-    {
-        var files = new List<string>();
-        
-        if (normalVoiceFiles.Open(voiceLinesTopDirectory + path) == Error.Ok)
-        {
-            normalVoiceFiles.ListDirBegin();
-            var fileName = normalVoiceFiles.GetNext();
-            while (fileName != "")
-            {
-                    fileName = normalVoiceFiles.GetNext();
-                    files.Add(voiceLinesTopDirectory + path + "/" + fileName);
-            }
-            normalVoiceFiles.ListDirEnd();
-        }
-        return files.Where(e => e.Contains(".ogg") && !e.Contains(".import") && e.Contains("Tutorial")).ToList();
-    }
     protected List<string> PopulateFailLine(string path)
     {
         var files = new List<string>();
-        
-        if (normalVoiceFiles.Open(voiceLinesTopDirectory + path) == Error.Ok)
-        {
-            normalVoiceFiles.ListDirBegin();
-            var fileName = normalVoiceFiles.GetNext();
-            while (fileName != "")
-            {
-                    fileName = normalVoiceFiles.GetNext();
-                    files.Add(voiceLinesTopDirectory + path + "/" + fileName);
-            }
-            normalVoiceFiles.ListDirEnd();
-        }
-        return files.Where(e => e.Contains(".ogg") && !e.Contains(".import")).ToList();
+                files.Add("res://src/assets/sfx/voice-clips/wrong/Wrong-1.ogg");
+                files.Add("res://src/assets/sfx/voice-clips/wrong/Wrong-2.ogg");
+                files.Add("res://src/assets/sfx/voice-clips/wrong/Wrong-3.ogg");
+                files.Add("res://src/assets/sfx/voice-clips/wrong/Wrong-4.ogg");
+                files.Add("res://src/assets/sfx/voice-clips/wrong/Wrong-5.ogg");
+                files.Add("res://src/assets/sfx/voice-clips/wrong/Wrong-Frantic-1.ogg");
+                files.Add("res://src/assets/sfx/voice-clips/wrong/Wrong-Frantic-2.ogg");
+                files.Add("res://src/assets/sfx/voice-clips/wrong/Wrong-Frantic-3.ogg");
+                files.Add("res://src/assets/sfx/voice-clips/wrong/Wrong-Frantic-4.ogg");
+                files.Add("res://src/assets/sfx/voice-clips/wrong/Wrong-Frantic-5.ogg");
+                return files;
     }
 }

@@ -95,4 +95,31 @@ public class Cool : AlchemyInput, IAlchemyInput
             else OnFailure();
         }
     }
+    
+    protected List<string> PopulateNormalLine(string path)
+    {
+        var files = new List<string>();
+        files.Add("res://src/assets/sfx/voice-clips/cool/Cool-1.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/cool/Cool-2.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/cool/Cool-3.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/cool/Cool-4.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/cool/Cool-5.ogg");
+        return files;
+    }
+    protected List<string> PopulateQuickLine(string path)
+    {
+        var files = new List<string>();
+        files.Add("res://src/assets/sfx/voice-clips/cool/Cool-Frantic-1.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/cool/Cool-Frantic-2.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/cool/Cool-Frantic-3.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/cool/Cool-Frantic-4.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/cool/Cool-Frantic-5.ogg");
+        return files;
+    }
+    protected List<string> PopulateTutorialLine(string path)
+    {
+        var files = new List<string>();
+        files.Add("res://src/assets/sfx/voice-clips/cool/Cool-Tutorial.ogg");
+        return files;
+    }
 }

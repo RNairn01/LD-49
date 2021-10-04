@@ -93,4 +93,31 @@ public class Boil : AlchemyInput, IAlchemyInput
             else OnFailure();
         }
     }
+    
+    protected List<string> PopulateNormalLine(string path)
+    {
+        var files = new List<string>();
+        files.Add("res://src/assets/sfx/voice-clips/boil/Heat-1.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/boil/Heat-2.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/boil/Heat-3.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/boil/Heat-4.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/boil/Heat-5.ogg");
+        return files;
+    }
+    protected List<string> PopulateQuickLine(string path)
+    {
+        var files = new List<string>();
+        files.Add("res://src/assets/sfx/voice-clips/boil/Heat-Frantic-1.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/boil/Heat-Frantic-2.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/boil/Heat-Frantic-3.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/boil/Heat-Frantic-4.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/boil/Heat-Frantic-5.ogg");
+        return files;
+    }
+    protected List<string> PopulateTutorialLine(string path)
+    {
+        var files = new List<string>();
+        files.Add("res://src/assets/sfx/voice-clips/boil/Heat-Tutorial.ogg");
+        return files;
+    }
 }
