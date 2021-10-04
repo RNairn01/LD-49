@@ -158,4 +158,30 @@ public class Soul : AlchemyInput, IAlchemyInput
         soulIsFalling = true;
         //Play drop sound effect
     }
+    protected List<string> PopulateNormalLine(string path)
+    {
+        var files = new List<string>();
+        files.Add("res://src/assets/sfx/voice-clips/soul/Soul-1.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/soul/Soul-2.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/soul/Soul-3.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/soul/Soul-4.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/soul/Soul-5.ogg");
+        return files;
+    }
+    protected List<string> PopulateQuickLine(string path)
+    {
+        var files = new List<string>();
+        files.Add("res://src/assets/sfx/voice-clips/soul/Soul-Frantic-1.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/soul/Soul-Frantic-2.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/soul/Soul-Frantic-3.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/soul/Soul-Frantic-4.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/soul/Soul-Frantic-5.ogg");
+        return files;
+    }
+    protected List<string> PopulateTutorialLine(string path)
+    {
+        var files = new List<string>();
+        files.Add("res://src/assets/sfx/voice-clips/soul/Soul-Tutorial.ogg");
+        return files;
+    }
 }

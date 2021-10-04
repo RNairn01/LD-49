@@ -99,4 +99,30 @@ public class Stir : AlchemyInput, IAlchemyInput
             }
         }
     }
+    protected List<string> PopulateNormalLine(string path)
+    {
+        var files = new List<string>();
+        files.Add("res://src/assets/sfx/voice-clips/stir/Stir-1.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/stir/Stir-2.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/stir/Stir-3.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/stir/Stir-4.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/stir/Stir-5.ogg");
+        return files;
+    }
+    protected List<string> PopulateQuickLine(string path)
+    {
+        var files = new List<string>();
+        files.Add("res://src/assets/sfx/voice-clips/stir/Stir-Frantic-1.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/stir/Stir-Frantic-2.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/stir/Stir-Frantic-3.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/stir/Stir-Frantic-4.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/stir/Stir-Frantic-5.ogg");
+        return files;
+    }
+    protected List<string> PopulateTutorialLine(string path)
+    {
+        var files = new List<string>();
+        files.Add("res://src/assets/sfx/voice-clips/stir/Stir-Tutorial.ogg");
+        return files;
+    }
 }

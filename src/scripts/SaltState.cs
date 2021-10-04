@@ -181,4 +181,30 @@ public class SaltState : AlchemyInput, IAlchemyInput
         Vector2 newestPosition = previousPositions.Last();
         return (newestPosition - oldestPosition) / 5;
     }
+    protected List<string> PopulateNormalLine(string path)
+    {
+        var files = new List<string>();
+        files.Add("res://src/assets/sfx/voice-clips/salt/Salt-1.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/salt/Salt-2.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/salt/Salt-3.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/salt/Salt-4.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/salt/Salt-5.ogg");
+        return files;
+    }
+    protected List<string> PopulateQuickLine(string path)
+    {
+        var files = new List<string>();
+        files.Add("res://src/assets/sfx/voice-clips/salt/Salt-Frantic-1.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/salt/Salt-Frantic-2.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/salt/Salt-Frantic-3.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/salt/Salt-Frantic-4.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/salt/Salt-Frantic-5.ogg");
+        return files;
+    }
+    protected List<string> PopulateTutorialLine(string path)
+    {
+        var files = new List<string>();
+        files.Add("res://src/assets/sfx/voice-clips/salt/Salt-Tutorial.ogg");
+        return files;
+    }
 }

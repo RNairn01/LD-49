@@ -154,4 +154,30 @@ public class Newt : AlchemyInput, IAlchemyInput
         newtIsFalling = true;
         //Play drop sound effect
     }
+    protected List<string> PopulateNormalLine(string path)
+    {
+        var files = new List<string>();
+        files.Add("res://src/assets/sfx/voice-clips/newt/Newt-1.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/newt/Newt-2.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/newt/Newt-3.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/newt/Newt-4.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/newt/Newt-5.ogg");
+        return files;
+    }
+    protected List<string> PopulateQuickLine(string path)
+    {
+        var files = new List<string>();
+        files.Add("res://src/assets/sfx/voice-clips/newt/Newt-Frantic-1.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/newt/Newt-Frantic-2.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/newt/Newt-Frantic-3.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/newt/Newt-Frantic-4.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/newt/Newt-Frantic-5.ogg");
+        return files;
+    }
+    protected List<string> PopulateTutorialLine(string path)
+    {
+        var files = new List<string>();
+        files.Add("res://src/assets/sfx/voice-clips/newt/Newt-Tutorial.ogg");
+        return files;
+    }
 }
