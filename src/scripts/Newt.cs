@@ -167,17 +167,17 @@ public class Newt : AlchemyInput, IAlchemyInput
     protected List<string> PopulateQuickLine(string path)
     {
         var files = new List<string>();
-        files.Add("res://src/assets/sfx/voice-clips/newt/Newt-Frantic-1.ogg");
-        files.Add("res://src/assets/sfx/voice-clips/newt/Newt-Frantic-2.ogg");
-        files.Add("res://src/assets/sfx/voice-clips/newt/Newt-Frantic-3.ogg");
-        files.Add("res://src/assets/sfx/voice-clips/newt/Newt-Frantic-4.ogg");
-        files.Add("res://src/assets/sfx/voice-clips/newt/Newt-Frantic-5.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/newt/Newts-Frantic-1.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/newt/Newts-Frantic-2.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/newt/Newts-Frantic-3.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/newt/Newts-Frantic-4.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/newt/Newts-Frantic-5.ogg");
         return files;
     }
     protected List<string> PopulateTutorialLine(string path)
     {
         var files = new List<string>();
-        files.Add("res://src/assets/sfx/voice-clips/newt/Newt-Tutorial.ogg");
+        files.Add("res://src/assets/sfx/voice-clips/newt/Newts-Tutorial.ogg");
         return files;
     }
 }
