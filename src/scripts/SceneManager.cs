@@ -9,15 +9,20 @@ public class SceneManager : Node
     {
         menuClick = GetNode<AudioStreamPlayer>("MenuClick");
     }
+
+    public override void _Process(float delta)
+    {
+        if (Input.IsActionJustPressed("exit")) GetTree().Quit();
+    }
     public void LoadMainMenu()
     {
-        GetTree().ChangeScene("res://src/scenes/MainMenu.tscn");
         menuClick.Play();
+        GetTree().ChangeScene("res://src/scenes/MainMenu.tscn");
     }
     public void PlayGame()
     {
-        GetTree().ChangeScene("res://src/scenes/Level.tscn");
         menuClick.Play();
+        GetTree().ChangeScene("res://src/scenes/Level.tscn");
     }
     public void GameWinScreen()
     {
