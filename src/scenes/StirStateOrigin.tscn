@@ -17,7 +17,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 198.904, 126.175 )
+extents = Vector2( 226.513, 194.701 )
 
 [node name="StirStateOrigin" type="Node2D"]
 

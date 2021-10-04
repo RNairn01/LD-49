@@ -74,6 +74,7 @@ public class Newt : AlchemyInput, IAlchemyInput
         if (gameManager.CanAddStrike && canFail)
         {
             canFail = false;
+            DropNewt();
             gameManager.AddStrike("More newt task failed");
             gameManager.GetNewTask();
             var index = GameManager.Rand.RandiRange(0, FailLines.Count - 1);
@@ -124,7 +125,7 @@ public class Newt : AlchemyInput, IAlchemyInput
     {
         GD.Print("Newt collided with: " + area.Name);
         
-        if (area.Name == "CauldronDrop")
+        if (area.Name == "CauldronDrop" && IsActive)
         {
             GD.Print("Newt dropped in cauldron!");
             if (holdingNewt) return;

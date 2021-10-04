@@ -72,6 +72,7 @@ public class Emerald : AlchemyInput, IAlchemyInput
         if (gameManager.CanAddStrike && canFail)
         {
             canFail = false;
+            DropEmerald();
             gameManager.AddStrike("Emerald task failed");
             gameManager.GetNewTask();
             var index = GameManager.Rand.RandiRange(0, FailLines.Count - 1);
@@ -122,7 +123,7 @@ public class Emerald : AlchemyInput, IAlchemyInput
     {
         GD.Print("Emerald collided with: " + area.Name);
         
-        if (area.Name == "CauldronDrop")
+        if (area.Name == "CauldronDrop" && IsActive)
         {
             GD.Print("Emerald dropped in cauldron!");
             if (holdingEmerald) return;

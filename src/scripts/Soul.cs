@@ -72,6 +72,7 @@ public class Soul : AlchemyInput, IAlchemyInput
         if (gameManager.CanAddStrike && canFail)
         {
             canFail = false;
+            DropSoul();
             gameManager.AddStrike("Soul task failed");
             gameManager.GetNewTask();
             var index = GameManager.Rand.RandiRange(0, FailLines.Count - 1);
@@ -122,7 +123,7 @@ public class Soul : AlchemyInput, IAlchemyInput
     {
         GD.Print("Soul collided with: " + area.Name);
         
-        if (area.Name == "CauldronDrop")
+        if (area.Name == "CauldronDrop" && IsActive)
         {
             GD.Print("Soul dropped in cauldron!");
             if (holdingSoul) return;

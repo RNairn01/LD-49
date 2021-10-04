@@ -123,6 +123,9 @@ IsActive = true
 [node name="ClickArea" parent="StirStateOrigin/Stir" index="0"]
 position = Vector2( -23.5543, 160.461 )
 
+[node name="ClickCollide" parent="StirStateOrigin/Stir/ClickArea" index="0"]
+position = Vector2( -7.21582, -72.96 )
+
 [node name="Cauldron" parent="." instance=ExtResource( 4 )]
 position = Vector2( 338.274, 504.559 )
 
@@ -151,6 +154,9 @@ position = Vector2( 0, -0.000183105 )
 position = Vector2( 819.898, 323.42 )
 scale = Vector2( 0.7, 0.7 )
 
+[node name="Newt" parent="MoreNewtStateOrigin" index="0"]
+frame = 1
+
 [node name="HighFiveStateOrigin" parent="." instance=ExtResource( 9 )]
 position = Vector2( 973.684, 256.173 )
 scale = Vector2( 0.7, 0.7 )
@@ -158,6 +164,9 @@ scale = Vector2( 0.7, 0.7 )
 [node name="MoreSoulStateOrigin" parent="." instance=ExtResource( 11 )]
 position = Vector2( 187.774, 129.403 )
 scale = Vector2( 0.7, 0.7 )
+
+[node name="Soul" parent="MoreSoulStateOrigin" index="0"]
+frame = 0
 
 [node name="MoreEmeraldStateOrigin" parent="." instance=ExtResource( 12 )]
 position = Vector2( 640, 136.603 )
