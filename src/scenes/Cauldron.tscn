@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://src/assets/sprites/cauldron/cauldron.png" type="Texture" id=1]
 [ext_resource path="res://src/assets/sprites/fire/fire1.png" type="Texture" id=2]
@@ -14,6 +14,17 @@
 [ext_resource path="res://src/assets/sprites/fire/woosh/woosh3.png" type="Texture" id=12]
 [ext_resource path="res://src/assets/sprites/fire/woosh/woosh1.png" type="Texture" id=13]
 [ext_resource path="res://src/assets/sprites/fire/fire3.png" type="Texture" id=14]
+[ext_resource path="res://src/assets/sprites/gameover/end7.png" type="Texture" id=15]
+[ext_resource path="res://src/assets/sprites/gameover/end2.png" type="Texture" id=16]
+[ext_resource path="res://src/assets/sprites/gameover/end11.png" type="Texture" id=17]
+[ext_resource path="res://src/assets/sprites/gameover/end6.png" type="Texture" id=18]
+[ext_resource path="res://src/assets/sprites/gameover/end5.png" type="Texture" id=19]
+[ext_resource path="res://src/assets/sprites/gameover/end10.png" type="Texture" id=20]
+[ext_resource path="res://src/assets/sprites/gameover/end3.png" type="Texture" id=21]
+[ext_resource path="res://src/assets/sprites/gameover/end1.png" type="Texture" id=22]
+[ext_resource path="res://src/assets/sprites/gameover/end8.png" type="Texture" id=23]
+[ext_resource path="res://src/assets/sprites/gameover/end9.png" type="Texture" id=24]
+[ext_resource path="res://src/assets/sprites/gameover/end4.png" type="Texture" id=25]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -52,6 +63,19 @@ animations = [ {
 "speed": 14.0
 } ]
 
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ), ExtResource( 16 ), ExtResource( 21 ), ExtResource( 25 ), ExtResource( 19 ), ExtResource( 18 ), ExtResource( 15 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 20 ), ExtResource( 17 ) ],
+"loop": false,
+"name": "smoke",
+"speed": 14.0
+} ]
+
 [node name="Cauldron" type="AnimatedSprite"]
 self_modulate = Color( 0.0470588, 0.0392157, 0.0392157, 1 )
 scale = Vector2( 0.7, 0.7 )
@@ -80,3 +104,8 @@ playing = true
 position = Vector2( 34.2857, -411.429 )
 z_index = 1
 frames = SubResource( 4 )
+
+[node name="EndSmoke" type="AnimatedSprite" parent="."]
+position = Vector2( 468.571, -194.286 )
+z_index = 5
+frames = SubResource( 5 )

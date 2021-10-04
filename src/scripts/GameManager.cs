@@ -25,6 +25,7 @@ public class GameManager : Node
     private int correctInputStreak = 0;
     private bool tutorialComplete = false;
     private int tutorialIndex = 0;
+    private AnimatedSprite endSmoke;
 
     private IAlchemyInput stirTask,
         scrubTask,
@@ -59,6 +60,7 @@ public class GameManager : Node
         gameOver = GetNode<AudioStreamPlayer>("GameOver");
         gameWin = GetNode<AudioStreamPlayer>("GameWin");
         alchemist = GetNode<Alchemist>("../Alchemist");
+        endSmoke = GetNode<AnimatedSprite>("../Cauldron/EndSmoke");
 
         tasks = new[] { stirTask, scrubTask, moreSoulTask, moreNewtTask, moreEmeraldTask, addSaltTask, coolTask, boilTask, highFiveTask };
         StartGame(3);
@@ -76,6 +78,8 @@ public class GameManager : Node
         GD.Print("Game Over");
         countdown.Stop();
         CurrentTimer = 0;
+        endSmoke.Play("smoke");
+        LoadGameOverScreen(2);
         //Implement rest of game over logic here
     }
 
@@ -125,12 +129,14 @@ public class GameManager : Node
     public void GetNewTask()
     {
         if (IsGameOver) return;
+        
         if (TotalTasksCompleted == 9) CurrentTimer = 10;
-        if (TotalTasksCompleted == 25)
+        else if (TotalTasksCompleted == 25)
         {
             music.StopMusic();
             IncreaseSpeed();
         }
+        else if (TotalTasksCompleted == 40) sceneManager.GameWinScreen();
         else NewTask(1f);
     }
 
@@ -182,6 +188,12 @@ public class GameManager : Node
         intro.Play();
         await ToSignal(GetTree().CreateTimer(time), "timeout");
         GetNewTask(); 
+    }
+
+    private async void LoadGameOverScreen(float time)
+    {
+        await ToSignal(GetTree().CreateTimer(time), "timeout");
+        sceneManager.GameOverScreen();
     }
 
     private void IncreaseSpeed()

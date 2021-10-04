@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://src/assets/sfx/voice-clips/Loss.ogg" type="AudioStream" id=1]
+[ext_resource path="res://src/assets/sprites/gameover/end11.png" type="Texture" id=2]
+[ext_resource path="res://src/assets/fonts/titlefont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://src/assets/fonts/subtitlefont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://src/scenes/Cursor.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/scenes/SceneManager.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/scripts/FinalScore.cs" type="Script" id=7]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.25098, 0.247059, 0.247059, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Cursor" parent="." instance=ExtResource( 5 )]
+
+[node name="SceneManager" parent="." instance=ExtResource( 6 )]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 578.068, 365.923 )
+texture = ExtResource( 2 )
+script = ExtResource( 7 )
+
+[node name="Title" type="Label" parent="Sprite"]
+margin_left = -234.068
+margin_top = -461.923
+margin_right = 355.932
+margin_bottom = -108.923
+custom_fonts/font = ExtResource( 3 )
+text = "Game Over"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreTotal" type="Label" parent="Sprite"]
+margin_left = -578.0
+margin_top = -222.0
+margin_right = 702.0
+margin_bottom = 131.0
+custom_fonts/font = ExtResource( 4 )
+text = "You scored 999999 points"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Sprite"]
+margin_left = -146.068
+margin_top = 90.0774
+margin_right = 273.932
+margin_bottom = 228.077
+custom_styles/hover = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
+custom_fonts/font = ExtResource( 4 )
+text = "Try again?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Loss" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+autoplay = true
+
+[connection signal="button_down" from="Sprite/Button" to="SceneManager" method="LoadMainMenu"]

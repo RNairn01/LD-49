@@ -8,8 +8,16 @@ public class SceneManager : Node
         GetTree().ChangeScene("res://src/scenes/MainMenu.tscn");
     }
 
-    public void StartGame()
+    public void PlayGame()
     {
         GetTree().ChangeScene("res://src/scenes/Level.tscn");
+    }
+    public void GameWinScreen()
+    {
+        GetTree().ChangeScene("res://src/scenes/GameWin.tscn");
+    }
+    public void GameOverScreen()
+    {
+        GetTree().ChangeScene("res://src/scenes/GameOver.tscn");
     }
 }
