@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/soulpickup.ogg-7d3eed4ceca6a75ab0bdf2b226e1a433.oggstr"
+
+[deps]
+
+source_file="res://src/assets/sfx/soulpickup.ogg"
+dest_files=[ "res://.import/soulpickup.ogg-7d3eed4ceca6a75ab0bdf2b226e1a433.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

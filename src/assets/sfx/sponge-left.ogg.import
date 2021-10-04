@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sponge-left.ogg-9741444d47f81aed2b9358006eff1de1.oggstr"
+
+[deps]
+
+source_file="res://src/assets/sfx/sponge-left.ogg"
+dest_files=[ "res://.import/sponge-left.ogg-9741444d47f81aed2b9358006eff1de1.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

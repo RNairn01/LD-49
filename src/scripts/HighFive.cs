@@ -7,6 +7,7 @@ public class HighFive : AlchemyInput, IAlchemyInput
     [Export] public bool IsActive { get; set;} = false;
     public bool canFail { get; set; } = false;
     public bool NeedsTutorial { get; set; } = true;
+    private AudioStreamPlayer slapSound;
 
     public override void _Ready()
     {
@@ -15,11 +16,12 @@ public class HighFive : AlchemyInput, IAlchemyInput
         VoiceLinesNormal = PopulateNormalLine("highfive");
         VoiceLinesQuick = PopulateQuickLine("highfive");
         VoiceLinesTutorial = PopulateTutorialLine("highfive");
+        slapSound = GetNode<AudioStreamPlayer>("SlapSound");
     }
 
     public void OnInteract()
     {
-        //Play high five sound
+        slapSound.Play();
         GD.Print("High five clicked");
         OnComplete();
     }

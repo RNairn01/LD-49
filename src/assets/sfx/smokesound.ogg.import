@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/smokesound.ogg-ffa1ab01214e7e8c6f6bbb2e59fa7a1d.oggstr"
+
+[deps]
+
+source_file="res://src/assets/sfx/smokesound.ogg"
+dest_files=[ "res://.import/smokesound.ogg-ffa1ab01214e7e8c6f6bbb2e59fa7a1d.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

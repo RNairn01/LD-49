@@ -7,6 +7,7 @@ public class Boil : AlchemyInput, IAlchemyInput
     [Export] public bool IsActive { get; set;} = false;
     public bool canFail { get; set; } = false;
     public bool NeedsTutorial { get; set; } = true;
+    private AudioStreamPlayer wooshSound;
 
     public override void _Ready()
     {
@@ -15,11 +16,12 @@ public class Boil : AlchemyInput, IAlchemyInput
         VoiceLinesNormal = PopulateNormalLine("boil");
         VoiceLinesQuick = PopulateQuickLine("boil");
         VoiceLinesTutorial = PopulateTutorialLine("boil");
+        wooshSound = GetNode<AudioStreamPlayer>("WooshSound");
     }
 
     public void OnInteract()
     {
-        //Play Button click sound
+        wooshSound.Play();
         //Make button animate
         GD.Print("Boil button clicked");
         OnComplete();

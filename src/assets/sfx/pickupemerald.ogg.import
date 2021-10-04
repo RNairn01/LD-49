@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/pickupemerald.ogg-b4e694b4f5af5e2fe15481b99093b3ca.oggstr"
+
+[deps]
+
+source_file="res://src/assets/sfx/pickupemerald.ogg"
+dest_files=[ "res://.import/pickupemerald.ogg-b4e694b4f5af5e2fe15481b99093b3ca.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

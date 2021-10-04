@@ -10,6 +10,7 @@ public class Scrub : AlchemyInput, IAlchemyInput
     private bool isSelected = false;
     private bool hasLeftBeenScrubbed, hasRightBeenScrubbed = false;
     private int fullScrubCounter = 0;
+    private AudioStreamPlayer scrub1, scrub2;
     
     public override void _Ready()
     {
@@ -18,6 +19,8 @@ public class Scrub : AlchemyInput, IAlchemyInput
         VoiceLinesNormal = PopulateNormalLine("scrub");
         VoiceLinesQuick = PopulateQuickLine("scrub");
         VoiceLinesTutorial = PopulateTutorialLine("scrub");
+        scrub1 = GetNode<AudioStreamPlayer>("Scrub1");
+        scrub2 = GetNode<AudioStreamPlayer>("Scrub2");
     }
 
     public override void _Process(float delta)
@@ -126,6 +129,7 @@ public class Scrub : AlchemyInput, IAlchemyInput
             hasLeftBeenScrubbed = true;
             //Play scrub sound effect
             GD.Print("Left Scrubbed");
+            scrub1.Play();
             OnInteract();
         }
     }
@@ -138,6 +142,7 @@ public class Scrub : AlchemyInput, IAlchemyInput
             hasRightBeenScrubbed = true;
             //Play scrub sound effect
             GD.Print("Right Scrubbed");
+            scrub2.Play();
             OnInteract();
         }
     }

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/highfive.ogg-5287c67ad832f083b2360476ba0b802d.oggstr"
+
+[deps]
+
+source_file="res://src/assets/sfx/highfive.ogg"
+dest_files=[ "res://.import/highfive.ogg-5287c67ad832f083b2360476ba0b802d.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

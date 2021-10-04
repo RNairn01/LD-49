@@ -13,6 +13,7 @@ public class SaltState : AlchemyInput, IAlchemyInput
     private int timesSaltReleased = 0;
     private Queue<Vector2> previousPositions = new Queue<Vector2>();
     private CPUParticles2D particleEmitter;
+    private AudioStreamPlayer saltSound;
     
     private float cauldronLeftmostX;
     private float cauldronRightmostX;
@@ -35,6 +36,7 @@ public class SaltState : AlchemyInput, IAlchemyInput
         VoiceLinesNormal = PopulateNormalLine("salt");
         VoiceLinesQuick = PopulateQuickLine("salt");
         VoiceLinesTutorial = PopulateTutorialLine("salt");
+        saltSound = GetNode<AudioStreamPlayer>("SaltSound");
     }
 
     public override void _Process(float delta)
@@ -89,6 +91,7 @@ public class SaltState : AlchemyInput, IAlchemyInput
             // Release salt animation
             if (timesSaltReleased >= 3)
             {
+                saltSound.Play();
                 OnComplete();
             }
         } else 

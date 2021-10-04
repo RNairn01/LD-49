@@ -9,6 +9,7 @@ public class Soul : AlchemyInput, IAlchemyInput
     public bool canFail { get; set; } = false;
     private bool holdingSoul, soulIsFalling, soulCanBeDropped = false;
     private Vector2 startPosition;
+    private AudioStreamPlayer soulPickup, drop;
     public override void _Ready()
     {
         base._Ready();
@@ -17,6 +18,8 @@ public class Soul : AlchemyInput, IAlchemyInput
         VoiceLinesNormal = PopulateNormalLine("soul");
         VoiceLinesQuick = PopulateQuickLine("soul");
         VoiceLinesTutorial = PopulateTutorialLine("soul");
+        soulPickup = GetNode<AudioStreamPlayer>("../SoulJar/SoulPickup");
+        drop = GetNode<AudioStreamPlayer>("../SoulJar/Drop");
     }
 
     public override void _Process(float delta)
@@ -43,7 +46,7 @@ public class Soul : AlchemyInput, IAlchemyInput
             GD.Print("Picked up soul");
             holdingSoul = true;
             Cursor.IsHoldingSomething = true;
-            //Play jar sloshing sound effect
+            soulPickup.Play();
         }
     }
 
@@ -123,6 +126,7 @@ public class Soul : AlchemyInput, IAlchemyInput
         {
             GD.Print("Soul dropped in cauldron!");
             if (holdingSoul) return;
+            drop.Play();
             GlobalPosition = startPosition;
             soulIsFalling = false;
             OnComplete();

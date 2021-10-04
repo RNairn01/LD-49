@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://src/assets/sprites/cauldron/cauldron.png" type="Texture" id=1]
 [ext_resource path="res://src/assets/sprites/fire/fire1.png" type="Texture" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://src/assets/sprites/gameover/end8.png" type="Texture" id=23]
 [ext_resource path="res://src/assets/sprites/gameover/end9.png" type="Texture" id=24]
 [ext_resource path="res://src/assets/sprites/gameover/end4.png" type="Texture" id=25]
+[ext_resource path="res://src/assets/sfx/smokesound.ogg" type="AudioStream" id=26]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -98,6 +99,7 @@ texture = ExtResource( 4 )
 [node name="Fire" type="AnimatedSprite" parent="."]
 position = Vector2( -2.14285, 58.9286 )
 frames = SubResource( 3 )
+frame = 1
 playing = true
 
 [node name="Smoke" type="AnimatedSprite" parent="."]
@@ -109,3 +111,6 @@ frames = SubResource( 4 )
 position = Vector2( 468.571, -194.286 )
 z_index = 5
 frames = SubResource( 5 )
+
+[node name="SmokeSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 26 )

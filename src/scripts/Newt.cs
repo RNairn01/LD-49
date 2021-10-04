@@ -9,6 +9,7 @@ public class Newt : AlchemyInput, IAlchemyInput
     public bool canFail { get; set; } = false;
     private bool holdingNewt, newtIsFalling, newtCanBeDropped = false;
     private Vector2 startPosition;
+    private AudioStreamPlayer newtPickup, drop;
     public override void _Ready()
     {
         base._Ready();
@@ -17,6 +18,8 @@ public class Newt : AlchemyInput, IAlchemyInput
         VoiceLinesNormal = PopulateNormalLine("newt");
         VoiceLinesQuick = PopulateQuickLine("newt");
         VoiceLinesTutorial = PopulateTutorialLine("newt");
+        newtPickup = GetNode<AudioStreamPlayer>("../NewtJar/NewtPickup");
+        drop = GetNode<AudioStreamPlayer>("../NewtJar/Drop");
     }
 
     public override void _Process(float delta)
@@ -43,6 +46,7 @@ public class Newt : AlchemyInput, IAlchemyInput
             }
             GD.Print("Picked up newt");
             holdingNewt = true;
+            newtPickup.Play();
             Cursor.IsHoldingSomething = true;
             //Play jar sloshing sound effect
         }
@@ -126,6 +130,7 @@ public class Newt : AlchemyInput, IAlchemyInput
             if (holdingNewt) return;
             GlobalPosition = startPosition;
             newtIsFalling = false;
+            drop.Play();
             OnComplete();
         }
 

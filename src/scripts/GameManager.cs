@@ -19,7 +19,7 @@ public class GameManager : Node
     private UIManager uiManager;
     private Timer countdown;
     private Alchemist alchemist;
-    private AudioStreamPlayer speedUp, intro, gameOver, gameWin;
+    private AudioStreamPlayer speedUp, intro, gameOver, gameWin, smokeSound;
     public bool CanAddStrike = true;
     private int strikeCount = 0;
     private int correctInputStreak = 0;
@@ -59,6 +59,7 @@ public class GameManager : Node
         intro = GetNode<AudioStreamPlayer>("Intro");
         gameOver = GetNode<AudioStreamPlayer>("GameOver");
         gameWin = GetNode<AudioStreamPlayer>("GameWin");
+        smokeSound = GetNode<AudioStreamPlayer>("../Cauldron/SmokeSound");
         alchemist = GetNode<Alchemist>("../Alchemist");
         endSmoke = GetNode<AnimatedSprite>("../Cauldron/EndSmoke");
 
@@ -88,6 +89,7 @@ public class GameManager : Node
         if (CanAddStrike && strikeCount < 4)
         {
             alchemist.SpeechBubble("Wrong!", 0.5f, true);
+            smokeSound.Play();
             CanAddStrike = false;
             CurrentScoreMultiplier = 1;
             correctInputStreak = 0;
@@ -129,8 +131,12 @@ public class GameManager : Node
     public void GetNewTask()
     {
         if (IsGameOver) return;
-        
-        if (TotalTasksCompleted == 9) CurrentTimer = 10;
+
+        if (TotalTasksCompleted == 9)
+        {
+            NewTask(1f);
+            CurrentTimer = 10;
+        }
         else if (TotalTasksCompleted == 25)
         {
             music.StopMusic();
@@ -164,13 +170,17 @@ public class GameManager : Node
         await ToSignal(GetTree().CreateTimer(time), "timeout");
         if (TotalTasksCompleted == 25) music.PlayFastMusic();
         PreviousTask.canFail = true;
-        if (tutorialComplete) CurrentTask = getRandomTask();
-        else
+        if (!tutorialComplete && tutorialIndex < tasks.Length)
         {
             CurrentTask = tasks[tutorialIndex];
             tutorialIndex++;
             if (tutorialIndex == tasks.Length) tutorialComplete = true;
+        } 
+        else
+        {   
+            CurrentTask = getRandomTask();
         }
+        
         GD.Print($"Current task - {CurrentTask.GetType()}");
         CurrentTask.BecomeActive();
         countdown.WaitTime = CurrentTimer;

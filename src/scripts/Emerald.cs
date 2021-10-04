@@ -9,6 +9,7 @@ public class Emerald : AlchemyInput, IAlchemyInput
     public bool NeedsTutorial { get; set; } = true;
     private bool holdingEmerald, emeraldIsFalling, emeraldCanBeDropped = false;
     private Vector2 startPosition;
+    private AudioStreamPlayer emeraldPickup, drop;
     public override void _Ready()
     {
         base._Ready();
@@ -17,6 +18,8 @@ public class Emerald : AlchemyInput, IAlchemyInput
         VoiceLinesNormal = PopulateNormalLine("emeralds");
         VoiceLinesQuick = PopulateQuickLine("emeralds");
         VoiceLinesTutorial = PopulateTutorialLine("emeralds");
+        emeraldPickup = GetNode<AudioStreamPlayer>("../EmeraldJar/EmeraldPickup");
+        drop = GetNode<AudioStreamPlayer>("../EmeraldJar/Drop");
     }
 
     public override void _Process(float delta)
@@ -43,7 +46,7 @@ public class Emerald : AlchemyInput, IAlchemyInput
             GD.Print("Picked up emerald");
             holdingEmerald = true;
             Cursor.IsHoldingSomething = true;
-            //Play jar sloshing sound effect
+            emeraldPickup.Play();
         }
     }
 
@@ -123,6 +126,7 @@ public class Emerald : AlchemyInput, IAlchemyInput
         {
             GD.Print("Emerald dropped in cauldron!");
             if (holdingEmerald) return;
+            drop.Play();
             GlobalPosition = startPosition;
             emeraldIsFalling = false;
             OnComplete();

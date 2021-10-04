@@ -1,14 +1,18 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/scripts/Soul.cs" type="Script" id=1]
-[ext_resource path="res://src/assets/sprites/souls/soul.png" type="Texture" id=2]
+[ext_resource path="res://src/assets/sprites/souls/soulwiggle/soulwiggle3.png" type="Texture" id=2]
 [ext_resource path="res://src/assets/sprites/souls/souljar.png" type="Texture" id=3]
 [ext_resource path="res://src/assets/sfx/voice-clips/soul/Souls-1.ogg" type="AudioStream" id=4]
 [ext_resource path="res://src/assets/sfx/voice-clips/wrong/Wrong-1.ogg" type="AudioStream" id=5]
+[ext_resource path="res://src/assets/sfx/cauldron-plop.ogg" type="AudioStream" id=6]
+[ext_resource path="res://src/assets/sfx/soulpickup.ogg" type="AudioStream" id=7]
+[ext_resource path="res://src/assets/sprites/souls/soulwiggle/soulwiggle2.png" type="Texture" id=8]
+[ext_resource path="res://src/assets/sprites/souls/soulwiggle/soulwiggle1.png" type="Texture" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -23,7 +27,9 @@ extents = Vector2( 240, 320 )
 [node name="MoreSoulStateOrigin" type="Node2D"]
 
 [node name="Soul" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
+playing = true
 script = ExtResource( 1 )
 
 [node name="SoulArea" type="Area2D" parent="Soul"]
@@ -40,6 +46,12 @@ scale = Vector2( 0.333333, 0.25 )
 
 [node name="PickUpCollide" type="CollisionShape2D" parent="SoulJar/PickUpArea"]
 shape = SubResource( 3 )
+
+[node name="SoulPickup" type="AudioStreamPlayer" parent="SoulJar"]
+stream = ExtResource( 7 )
+
+[node name="Drop" type="AudioStreamPlayer" parent="SoulJar"]
+stream = ExtResource( 6 )
 
 [node name="Voice" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
